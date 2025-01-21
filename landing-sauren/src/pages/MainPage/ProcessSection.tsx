@@ -15,7 +15,7 @@ const ProcessSection: React.FC = () => {
   return (
     <Box
       sx={{
-        width: '100vw', // Ocupar todo el ancho de la pantalla
+        width: '100%', // Ocupar todo el ancho de la pantalla
         background: 'linear-gradient(to top, #f9f9f9 0%, #e3f2fd 100%)', // Degradado de arriba hacia abajo
         py: 5,
         px: { xs: 2, md: 6 }, // Márgenes laterales dinámicos
@@ -23,7 +23,6 @@ const ProcessSection: React.FC = () => {
         borderTopRightRadius: '10%',
         position: 'relative', // Importante para el posicionamiento
         maskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0))',
-        WebkitMaskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 85%, rgba(249, 249, 249, 0))',
       }}
     >
       {/* Título */}
@@ -36,7 +35,7 @@ const ProcessSection: React.FC = () => {
           color: theme.palette.text.primary,
         }}
       >
-        Nuestros <span style={{ color: theme.palette.secondary.main }}>Proceso</span>
+        Nuestros <span style={{ color: theme.palette.secondary.main }}>Procesos</span>
       </Typography>
 
       {/* Timeline Vertical */}
