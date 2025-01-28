@@ -40,7 +40,7 @@ const RoadmapWP: React.FC = () => {
   const primaryColor = theme.palette.secondary.main;
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 700, once: true });
   }, []);
 
   return (
