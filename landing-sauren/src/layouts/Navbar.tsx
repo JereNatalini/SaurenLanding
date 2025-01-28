@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Button, Box } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
 import MobileMenu from '../components/MobileMenu';
 import theme from '../theme';
 
@@ -22,17 +23,19 @@ const Navbar: React.FC = () => {
         }}
       >
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          {/* Logo */}
+          {/* Logo clickeable */}
           <Box sx={{ display: 'flex', alignItems: 'center', width: 'auto' }}>
-            <img
-              src="/src/assets/images/logo.png"
-              alt="Sauren Logo"
-              style={{
-                height: 'auto',
-                width: '150px',
-                maxWidth: '100%',
-              }}
-            />
+            <Link to="/" style={{ textDecoration: 'none' }}> {/* Envuelve el logo con Link */}
+              <img
+                src="/src/assets/images/logo.png"
+                alt="Sauren Logo"
+                style={{
+                  height: 'auto',
+                  width: '100px',
+                  maxWidth: '100%',
+                }}
+              />
+            </Link>
           </Box>
 
           {/* Botones del Navbar para desktop */}
@@ -54,7 +57,7 @@ const Navbar: React.FC = () => {
               color="inherit"
               sx={{
                 '&:hover': {
-                  backgroundColor:theme.palette.primary.main,
+                  backgroundColor: theme.palette.primary.main,
                   borderRadius: '8px',
                 },
                 fontWeight: 'bold',

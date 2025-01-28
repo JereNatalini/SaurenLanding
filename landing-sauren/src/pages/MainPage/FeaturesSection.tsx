@@ -3,41 +3,65 @@ import { Box, Typography, Card, CardContent, CardMedia, Button, Chip } from '@mu
 import { BusinessCenter, Storage, ShoppingCart } from '@mui/icons-material';
 import theme from '../../theme';
 
-const FeaturesSection: React.FC = () => {
+const ProjectsSection: React.FC = () => {
   return (
     <Box
       sx={{
-        py: 8,
-        px: 4,
+        py: 10,
+        px: { xs: 2, md: 4 },
+        backgroundColor: '#ffffff', // Fondo blanco para un look limpio
       }}
     >
       {/* Título */}
-      <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', mb: 4 }}>
-        Talento impulsando <span style={{ color: theme.palette.secondary.main }}>Historias de Éxito</span>
+      <Typography
+        variant="h3"
+        sx={{
+          fontWeight: 'bold',
+          textAlign: 'center',
+          mb: 2,
+          color: theme.palette.text.primary,
+          fontSize: { xs: '2rem', md: '3rem' }, // Título más grande y llamativo
+        }}
+      >
+        Nuestros <span style={{ color: theme.palette.secondary.main }}>Proyectos</span>
       </Typography>
-      <Typography variant="body1" sx={{ textAlign: 'center', mb: 6, color: theme.palette.text.secondary }}>
-        Estos son algunos de los proyectos que hemos desarrollado para nuestros clientes, optimizando procesos y creando valor.
+      <Typography
+        variant="subtitle1"
+        sx={{
+          textAlign: 'center',
+          mb: 6,
+          color: theme.palette.text.secondary,
+          maxWidth: '800px',
+          mx: 'auto',
+          fontSize: { xs: '1rem', md: '1.25rem' }, // Texto más grande y legible
+        }}
+      >
+        Descubre cómo hemos transformado ideas en soluciones digitales innovadoras.
       </Typography>
 
-      {/* Contenedor basado en CSS Grid */}
+      {/* Contenedor de proyectos con flexbox */}
       <Box
         sx={{
-          display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: '1fr 1fr 1fr' }, // Tres columnas en pantallas grandes
-          gap: 4, // Espaciado entre columnas y filas
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' }, // Columna en móvil, fila en desktop
+          gap: 4, // Espaciado entre tarjetas
+          maxWidth: '1200px',
+          mx: 'auto',
+          justifyContent: 'center', // Centrar las tarjetas
         }}
       >
         {/* Proyecto 1: Portal para el empleado de Wepoint */}
         <Card
           sx={{
-            boxShadow: '0 8px 20px rgba(0,0,0,0.1)',
-            borderRadius: '15px',
+            flex: 1, // Ocupa el espacio disponible
+            maxWidth: { xs: '100%', md: '400px' }, // Ancho máximo en desktop
+            borderRadius: '12px',
             overflow: 'hidden',
-            position: 'relative',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
             ':hover': {
-              transform: 'scale(1.05)',
-              boxShadow: '0 12px 30px rgba(0,0,0,0.2)',
+              transform: 'translateY(-8px)',
+              boxShadow: '0 12px 24px rgba(0,0,0,0.2)',
             },
           }}
         >
@@ -49,19 +73,28 @@ const FeaturesSection: React.FC = () => {
           />
           <CardContent
             sx={{
+              p: 3,
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              height: '100%',
+              height: 'calc(100% - 200px)', // Ajuste para que el contenido no desborde
             }}
           >
             <Box>
               <Chip
                 icon={<Storage />}
                 label="Gestión de Warehouse"
-                sx={{ mb: 2, color: '#FFF', backgroundColor: theme.palette.primary.main }}
+                sx={{
+                  mb: 2,
+                  color: '#FFF',
+                  backgroundColor: theme.palette.primary.main,
+                  fontWeight: 'bold',
+                }}
               />
-              <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.primary.main }}>
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.primary.main }}
+              >
                 Portal para el empleado de Wepoint
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
@@ -69,30 +102,36 @@ const FeaturesSection: React.FC = () => {
               </Typography>
             </Box>
             <Button
-              variant="contained"
+              variant="outlined"
+              href="/wepoint"
               sx={{
-                backgroundColor: theme.palette.primary.main,
-                color: '#FFF',
-                ':hover': { backgroundColor: theme.palette.primary.dark },
+                borderColor: theme.palette.primary.main,
+                color: theme.palette.primary.main,
+                fontWeight: 'bold',
+                ':hover': {
+                  backgroundColor: theme.palette.primary.main,
+                  color: '#FFF',
+                },
+                mt: 'auto', // Empuja el botón hacia abajo
               }}
             >
-              Ver caso
+              Ver más
             </Button>
           </CardContent>
         </Card>
 
-        {/* Proyecto 2 y Proyecto 3: Aplica el mismo patrón */}
-        {/* Portal para el cliente de Wepoint */}
+        {/* Proyecto 2: Portal para el cliente de Wepoint */}
         <Card
           sx={{
-            boxShadow: '0 8px 20px rgba(0,0,0,0.1)',
-            borderRadius: '15px',
+            flex: 1, // Ocupa el espacio disponible
+            maxWidth: { xs: '100%', md: '400px' }, // Ancho máximo en desktop
+            borderRadius: '12px',
             overflow: 'hidden',
-            position: 'relative',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
             ':hover': {
-              transform: 'scale(1.05)',
-              boxShadow: '0 12px 30px rgba(0,0,0,0.2)',
+              transform: 'translateY(-8px)',
+              boxShadow: '0 12px 24px rgba(0,0,0,0.2)',
             },
           }}
         >
@@ -104,19 +143,28 @@ const FeaturesSection: React.FC = () => {
           />
           <CardContent
             sx={{
+              p: 3,
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              height: '100%',
+              height: 'calc(100% - 200px)', // Ajuste para que el contenido no desborde
             }}
           >
             <Box>
               <Chip
                 icon={<BusinessCenter />}
                 label="Gestión de Clientes"
-                sx={{ mb: 2, color: '#FFF', backgroundColor: theme.palette.secondary.main }}
+                sx={{
+                  mb: 2,
+                  color: '#FFF',
+                  backgroundColor: theme.palette.secondary.main,
+                  fontWeight: 'bold',
+                }}
               />
-              <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.secondary.main }}>
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.secondary.main }}
+              >
                 Portal para el cliente de Wepoint
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
@@ -124,14 +172,20 @@ const FeaturesSection: React.FC = () => {
               </Typography>
             </Box>
             <Button
-              variant="contained"
+              variant="outlined"
+              href="/wepoint"
               sx={{
-                backgroundColor: theme.palette.secondary.main,
-                color: '#FFF',
-                ':hover': { backgroundColor: theme.palette.secondary.dark },
+                borderColor: theme.palette.secondary.main,
+                color: theme.palette.secondary.main,
+                fontWeight: 'bold',
+                ':hover': {
+                  backgroundColor: theme.palette.secondary.main,
+                  color: '#FFF',
+                },
+                mt: 'auto', // Empuja el botón hacia abajo
               }}
             >
-              Ver caso
+              Ver más
             </Button>
           </CardContent>
         </Card>
@@ -139,14 +193,15 @@ const FeaturesSection: React.FC = () => {
         {/* Proyecto 3: Tienda web en Prestashop */}
         <Card
           sx={{
-            boxShadow: '0 8px 20px rgba(0,0,0,0.1)',
-            borderRadius: '15px',
+            flex: 1, // Ocupa el espacio disponible
+            maxWidth: { xs: '100%', md: '400px' }, // Ancho máximo en desktop
+            borderRadius: '12px',
             overflow: 'hidden',
-            position: 'relative',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
             ':hover': {
-              transform: 'scale(1.05)',
-              boxShadow: '0 12px 30px rgba(0,0,0,0.2)',
+              transform: 'translateY(-8px)',
+              boxShadow: '0 12px 24px rgba(0,0,0,0.2)',
             },
           }}
         >
@@ -158,19 +213,28 @@ const FeaturesSection: React.FC = () => {
           />
           <CardContent
             sx={{
+              p: 3,
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              height: '100%',
+              height: 'calc(100% - 200px)', // Ajuste para que el contenido no desborde
             }}
           >
             <Box>
               <Chip
                 icon={<ShoppingCart />}
                 label="E-Commerce"
-                sx={{ mb: 2, color: '#FFF', backgroundColor: theme.palette.primary.main }}
+                sx={{
+                  mb: 2,
+                  color: '#FFF',
+                  backgroundColor: theme.palette.primary.main,
+                  fontWeight: 'bold',
+                }}
               />
-              <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.primary.main }}>
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.primary.main }}
+              >
                 Tienda web en Prestashop
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
@@ -178,14 +242,20 @@ const FeaturesSection: React.FC = () => {
               </Typography>
             </Box>
             <Button
-              variant="contained"
+              variant="outlined"
+              href="/wepoint"
               sx={{
-                backgroundColor: theme.palette.primary.main,
-                color: '#FFF',
-                ':hover': { backgroundColor: theme.palette.primary.dark },
+                borderColor: theme.palette.primary.main,
+                color: theme.palette.primary.main,
+                fontWeight: 'bold',
+                ':hover': {
+                  backgroundColor: theme.palette.primary.main,
+                  color: '#FFF',
+                },
+                mt: 'auto', // Empuja el botón hacia abajo
               }}
             >
-              Ver caso
+              Ver más
             </Button>
           </CardContent>
         </Card>
@@ -194,4 +264,4 @@ const FeaturesSection: React.FC = () => {
   );
 };
 
-export default FeaturesSection;
+export default ProjectsSection;

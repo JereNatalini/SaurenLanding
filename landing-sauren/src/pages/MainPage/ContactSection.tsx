@@ -1,6 +1,4 @@
 import { Box, TextField, Button, Typography, Container } from '@mui/material';
-import theme from '../../theme';
-
 const ContactFormWithText = () => {
     return (
         <Box
@@ -8,7 +6,7 @@ const ContactFormWithText = () => {
                 width: '100%',
                 py: 10,
                 px: 3,
-                backgroundColor: theme.palette.text.primary, // Fondo completamente oscuro
+                backgroundColor: '#333333', // Fondo completamente oscuro
                 borderTopRightRadius: '10%',
                 borderTopLeftRadius: '10%',
             }}
