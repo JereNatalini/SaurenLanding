@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
 import MobileMenu from '../components/MobileMenu';
 import theme from '../theme';
+import logo from '../assets/images/logo.png';
 
 const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -27,7 +28,7 @@ const Navbar: React.FC = () => {
           <Box sx={{ display: 'flex', alignItems: 'center', width: 'auto' }}>
             <Link to="/" style={{ textDecoration: 'none' }}> {/* Envuelve el logo con Link */}
               <img
-                src="/src/assets/images/logo.png"
+                src={logo}
                 alt="Sauren Logo"
                 style={{
                   height: 'auto',

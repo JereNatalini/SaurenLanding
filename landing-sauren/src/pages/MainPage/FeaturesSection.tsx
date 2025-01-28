@@ -2,8 +2,16 @@ import React from 'react';
 import { Box, Typography, Card, CardContent, CardMedia, Button, Chip } from '@mui/material';
 import { BusinessCenter, Storage, ShoppingCart } from '@mui/icons-material';
 import theme from '../../theme';
+import { useNavigate } from 'react-router-dom';
+
+import momentosps from '../../assets/images/momentosps.png';
+import wpCLiente from '../../assets/images/wpCLiente.png';
+import wpEmpleado from '../../assets/images/wpEmpleado.png';
 
 const ProjectsSection: React.FC = () => {
+  const navigate = useNavigate();
+
+  const goToWepoint = () => navigate('/wepoint');
   return (
     <Box
       sx={{
@@ -67,7 +75,7 @@ const ProjectsSection: React.FC = () => {
         >
           <CardMedia
             component="img"
-            image="../src/assets/images/3.png"
+            image={wpEmpleado}
             alt="Portal para el empleado de Wepoint"
             sx={{ height: '200px', objectFit: 'cover' }}
           />
@@ -103,7 +111,7 @@ const ProjectsSection: React.FC = () => {
             </Box>
             <Button
               variant="outlined"
-              href="/wepoint"
+              onClick={goToWepoint}
               sx={{
                 borderColor: theme.palette.primary.main,
                 color: theme.palette.primary.main,
@@ -137,7 +145,7 @@ const ProjectsSection: React.FC = () => {
         >
           <CardMedia
             component="img"
-            image="../src/assets/images/1.png"
+            image={wpCLiente}
             alt="Portal para el cliente de Wepoint"
             sx={{ height: '200px', objectFit: 'cover' }}
           />
@@ -207,7 +215,7 @@ const ProjectsSection: React.FC = () => {
         >
           <CardMedia
             component="img"
-            image="../src/assets/images/2.png"
+            image={momentosps}
             alt="Tienda web para Momentos Inolvidables"
             sx={{ height: '200px', objectFit: 'cover' }}
           />

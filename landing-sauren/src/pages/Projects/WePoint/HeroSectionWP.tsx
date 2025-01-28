@@ -3,7 +3,7 @@ import { Box, Typography, Container } from '@mui/material';
 import theme from '../../../theme';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
-
+import wepoint from '../../../assets/images/wepoint.png';
 const HeroSectionWP: React.FC = () => {
     AOS.init({
           duration: 1600, // Duración de las animaciones
@@ -42,7 +42,7 @@ const HeroSectionWP: React.FC = () => {
                     }}
                 >
                     <img
-                        src="src/assets/images/wepoint.png"
+                        src={wepoint}
                         alt="Wepoint Project"
                         style={{
                             maxWidth: '80%', // Imagen responsiva

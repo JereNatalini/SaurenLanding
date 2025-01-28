@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Container } from '@mui/material';
 import theme from '../../theme';
+import mainImage from '../../assets/images/mainPage.png';
 
 const HeroSection: React.FC = () => {
   return (
@@ -64,7 +65,7 @@ const HeroSection: React.FC = () => {
             }}
           >
             <img
-              src="src/assets/images/mainPage.png"
+              src={mainImage}
               alt="Auditorías de Software"
               style={{ maxWidth: '100%', height: 'auto' }}
             />
