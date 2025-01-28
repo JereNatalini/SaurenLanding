@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import whBackground from '../../../assets/images/whbackground.jpg';
+import whbackground from '../../../assets/images/whbackground.jpg';
 
 const BackgroundWP: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const BackgroundWP: React.FC = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundImage: `url(${whBackground})`, // Aquí usas el import dinámico
+          backgroundImage: `url(${whbackground})`, // Aquí usas el import dinámico
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.1, // Opacidad baja para no distraer del contenido
