@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router> {/* Envuelve toda la aplicación con Router */}
+      <Router>
         <App />
       </Router>
     </ThemeProvider>
