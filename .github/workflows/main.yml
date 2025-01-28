@@ -17,17 +17,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Change directory to project folder
-        run: cd landing-sauren
-
       - name: Install dependencies
         run: npm install
+        working-directory: ./landing-sauren
 
       - name: Build project
         run: npm run build
+        working-directory: ./landing-sauren
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./landing-sauren/dist
