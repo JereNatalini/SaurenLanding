@@ -5,7 +5,7 @@ import theme from '../../theme';
 import { useNavigate } from 'react-router-dom';
 
 import momentosps from '../../assets/images/momentosps.png';
-import wpcLiente from '../../assets/images/wpcLiente.png';
+import wpcliente from '../../assets/images/wpcLiente.png';
 import wpempleado from '../../assets/images/wpempleado.png';
 
 const ProjectsSection: React.FC = () => {
@@ -145,7 +145,7 @@ const ProjectsSection: React.FC = () => {
         >
           <CardMedia
             component="img"
-            image={wpcLiente}
+            image={wpcliente}
             alt="Portal para el cliente de Wepoint"
             sx={{ height: '200px', objectFit: 'cover' }}
           />
