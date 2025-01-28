@@ -5,8 +5,8 @@ import theme from '../../theme';
 import { useNavigate } from 'react-router-dom';
 
 import momentosps from '../../assets/images/momentosps.png';
-import wpCLiente from '../../assets/images/wpCLiente.png';
-import wpEmpleado from '../../assets/images/wpEmpleado.png';
+import wpCLiente from '../../assets/images/wpcLiente.png';
+import wpEmpleado from '../../assets/images/wpempleado.png';
 
 const ProjectsSection: React.FC = () => {
   const navigate = useNavigate();

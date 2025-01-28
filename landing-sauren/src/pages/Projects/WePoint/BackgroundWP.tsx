@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import whBackground from '../../../assets/images/whBackground.jpg';
+import whBackground from '../../../assets/images/whbackground.jpg';
 
 const BackgroundWP: React.FC = () => {
   return (
