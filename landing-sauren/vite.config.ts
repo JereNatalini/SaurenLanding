@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/SaurenLanding/',
+  base: '/', // Cambiado para dominios personalizados
   build: {
-    outDir: 'dist'
+    outDir: 'dist' // Carpeta de salida
   }
 })
