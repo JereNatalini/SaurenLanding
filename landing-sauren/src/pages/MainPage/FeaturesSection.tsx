@@ -1,12 +1,11 @@
 import React from 'react';
 import { Box, Typography, Card, CardContent, CardMedia, Button, Chip } from '@mui/material';
-import { BusinessCenter, Storage, ShoppingCart } from '@mui/icons-material';
+import { Storage, ShoppingCart } from '@mui/icons-material';
 import theme from '../../theme';
 import { useNavigate } from 'react-router-dom';
 
-import momentosps from '../../assets/images/momentosps.png';
-import wpcliente from '../../assets/images/wpcliente.png';
-import wpempleado from '../../assets/images/wpempleado.png';
+import momentosps from '../../assets/images/momentosPresta.png';
+import wepointLogin from '../../assets/images/WepointLogin.png';
 
 const ProjectsSection: React.FC = () => {
   const navigate = useNavigate();
@@ -75,7 +74,7 @@ const ProjectsSection: React.FC = () => {
         >
           <CardMedia
             component="img"
-            image={wpempleado}
+            image={wepointLogin}
             alt="Portal para el empleado de Wepoint"
             sx={{ height: '200px', objectFit: 'cover' }}
           />
@@ -91,7 +90,7 @@ const ProjectsSection: React.FC = () => {
             <Box>
               <Chip
                 icon={<Storage />}
-                label="Gestión de Warehouse"
+                label="Warehouse App"
                 sx={{
                   mb: 2,
                   color: '#FFF',
@@ -103,10 +102,10 @@ const ProjectsSection: React.FC = () => {
                 variant="h6"
                 sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.primary.main }}
               >
-                Portal para el empleado de Wepoint
+                wepoint.ar
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                Aplicación de gestión de ingreso y egreso de productos al warehouse.
+                Aplicación de gestión de stock con visualizacion de existencias en tiempo real.
               </Typography>
             </Box>
             <Button
@@ -118,76 +117,6 @@ const ProjectsSection: React.FC = () => {
                 fontWeight: 'bold',
                 ':hover': {
                   backgroundColor: theme.palette.primary.main,
-                  color: '#FFF',
-                },
-                mt: 'auto', // Empuja el botón hacia abajo
-              }}
-            >
-              Ver más
-            </Button>
-          </CardContent>
-        </Card>
-
-        {/* Proyecto 2: Portal para el cliente de Wepoint */}
-        <Card
-          sx={{
-            flex: 1, // Ocupa el espacio disponible
-            maxWidth: { xs: '100%', md: '400px' }, // Ancho máximo en desktop
-            borderRadius: '12px',
-            overflow: 'hidden',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            ':hover': {
-              transform: 'translateY(-8px)',
-              boxShadow: '0 12px 24px rgba(0,0,0,0.2)',
-            },
-          }}
-        >
-          <CardMedia
-            component="img"
-            image={wpcliente}
-            alt="Portal para el cliente de Wepoint"
-            sx={{ height: '200px', objectFit: 'cover' }}
-          />
-          <CardContent
-            sx={{
-              p: 3,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              height: 'calc(100% - 200px)', // Ajuste para que el contenido no desborde
-            }}
-          >
-            <Box>
-              <Chip
-                icon={<BusinessCenter />}
-                label="Gestión de Clientes"
-                sx={{
-                  mb: 2,
-                  color: '#FFF',
-                  backgroundColor: theme.palette.secondary.main,
-                  fontWeight: 'bold',
-                }}
-              />
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.secondary.main }}
-              >
-                Portal para el cliente de Wepoint
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                Gestión de órdenes, productos y demás funcionalidades para el warehouse.
-              </Typography>
-            </Box>
-            <Button
-              variant="outlined"
-              href="/wepoint"
-              sx={{
-                borderColor: theme.palette.secondary.main,
-                color: theme.palette.secondary.main,
-                fontWeight: 'bold',
-                ':hover': {
-                  backgroundColor: theme.palette.secondary.main,
                   color: '#FFF',
                 },
                 mt: 'auto', // Empuja el botón hacia abajo
@@ -243,7 +172,7 @@ const ProjectsSection: React.FC = () => {
                 variant="h6"
                 sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.primary.main }}
               >
-                Tienda web en Prestashop
+                momentosinolvidables.com.ar
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
                 Tienda web para Momentos Inolvidables, con integración hacia Wepoint.
