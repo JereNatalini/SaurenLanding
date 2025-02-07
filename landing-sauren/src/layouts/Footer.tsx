@@ -66,13 +66,13 @@ const Footer: React.FC = () => {
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, justifyContent: { xs: 'center', sm: 'flex-start' } }}>
               <Place sx={{ fontSize: 20, mr: 1, color: theme.palette.primary.main }} />
               <Typography variant="body2" sx={{ color: theme.palette.background.paper }}>
-                Av. Principal 123, Lima, Perú
+                Hugo Alberto Garcia 1603, Córdoba Argentina
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, justifyContent: { xs: 'center', sm: 'flex-start' } }}>
               <Email sx={{ fontSize: 20, mr: 1, color: theme.palette.primary.main }} />
               <Typography variant="body2" sx={{ color: theme.palette.background.paper }}>
-                contacto@sauren.com
+                ventas@sauren.com
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, justifyContent: { xs: 'center', sm: 'flex-start' } }}>

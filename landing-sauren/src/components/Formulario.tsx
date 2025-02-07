@@ -64,9 +64,11 @@ const Formulario: React.FC = () => {
                         fullWidth
                         sx={{
                             flex: '1 1 calc(50% - 8px)',
-                            input: { color: '#ffffff', backgroundColor: '#2c2c2c', borderRadius: '4px' },
+                            input: { color: '#e0e0e0', backgroundColor: '#2c2c2c', borderRadius: '4px' },
                             fieldset: { borderColor: '#0047ab' },
                             '&:hover fieldset': { borderColor: '#0047ab' },
+                            '& .MuiInputLabel-root': { color: '#ffffff' },  // Color del label
+                            '& .MuiInputLabel-root.Mui-focused': { color: '#ffffff' }, // Color del label cuando el campo está enfocado
                         }}
                         name="nombre"
                         value={formData.nombre}
@@ -80,9 +82,11 @@ const Formulario: React.FC = () => {
                         fullWidth
                         sx={{
                             flex: '1 1 calc(50% - 8px)',
-                            input: { color: '#ffffff', backgroundColor: '#2c2c2c', borderRadius: '4px' },
+                            input: { color: '#e0e0e0', backgroundColor: '#2c2c2c', borderRadius: '4px' },
                             fieldset: { borderColor: '#0047ab' },
                             '&:hover fieldset': { borderColor: '#0047ab' },
+                            '& .MuiInputLabel-root': { color: '#ffffff' },  // Color del label
+                            '& .MuiInputLabel-root.Mui-focused': { color: '#ffffff' }, // Color del label cuando el campo está enfocado
                         }}
                         name="apellido"
                         value={formData.apellido}
@@ -96,9 +100,11 @@ const Formulario: React.FC = () => {
                         fullWidth
                         sx={{
                             flex: '1 1 calc(50% - 8px)',
-                            input: { color: '#ffffff', backgroundColor: '#2c2c2c', borderRadius: '4px' },
+                            input: { color: '#e0e0e0', backgroundColor: '#2c2c2c', borderRadius: '4px' },
                             fieldset: { borderColor: '#0047ab' },
                             '&:hover fieldset': { borderColor: '#0047ab' },
+                            '& .MuiInputLabel-root': { color: '#ffffff' },  // Color del label
+                            '& .MuiInputLabel-root.Mui-focused': { color: '#ffffff' }, // Color del label cuando el campo está enfocado
                         }}
                         name="email"
                         value={formData.email}
@@ -113,9 +119,11 @@ const Formulario: React.FC = () => {
                         fullWidth
                         sx={{
                             flex: '1 1 calc(50% - 8px)',
-                            input: { color: '#ffffff', backgroundColor: '#2c2c2c', borderRadius: '4px' },
+                            input: { color: '#e0e0e0', backgroundColor: '#2c2c2c', borderRadius: '4px' },
                             fieldset: { borderColor: '#0047ab' },
                             '&:hover fieldset': { borderColor: '#0047ab' },
+                            '& .MuiInputLabel-root': { color: '#ffffff' },  // Color del label
+                            '& .MuiInputLabel-root.Mui-focused': { color: '#ffffff' }, // Color del label cuando el campo está enfocado
                         }}
                         name="telefono"
                         value={formData.telefono}
@@ -130,9 +138,12 @@ const Formulario: React.FC = () => {
                     <TextField
                         fullWidth
                         sx={{
-                            '& .MuiInputBase-root': { color: '#ffffff', backgroundColor: '#2c2c2c', borderRadius: '4px' },
-                            '& .MuiOutlinedInput-notchedOutline': { borderColor: '#0047ab' },
-                            '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#0047ab' },
+                            flex: '1 1 calc(50% - 8px)',
+                            input: { color: '#e0e0e0', backgroundColor: '#2c2c2c', borderRadius: '4px' },
+                            fieldset: { borderColor: '#0047ab' },
+                            '&:hover fieldset': { borderColor: '#0047ab' },
+                            '& .MuiInputLabel-root': { color: '#ffffff' },  // Color del label
+                            '& .MuiInputLabel-root.Mui-focused': { color: '#ffffff' }, // Color del label cuando el campo está enfocado
                         }}
                         name="mensaje"
                         value={formData.mensaje}
