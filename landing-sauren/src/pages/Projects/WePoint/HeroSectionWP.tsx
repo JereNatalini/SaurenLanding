@@ -69,13 +69,14 @@ const HeroSectionWP: React.FC = () => {
                             color: theme.palette.text.primary,
                         }}
                     >
-                        Proyecto <span style={{ color: theme.palette.secondary.main }}>Wepoint</span>
+                        PROYECTO <span style={{ color: theme.palette.primary.main }}>WEPOOINT</span>
                     </Typography>
                     <Typography
                         variant="body1"
                         sx={{
                             mb: 4,
                             color: theme.palette.text.primary,
+                            fontWeight: 'bold',
                             maxWidth: '500px',
                         }}
                     >

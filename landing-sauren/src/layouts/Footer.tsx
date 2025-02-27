@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
       <Container maxWidth="lg">
         {/* Primera sección: Logo y Redes Sociales */}
         <Box sx={{ textAlign: 'center', mb: 4 }}>
-          <img src={logo} alt="Sauren Logo" style={{ height: 'auto', width: '100px', maxWidth: '100%' }} />
+          <img src={logo} alt="Sauren Logo" style={{ height: 'auto', width: '20%', maxWidth: '100%' }} />
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
             <Link href="https://facebook.com" color="inherit">
               <Facebook sx={{ fontSize: 28, color: theme.palette.background.paper }} />
