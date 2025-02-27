@@ -16,7 +16,7 @@ const ProcessSection: React.FC = () => {
     <Box
       sx={{
         width: '100%', // Ocupar todo el ancho de la pantalla
-        background: 'linear-gradient(to top, #f9f9f9 0%, #e3f2fd 100%)', // Degradado de arriba hacia abajo
+        background: 'linear-gradient(to top, #FFFFFF 0%,rgba(237, 28, 35, 0.25) 100%)', // Degradado de arriba hacia abajo
         py: 5,
         px: { xs: 2, md: 6 }, // Márgenes laterales dinámicos
         borderTopLeftRadius: '10%',
@@ -27,7 +27,7 @@ const ProcessSection: React.FC = () => {
     >
       {/* Título */}
       <Typography
-        variant="h4"
+        variant="h3"
         sx={{
           fontWeight: 'bold',
           textAlign: 'center',
@@ -35,7 +35,7 @@ const ProcessSection: React.FC = () => {
           color: theme.palette.text.primary,
         }}
       >
-        Nuestros <span style={{ color: theme.palette.secondary.main }}>Procesos</span>
+        NUESTROOS <span style={{ color: theme.palette.primary.main }}>PROCESOS</span>
       </Typography>
 
       {/* Timeline Vertical */}
@@ -49,7 +49,7 @@ const ProcessSection: React.FC = () => {
         {/* Paso 1 */}
         <TimelineItem>
           <TimelineSeparator>
-            <TimelineDot sx={{ backgroundColor: theme.palette.primary.main }}>
+            <TimelineDot sx={{ backgroundColor: theme.palette.text.primary }}>
               <Assignment sx={{ color: '#FFF' }} />
             </TimelineDot>
             <TimelineConnector sx={{ backgroundColor: theme.palette.secondary.main }} />
@@ -57,11 +57,11 @@ const ProcessSection: React.FC = () => {
           <TimelineContent>
             <Typography
               variant="h5"
-              sx={{ fontWeight: 'bold', color: theme.palette.secondary.main, mb: 1 }}
+              sx={{ fontWeight: 'bold', color: theme.palette.primary.main, mb: 1 }}
             >
               1. Análisis Inicial
             </Typography>
-            <Typography variant="body2" sx={{ color: theme.palette.text.primary }}>
+            <Typography variant="body1" sx={{ color: theme.palette.text.primary }}>
               Visitamos tu empresa para analizar tus procesos y entender tus objetivos.
             </Typography>
           </TimelineContent>
@@ -70,19 +70,19 @@ const ProcessSection: React.FC = () => {
         {/* Paso 2 */}
         <TimelineItem>
           <TimelineSeparator>
-            <TimelineDot sx={{ backgroundColor: theme.palette.secondary.main }}>
+            <TimelineDot sx={{ backgroundColor: theme.palette.text.primary}}>
               <Search sx={{ color: '#FFF' }} />
             </TimelineDot>
-            <TimelineConnector sx={{ backgroundColor: theme.palette.primary.main }} />
+            <TimelineConnector sx={{ backgroundColor: theme.palette.secondary.main }} />
           </TimelineSeparator>
           <TimelineContent>
             <Typography
               variant="h5"
-              sx={{ fontWeight: 'bold', color: theme.palette.secondary.main, mb: 1 }}
+              sx={{ fontWeight: 'bold', color: theme.palette.primary.main, mb: 1 }}
             >
               2. Identificación de Debilidades
             </Typography>
-            <Typography variant="body2" sx={{ color: theme.palette.text.primary }}>
+            <Typography variant="body1" sx={{ color: theme.palette.text.primary }}>
               Detectamos puntos débiles y áreas de mejora, colaborando con tus empleados.
             </Typography>
           </TimelineContent>
@@ -91,7 +91,7 @@ const ProcessSection: React.FC = () => {
         {/* Paso 3 */}
         <TimelineItem>
           <TimelineSeparator>
-            <TimelineDot sx={{ backgroundColor: theme.palette.primary.main }}>
+            <TimelineDot sx={{ backgroundColor: theme.palette.text.primary }}>
               <Build sx={{ color: '#FFF' }} />
             </TimelineDot>
             <TimelineConnector sx={{ backgroundColor: theme.palette.secondary.main }} />
@@ -99,11 +99,11 @@ const ProcessSection: React.FC = () => {
           <TimelineContent>
             <Typography
               variant="h5"
-              sx={{ fontWeight: 'bold', color: theme.palette.secondary.main, mb: 1 }}
+              sx={{ fontWeight: 'bold', color: theme.palette.primary.main, mb: 1 }}
             >
               3. Desarrollo
             </Typography>
-            <Typography variant="body2" sx={{ color: theme.palette.text.primary }}>
+            <Typography variant="body1" sx={{ color: theme.palette.text.primary }}>
               Creamos soluciones personalizadas para optimizar tus procesos y aumentar la productividad.
             </Typography>
           </TimelineContent>
@@ -112,19 +112,19 @@ const ProcessSection: React.FC = () => {
         {/* Paso 4 */}
         <TimelineItem>
           <TimelineSeparator>
-            <TimelineDot sx={{ backgroundColor: theme.palette.secondary.main }}>
+            <TimelineDot sx={{ backgroundColor: theme.palette.text.primary }}>
               <BarChart sx={{ color: '#FFF' }} />
             </TimelineDot>
-            <TimelineConnector sx={{ backgroundColor: theme.palette.primary.main }} />
+            <TimelineConnector sx={{ backgroundColor: theme.palette.secondary.main }} />
           </TimelineSeparator>
           <TimelineContent>
             <Typography
               variant="h5"
-              sx={{ fontWeight: 'bold', color: theme.palette.secondary.main, mb: 1 }}
+              sx={{ fontWeight: 'bold', color: theme.palette.primary.main, mb: 1 }}
             >
               4. Seguimiento
             </Typography>
-            <Typography variant="body2" sx={{ color: theme.palette.text.primary }}>
+            <Typography variant="body1" sx={{ color: theme.palette.text.primary }}>
               Realizamos un seguimiento detallado para garantizar la eficacia de nuestras soluciones.
             </Typography>
           </TimelineContent>
@@ -133,18 +133,18 @@ const ProcessSection: React.FC = () => {
         {/* Paso 5 */}
         <TimelineItem>
           <TimelineSeparator>
-            <TimelineDot sx={{ backgroundColor: theme.palette.primary.main }}>
+            <TimelineDot sx={{ backgroundColor: theme.palette.text.primary }}>
               <SupportAgent sx={{ color: '#FFF' }} />
             </TimelineDot>
           </TimelineSeparator>
           <TimelineContent>
             <Typography
               variant="h5"
-              sx={{ fontWeight: 'bold', color: theme.palette.secondary.main, mb: 1 }}
+              sx={{ fontWeight: 'bold', color: theme.palette.primary.main, mb: 1 }}
             >
               5. Mantenimiento y Soporte
             </Typography>
-            <Typography variant="body2" sx={{ color: theme.palette.text.primary }}>
+            <Typography variant="body1" sx={{ color: theme.palette.text.primary }}>
               Ofrecemos mantenimiento continuo para adaptarnos a tus necesidades cambiantes.
             </Typography>
           </TimelineContent>

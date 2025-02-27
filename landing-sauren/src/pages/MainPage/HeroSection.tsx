@@ -25,12 +25,11 @@ const HeroSection: React.FC = () => {
           }}
         >
           <Typography
-            variant="h3"
-            component="h1"
+            variant="h2"
             sx={{ fontWeight: "bold", mb: 2 }}
           >
             Optimiza tu Negocio con nuestras{" "}
-            <span style={{ color: theme.palette.secondary.main }}>
+            <span style={{ color: theme.palette.primary.main }}>
               Auditorías de Software
             </span>
           </Typography>
@@ -38,7 +37,8 @@ const HeroSection: React.FC = () => {
             variant="body1"
             sx={{
               mb: 4,
-              color: "#555",
+              color: theme.palette.text.primary,
+              fontWeight: "bold",
               maxWidth: "500px",
               mx: { xs: "auto", md: 0 },
             }}
@@ -59,7 +59,7 @@ const HeroSection: React.FC = () => {
             <Box>
               <Typography
                 variant="h5"
-                sx={{ fontWeight: "bold", color: theme.palette.secondary.main }}
+                sx={{ fontWeight: "bold", color: theme.palette.primary.main }}
               >
                 100%
               </Typography>
@@ -68,7 +68,7 @@ const HeroSection: React.FC = () => {
             <Box>
               <Typography
                 variant="h5"
-                sx={{ fontWeight: "bold", color: theme.palette.secondary.main }}
+                sx={{ fontWeight: "bold", color: theme.palette.primary.main }}
               >
                 2+
               </Typography>
@@ -77,7 +77,7 @@ const HeroSection: React.FC = () => {
             <Box>
               <Typography
                 variant="h5"
-                sx={{ fontWeight: "bold", color: theme.palette.secondary.main }}
+                sx={{ fontWeight: "bold", color: theme.palette.primary.main }}
               >
                 &lt; 24h
               </Typography>

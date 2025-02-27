@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import './assets/fonts/fonts.css'; // Importa las fuentes
 import theme from './theme';
 import { HashRouter as Router } from 'react-router-dom'; // Cambia BrowserRouter por HashRouter
 
