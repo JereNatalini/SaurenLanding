@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
                 alt="Sauren Logo"
                 style={{
                   height: 'auto',
-                  width: '100px',
+                  width: '30%',
                   maxWidth: '100%',
                 }}
               />
