@@ -14,6 +14,10 @@ import './App.css';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { Container } from '@mui/material';
+import AboutHeroSection from './pages/AboutUs/AboutHeroSection';
+import OurMissionSection from './pages/AboutUs/OurMissionSection';
+import OurTeamSection from './pages/AboutUs/OurTeamSection';
+import AboutUsPage from './pages/AboutUs/AboutUsPage';
 
 function App() {
   React.useEffect(() => {
@@ -63,6 +67,11 @@ function App() {
               </Container>
             </MainLayout>
           }
+        />
+        <Route path="/about-us"
+          element={<MainLayout>
+            <AboutUsPage></AboutUsPage>
+          </MainLayout>}
         />
       </Routes>
     </ScrollToTopAndRender>
