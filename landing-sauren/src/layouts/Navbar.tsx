@@ -64,6 +64,9 @@ const Navbar: React.FC = () => {
                 fontWeight: 'bold',
                 mx: 1,
               }}
+              component={Link}
+              to="/about-us"
+              
             >
               About Us
             </Button>
