@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Container } from "@mui/material";
 import theme from "../../theme";
-import mainimage from "../../assets/images/mainpage.jpg";
+import mainimage from "../../assets/images/mainpage.gif";
 
 const HeroSection: React.FC = () => {
   return (
