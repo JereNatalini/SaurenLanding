@@ -16,6 +16,7 @@ const theme = createTheme({
       primary: '#231F20',
       secondary: '#0047ab',
     },
+    
   },
   typography: {
     // Fuente por defecto para el cuerpo del texto
