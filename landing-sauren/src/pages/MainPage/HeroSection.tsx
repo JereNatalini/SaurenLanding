@@ -10,7 +10,7 @@ const HeroSection: React.FC = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", md: "row" }, // Column for small screens, row for larger
+          flexDirection: { xs: "column-reverse", md: "row" }, // Column for small screens, row for larger
           alignItems: "center",
           justifyContent: "space-between",
           py: { xs: 4, md: 8 },
@@ -86,22 +86,26 @@ const HeroSection: React.FC = () => {
           </Box>
         </Box>
 
-        {/* Right Content (Graphic Section) */}
         <Box
           sx={{
             flex: 1,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            mt: { xs: 4, md: 0 },
+            mt: { xs: 3, md: 0 },
           }}
         >
-          <img
+          <Box
+            component="img"
             src={mainimage}
             alt="Auditorías de Software"
-            style={{ maxWidth: "100%", height: "auto" }}
+            sx={{
+              maxWidth: { xs: "85%", md: "100%" },
+              height: "auto",
+            }}
           />
         </Box>
+
       </Box>
     </Container>
   );
