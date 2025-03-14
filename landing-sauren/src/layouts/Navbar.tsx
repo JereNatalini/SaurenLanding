@@ -26,18 +26,19 @@ const Navbar: React.FC = () => {
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           {/* Logo clickeable */}
           <Box sx={{ display: 'flex', alignItems: 'center', width: 'auto' }}>
-            <Link to="/" style={{ textDecoration: 'none' }}> {/* Envuelve el logo con Link */}
-              <img
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <Box
+                component="img"
                 src={logo}
                 alt="Sauren Logo"
-                style={{
+                sx={{
+                  width: { xs: '50%', md: '30%' },
                   height: 'auto',
-                  width: '30%',
-                  maxWidth: '100%',
                 }}
               />
             </Link>
           </Box>
+
 
           {/* Botones del Navbar para desktop */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
@@ -66,7 +67,7 @@ const Navbar: React.FC = () => {
               }}
               component={Link}
               to="/about-us"
-              
+
             >
               About Us
             </Button>
