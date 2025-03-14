@@ -4,7 +4,6 @@ import ScrollToTopAndRender from './components/ScrollToTopAndRender'; // Ajusta 
 import MainLayout from './layouts/MainLayout';
 import HeroSection from './pages/MainPage/HeroSection';
 import FeaturesSection from './pages/MainPage/FeaturesSection';
-import ProcessSection from './pages/MainPage/ProcessSection';
 import ContactSection from './pages/MainPage/ContactSection';
 import HeroSectionWP from './pages/Projects/WePoint/HeroSectionWP';
 import FeaturesWP from './pages/Projects/WePoint/FeaturesWP';
@@ -15,6 +14,7 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { Container } from '@mui/material';
 import AboutUsPage from './pages/AboutUs/AboutUsPage';
+import SoftwareAuditSection from './pages/MainPage/SoftwareAuditSection';
 
 function App() {
   React.useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
                 <HeroSection />
               </Container>
               <div data-aos="fade-up">
-                <ProcessSection />
+                <SoftwareAuditSection />
               </div>
               <Container data-aos="zoom-in">
                 <FeaturesSection />
