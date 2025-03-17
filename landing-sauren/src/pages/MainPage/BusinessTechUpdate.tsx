@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Typography, Container } from "@mui/material";
-import theme from "../../theme";
 import techImage from "../../assets/images/tryingHard.jpg"; // 📌 Reemplaza con tu imagen real
 
 const BusinessTechUpdate: React.FC = () => {
