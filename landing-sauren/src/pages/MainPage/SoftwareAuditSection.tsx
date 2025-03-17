@@ -115,8 +115,12 @@ const SoftwareAuditSection: React.FC = () => {
         </Typography>
       </Box>
 
-      {/* 🔹 Botón CTA (Call to Action) */}
+      {/* 🔹 Botón CTA con enlace a WhatsApp */}
       <Button
+        component="a"
+        href="https://wa.me/5493517336655?text=¡Hola!%20Me%20interesa%20una%20auditoría%20de%20software%20gratuita."
+        target="_blank"
+        rel="noopener noreferrer"
         variant="contained"
         sx={{
           mt: 4,
