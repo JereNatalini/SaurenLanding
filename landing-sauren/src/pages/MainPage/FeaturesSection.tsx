@@ -30,7 +30,7 @@ const ProjectsSection: React.FC = () => {
           fontSize: { xs: '2rem', md: '3rem' }, // Título más grande y llamativo
         }}
       >
-        <span style={{ color: theme.palette.primary.main }}>PRROYECTOS</span>
+        <span style={{ color: theme.palette.primary.main }}>CASOS DE EXITO</span>
       </Typography>
       <Typography
         variant="subtitle1"

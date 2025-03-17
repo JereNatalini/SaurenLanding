@@ -15,6 +15,7 @@ import AOS from 'aos';
 import { Container } from '@mui/material';
 import AboutUsPage from './pages/AboutUs/AboutUsPage';
 import SoftwareAuditSection from './pages/MainPage/SoftwareAuditSection';
+import BusinessTechUpdate from './pages/MainPage/BusinessTechUpdate';
 
 function App() {
   React.useEffect(() => {
@@ -34,6 +35,9 @@ function App() {
               <Container data-aos="fade-up">
                 <HeroSection />
               </Container>
+              <div data-aos="fade-up">
+                <BusinessTechUpdate />
+              </div>
               <div data-aos="fade-up">
                 <SoftwareAuditSection />
               </div>
