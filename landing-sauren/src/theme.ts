@@ -44,6 +44,11 @@ const theme = createTheme({
         fontWeight: 600,
         color: '#231F20',
     },
+    h6: {fontFamily: 'NexaHeavy, Arial, sans-serif',
+      fontSize: '1.5rem',
+      fontWeight: 600,
+      color: '#ffffff',
+   },
     body1: {
       fontFamily: 'NexaExtraLight, Arial, sans-serif',
       fontSize: '1rem',

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Typography, Container, Button } from "@mui/material";
 import theme from "../../theme";
 
 const dynamicTexts = [
@@ -12,12 +12,10 @@ const dynamicTexts = [
   "una API personalizada",
   "una App mobile",
   "un CRM",
-  "un ERP",
-  "un sistema de gestión con múltiples integraciones avanzadas",
+  "un ERP"
 ];
 
-// 🔥 Calcula el alto mínimo basado en el texto más largo (2 líneas)
-const minHeightValue = "80px"; // Ajustable según diseño
+const minHeightValue = "80px"; // 🔥 Fija un espacio para evitar saltos
 
 const SoftwareAuditSection: React.FC = () => {
   const [index, setIndex] = useState(0);
@@ -51,27 +49,27 @@ const SoftwareAuditSection: React.FC = () => {
   return (
     <Container
       sx={{
-        py: { xs: 6, md: 10 },
+        py: { xs: 6, md: 10, lg: 12 },
         textAlign: "center",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
       }}
     >
-      {/* Título */}
+      {/* 🔹 Título */}
       <Typography
         variant="h3"
         sx={{
           fontWeight: "bold",
-          fontSize: { xs: "2rem", md: "2.5rem" },
+          fontSize: { xs: "1.8rem", md: "2.5rem" },
           mb: 2,
           color: theme.palette.primary.main,
         }}
       >
-        ¿No sabes bien qué necesitas?
+        ¿No sabes bien qué necesitas?😅
       </Typography>
 
-      {/* Texto fijo */}
+      {/* 🔹 Texto fijo con énfasis en "auditoría gratuita" */}
       <Typography
         variant="h4"
         sx={{
@@ -79,40 +77,65 @@ const SoftwareAuditSection: React.FC = () => {
           fontWeight: "bold",
           maxWidth: "700px",
           mb: 4,
+          fontSize: { xs: "1.3rem", md: "2rem" }
         }}
       >
-        ¡Nuestro equipo de expertos te ayudará a elegir la solución!
+        ¡Solicita tu{" "}
+        <span style={{ color: theme.palette.primary.main }}>auditoría gratuita</span>{" "}
+        y nuestro equipo de expertos te ayudará a elegir la mejor solución!
       </Typography>
 
-      {/* Contenedor con altura fija para prevenir saltos */}
+      {/* 🔹 Contenedor con altura fija para prevenir saltos */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
           textAlign: "center",
-          minHeight: minHeightValue, // 🔥 Fija un espacio suficiente para 2 líneas
-          width: "100%", // Se adapta al contenedor
-          maxWidth: "800px", // Evita que se extienda demasiado
+          minHeight: minHeightValue,
+          width: "100%",
+          maxWidth: "800px",
         }}
       >
         <Typography
           variant="h4"
           sx={{
-            fontWeight: 800, // Más gordito
+            fontWeight: 800,
             fontSize: { xs: "2rem", md: "2.2rem" },
             textAlign: "center",
-            background: "linear-gradient(90deg, #ED1C24, #2E3192)", // Gradiente
+            background: "linear-gradient(90deg, #ED1C24, #2E3192)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             display: "inline-block",
-            overflowWrap: "break-word", // 🔥 Permite que el texto largo pase de línea
-            wordBreak: "break-word", // 🔥 Evita cortes incómodos en palabras largas
+            overflowWrap: "break-word",
+            wordBreak: "break-word",
           }}
         >
           Necesito {text}
           <span style={{ color: theme.palette.primary.main }}>|</span> {/* Cursor animado */}
         </Typography>
       </Box>
+
+      {/* 🔹 Botón CTA (Call to Action) */}
+      <Button
+        variant="contained"
+        sx={{
+          mt: 4,
+          py: 2,
+          px: 4,
+          fontSize: "1.2rem",
+          fontWeight: "bold",
+          textTransform: "none",
+          background: "linear-gradient(90deg, #ED1C24, #2E3192)",
+          color: "#fff",
+          borderRadius: "8px",
+          transition: "all 0.3s ease-in-out",
+          "&:hover": {
+            background: "linear-gradient(90deg, #2E3192, #ED1C24)",
+          },
+        }}
+      >
+        Quiero mi auditoría
+      </Button>
     </Container>
   );
 };
