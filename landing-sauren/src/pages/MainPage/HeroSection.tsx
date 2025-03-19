@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Typography, Container, Button } from "@mui/material";
 import theme from "../../theme";
 import mainimage from "../../assets/images/mainpage.gif";
+import { ArrowForwardRounded } from "@mui/icons-material";
 
 const HeroSection: React.FC = () => {
   return (
@@ -69,10 +70,8 @@ const HeroSection: React.FC = () => {
               mx: { xs: "auto", md: 0 },
             }}
           >
-            Mejora la calidad y la eficiencia de tus procesos de negocio con
-            nuestras auditorías de software personalizadas, diseñadas para
-            identificar problemas, optimizar procedimientos y expandir tu
-            productividad.
+            Potencia el rendimiento de tus procesos y
+            descubre oportunidades con diagnósticos tecnológicos a medida.
           </Typography>
 
           {/* Métricas alineadas */}
@@ -118,6 +117,63 @@ const HeroSection: React.FC = () => {
               </Box>
             ))}
           </Box>
+
+
+          <Button
+            variant="contained"
+            startIcon={<ArrowForwardRounded />}
+            component="a"
+            href="https://wa.me/5493517336655?text=¡Hola!%20Me%20interesa%20una%20auditoría%20de%20software%20gratuita."
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              px: { xs: 4, md: 6 },
+              py: 2,
+              fontSize: { xs: '1.2rem', md: '1.3rem' },
+              fontWeight: 'bold',
+              borderRadius: '12px',
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              backgroundImage: theme =>
+                `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
+              position: 'relative',
+              overflow: 'hidden',
+              transform: 'translateZ(0)',
+              '&:hover': {
+                transform: 'translateY(-3px)',
+                boxShadow: theme => `0 8px 24px ${theme.palette.primary.main}80`,
+                '&::after': {
+                  left: '120%',
+                },
+              },
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                top: '-50%',
+                left: '-100%',
+                width: '40%',
+                height: '200%',
+                background:
+                  'linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%)',
+                transform: 'rotate(30deg)',
+                transition: 'left 0.6s ease-in-out',
+              },
+              mx: { xs: 'auto', md: 0 },
+              mt: 4,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 1.5,
+              '& .MuiButton-startIcon': {
+                transition: 'transform 0.3s ease',
+                fontSize: '1.4em',
+              },
+              '&:hover .MuiButton-startIcon': {
+                transform: 'translateX(4px)',
+              },
+            }}
+          >
+            Auditoría Gratuita
+          </Button>
+
         </Box>
 
         {/* Right Content (Graphic Section) */}
@@ -141,7 +197,7 @@ const HeroSection: React.FC = () => {
           />
         </Box>
       </Box>
-    </Container>
+    </Container >
   );
 };
 
