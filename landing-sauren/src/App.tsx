@@ -16,6 +16,7 @@ import { Container } from '@mui/material';
 import AboutUsPage from './pages/AboutUs/AboutUsPage';
 import SoftwareAuditSection from './pages/MainPage/SoftwareAuditSection';
 import BusinessTechUpdate from './pages/MainPage/BusinessTechUpdate';
+import ClientsSection from './pages/MainPage/ClientsSection';
 
 function App() {
   React.useEffect(() => {
@@ -40,6 +41,9 @@ function App() {
               </div>
               <div data-aos="fade-up">
                 <SoftwareAuditSection />
+              </div>
+              <div>
+                <ClientsSection />
               </div>
               <Container data-aos="zoom-in">
                 <FeaturesSection />
