@@ -6,9 +6,9 @@ import theme from "../../theme";
 import logo1 from "../../assets/logos/LogoMomentos.png";
 import logo2 from "../../assets/logos/LogoWepoint.png";
 import logo3 from "../../assets/logos/LogoDacapo.png";
-import logo4 from "../../assets/logos/logo1.png";
-import logo5 from "../../assets/logos/logo1.png";
-import logo6 from "../../assets/logos/logo1.png";
+import logo4 from "../../assets/logos/LogoCaddy.png";
+import logo5 from "../../assets/logos/LogoDinter.png";
+import logo6 from "../../assets/logos/LogoMeFalta.png";
 
 // Lista de logos de clientes
 const clientLogos = [logo1, logo2, logo3, logo4, logo5, logo6];
