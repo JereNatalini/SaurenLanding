@@ -3,12 +3,12 @@ import { Box, Typography, Container } from "@mui/material";
 import theme from "../../theme";
 
 // Importa los logos (cambia por tus imágenes)
-import logo1 from "../../assets/logos/LogoMomentos.png";
-import logo2 from "../../assets/logos/LogoWepoint.png";
-import logo3 from "../../assets/logos/LogoDacapo.png";
-import logo4 from "../../assets/logos/LogoCaddy.png";
-import logo5 from "../../assets/logos/LogoDinter.png";
-import logo6 from "../../assets/logos/LogoMeFalta.png";
+import logo1 from "../../assets/logos/LogoMomentos.webp";
+import logo2 from "../../assets/logos/LogoWepoint.webp";
+import logo3 from "../../assets/logos/LogoDacapo.webp";
+import logo4 from "../../assets/logos/LogoCaddy.webp";
+import logo5 from "../../assets/logos/LogoDinter.webp";
+import logo6 from "../../assets/logos/LogoMeFalta.webp";
 
 // Lista de logos de clientes
 const clientLogos = [logo1, logo2, logo3, logo4, logo5, logo6];
