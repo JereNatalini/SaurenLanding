@@ -53,19 +53,6 @@ const AboutHeroSection: React.FC = () => {
           mejoren la experiencia de los usuarios. Nuestra visión es inspirar la 
           transformación digital y elevar la calidad en cada proyecto.
         </Typography>
-
-        <Button
-          variant="contained"
-          color="primary"
-          sx={{
-            fontWeight: 'bold',
-            textTransform: 'uppercase',
-            paddingX: 3,
-            paddingY: 1.5,
-          }}
-        >
-          Conoce Más
-        </Button>
       </Container>
     </Box>
   );
