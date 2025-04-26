@@ -16,7 +16,7 @@ import { Container } from '@mui/material';
 import AboutUsPage from './pages/AboutUs/AboutUsPage';
 import SoftwareAuditSection from './pages/MainPage/SoftwareAuditSection';
 import BusinessTechUpdate from './pages/MainPage/BusinessTechUpdate';
-
+import ContactPage from './pages/ContactPage/ContactPage';
 function App() {
   React.useEffect(() => {
     AOS.init({
@@ -72,6 +72,11 @@ function App() {
         <Route path="/about-us"
           element={<MainLayout>
             <AboutUsPage></AboutUsPage>
+          </MainLayout>}
+        />
+        <Route path='contact'
+          element={<MainLayout>
+            <ContactPage></ContactPage>
           </MainLayout>}
         />
       </Routes>

@@ -8,7 +8,6 @@ import OurTeamSection from './OurTeamSection';
 
 // Importa tu imagen de logo (si está en /src/assets/images/logoBg.png, por ejemplo)
 import logoBackground from '../../assets/images/backgroundAboutUs.png';
-import OurClientsSection from './OurClientesSection';
 
 const AboutUsPage: React.FC = () => {
     return (
@@ -16,11 +15,12 @@ const AboutUsPage: React.FC = () => {
             component="main"
             sx={{
                 minHeight: '100vh',
-                backgroundImage: `url(${logoBackground})`,
+                // Muestra el fondo solo en pantallas medianas en adelante
+                backgroundImage: { xs: 'none', md: `url(${logoBackground})` },
                 backgroundRepeat: 'no-repeat',
-                // Ajusta la escala del logo
+                // En mobile el backgroundSize no aplica, pero en md se muestra con 60%
                 backgroundSize: { xs: '80%', md: '60%' },
-                // Ubícalo al centro vertical, a la izquierda horizontal
+                // Ajusta la posición para desktop
                 backgroundPosition: '-50% -10%',
                 bgcolor: '#ffffff',
             }}
@@ -28,9 +28,7 @@ const AboutUsPage: React.FC = () => {
             <AboutHeroSection />
             <OurMissionSection />
             <OurTeamSection />
-            <OurClientsSection />
         </Box>
-
     );
 };
 

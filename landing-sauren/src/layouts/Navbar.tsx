@@ -1,105 +1,81 @@
+// src/layouts/Navbar.tsx
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Button, Box } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Button, Box, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
+import { Link } from 'react-router-dom';
 import MobileMenu from '../components/MobileMenu';
-import theme from '../theme';
 import logo from '../assets/images/logo.png';
 
 const Navbar: React.FC = () => {
+  const theme = useTheme();
   const [open, setOpen] = useState(false);
-
-  const toggleDrawer = () => setOpen((prev) => !prev);
+  const toggleDrawer = () => setOpen(prev => !prev);
 
   return (
     <>
       <AppBar
-        position="static"
+        position="absolute"     // deja que el navbar se vaya al hacer scroll
         color="transparent"
+        elevation={0}            // sin sombra
         sx={{
-          width: { xs: '95%', sm: '90%', md: '80%' },
-          margin: '0 auto',
-          marginTop: '10px',
-          boxShadow: 'none',
+          top: 0,
+          left: 0,
+          right: 0,
+          width: { xs: '100%', sm: '95%', md: '90%', lg: '80%' },
+          mx: 'auto',
+          zIndex: theme.zIndex.appBar,
         }}
       >
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          {/* Logo clickeable */}
-          <Box sx={{ display: 'flex', alignItems: 'center', width: 'auto' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Link to="/" style={{ textDecoration: 'none' }}>
               <Box
                 component="img"
                 src={logo}
                 alt="Sauren Logo"
-                sx={{
-                  width: { xs: '50%', md: '30%' },
-                  height: 'auto',
-                }}
+                sx={{ width: { xs: '50%', md: '30%' }, height: 'auto' }}
               />
             </Link>
           </Box>
-
-
-          {/* Botones del Navbar para desktop */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
-            <Button
-              color="inherit"
-              sx={{
-                '&:hover': {
-                  backgroundColor: theme.palette.primary.main,
-                  borderRadius: '8px',
-                },
-                fontWeight: 'bold',
-                mx: 1,
-              }}
-            >
-              Home
-            </Button>
-            <Button
-              color="inherit"
-              sx={{
-                '&:hover': {
-                  backgroundColor: theme.palette.primary.main,
-                  borderRadius: '8px',
-                },
-                fontWeight: 'bold',
-                mx: 1,
-              }}
-              component={Link}
-              to="/about-us"
-
-            >
-              About Us
-            </Button>
-            <Button
-              color="inherit"
-              sx={{
-                '&:hover': {
-                  backgroundColor: theme.palette.primary.main,
-                  borderRadius: '4px',
-                  transparency: 0.8,
-                },
-                fontWeight: 'bold',
-                mx: 1,
-              }}
-            >
-              Contact
-            </Button>
+          
+          {/* Links para pantallas ≥ sm */}
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: { xs: 1, sm: 2 } }}>
+            {[
+              { to: '/', label: 'Home' },
+              { to: '/about-us', label: 'About Us' },
+              { to: '/contact', label: 'Contact' },
+            ].map(({ to, label }) => (
+              <Button
+                key={to}
+                component={Link}
+                to={to}
+                color="inherit"
+                sx={{
+                  fontWeight: 'bold',
+                  mx: 1,
+                  '&:hover': {
+                    backgroundColor: theme.palette.primary.main,
+                    borderRadius: '8px',
+                  },
+                }}
+              >
+                {label}
+              </Button>
+            ))}
           </Box>
 
-          {/* Botón del menú móvil */}
+          {/* Menú móvil para pantallas < sm */}
           <IconButton
             color="inherit"
             edge="end"
             onClick={toggleDrawer}
-            sx={{ display: { xs: 'block', md: 'none' } }}
+            sx={{ display: { xs: 'block', sm: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
 
-      {/* MobileMenu */}
       <MobileMenu open={open} toggleDrawer={toggleDrawer} />
     </>
   );
