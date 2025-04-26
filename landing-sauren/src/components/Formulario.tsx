@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Button, TextField, Alert } from "@mui/material";
+import theme from "../theme";
 
 const Formulario: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -201,9 +202,9 @@ const Formulario: React.FC = () => {
           mt: 2,
           py: 1.5,
           fontSize: '1rem',
-          background: 'linear-gradient(45deg, #00e5ff 0%, #0066ff 100%)',
+          background: `linear-gradient(135deg, ${theme.palette.secondary.light} 0%, ${theme.palette.primary.light} 100%)`,
           '&:hover': {
-            background: 'linear-gradient(45deg, #00bcd4 0%, #0044ff 100%)',
+            background: `linear-gradient(135deg, ${theme.palette.secondary.light} 100%, ${theme.palette.primary.light} 0%)`,
             boxShadow: '0 4px 15px rgba(0, 229, 255, 0.3)'
           },
           transition: 'all 0.3s ease',
