@@ -1,108 +1,227 @@
-import React from 'react';
-import { Box, Typography, Link, Container } from '@mui/material';
-import { Facebook, Twitter, LinkedIn, Email, Place, Phone } from '@mui/icons-material';
-import theme from '../theme';
-import logo from '../assets/images/logo.png';
+import React from "react";
+import { Box, Typography, Link, Container, Grid } from "@mui/material";
+import {
+  Facebook,
+  Twitter,
+  LinkedIn,
+  Email,
+  Place,
+  Phone,
+} from "@mui/icons-material";
+import theme from "../theme";
+import logo from "../assets/images/logo.png";
+import { Link as ScrollLink } from "react-scroll";
 
 const Footer: React.FC = () => {
   return (
     <Box
       component="footer"
       sx={{
-        background: '#333333', // O el color que prefieras
-        pt: 4,
+        background: "#333333",
         py: 6,
-        mt: 'auto'
+        mt: "auto",
       }}
     >
       <Container maxWidth="lg">
-        {/* Primera sección: Logo y Redes Sociales */}
-        <Box sx={{ textAlign: 'center', mb: 4 }}>
-          <img src={logo} alt="Sauren Logo" style={{ height: 'auto', width: '20%', maxWidth: '100%' }} />
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-            <Link href="https://facebook.com" color="inherit">
-              <Facebook sx={{ fontSize: 28, color: theme.palette.background.paper }} />
-            </Link>
-            <Link href="https://twitter.com" color="inherit">
-              <Twitter sx={{ fontSize: 28, color: theme.palette.background.paper }} />
-            </Link>
-            <Link href="https://linkedin.com" color="inherit">
-              <LinkedIn sx={{ fontSize: 28, color: theme.palette.background.paper }} />
-            </Link>
-          </Box>
-        </Box>
-
-        {/* Segunda sección: Enlaces y Contacto */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', sm: 'row' },
-            justifyContent: 'space-between',
-            gap: 4,
-            mb: 4
-          }}
-        >
-          {/* Enlaces rápidos */}
-          <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
-            <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600, color: theme.palette.background.paper }}>
+        <Grid container spacing={4}>
+          {/* Columna izquierda: Enlaces de compañía */}
+          <Grid item xs={12} md={4}>
+            <Typography
+              variant="subtitle1"
+              gutterBottom
+              sx={{
+                fontWeight: 600,
+                color: theme.palette.background.paper,
+                textAlign: { xs: "center", md: "left" },
+              }}
+            >
               Compañía
             </Typography>
-            <Link href="#" color="inherit" display="block" underline="hover" sx={{ mb: 1, color: theme.palette.background.paper }}>
-              Sobre nosotros
-            </Link>
-            <Link href="#" color="inherit" display="block" underline="hover" sx={{ mb: 1, color: theme.palette.background.paper }}>
-              Servicios
-            </Link>
-            <Link href="#" color="inherit" display="block" underline="hover" sx={{ mb: 1, color: theme.palette.background.paper }}>
-              Proyectos
-            </Link>
-          </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: { xs: "center", md: "flex-start" },
+              }}
+            >
+              <Link
+                href="/about-us"
+                color="inherit"
+                underline="hover"
+                sx={{ mb: 1.5, color: theme.palette.background.paper }}
+              >
+                Sobre nosotros
+              </Link>
+              <Box
+                component={ScrollLink}
+                to="services"
+                smooth={true}
+                duration={500}
+                offset={-70}
+                sx={{ 
+                  mb: 1.5, 
+                  color: theme.palette.background.paper,
+                  cursor: 'pointer',
+                  '&:hover': {
+                    textDecoration: 'underline',
+                    color: theme.palette.primary.main
+                  }
+                }}
+              >
+                Servicios
+              </Box>
+              
+              <Box
+                component={ScrollLink}
+                to="projects"
+                smooth={true}
+                duration={500}
+                offset={-70}
+                sx={{ 
+                  mb: 1.5, 
+                  color: theme.palette.background.paper,
+                  cursor: 'pointer',
+                  '&:hover': {
+                    textDecoration: 'underline',
+                    color: theme.palette.primary.main
+                  }
+                }}
+              >
+                Proyectos
+              </Box>
+            </Box>
+          </Grid>
 
-          {/* Contacto */}
-          <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
-            <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600, color: theme.palette.background.paper }}>
+          {/* Columna central: Logo y redes sociales */}
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src={logo}
+              alt="Sauren Logo"
+              style={{
+                height: "auto",
+                width: "40%",
+                maxWidth: "180px",
+                marginBottom: "1.5rem",
+              }}
+            />
+            <Box sx={{ display: "flex", gap: 3 }}>
+              <Link href="https://facebook.com" color="inherit">
+                <Facebook
+                  sx={{
+                    fontSize: 28,
+                    color: theme.palette.background.paper,
+                    "&:hover": { color: theme.palette.primary.main },
+                  }}
+                />
+              </Link>
+              <Link href="https://twitter.com" color="inherit">
+                <Twitter
+                  sx={{
+                    fontSize: 28,
+                    color: theme.palette.background.paper,
+                    "&:hover": { color: theme.palette.primary.main },
+                  }}
+                />
+              </Link>
+              <Link href="https://linkedin.com" color="inherit">
+                <LinkedIn
+                  sx={{
+                    fontSize: 28,
+                    color: theme.palette.background.paper,
+                    "&:hover": { color: theme.palette.primary.main },
+                  }}
+                />
+              </Link>
+            </Box>
+          </Grid>
+
+          {/* Columna derecha: Contacto */}
+          <Grid item xs={12} md={4}>
+            <Typography
+              variant="subtitle1"
+              gutterBottom
+              sx={{
+                fontWeight: 600,
+                color: theme.palette.background.paper,
+                textAlign: { xs: "center", md: "right" },
+              }}
+            >
               Contacto
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, justifyContent: { xs: 'center', sm: 'flex-start' } }}>
-              <Place sx={{ fontSize: 20, mr: 1, color: theme.palette.primary.main }} />
-              <Typography variant="body2" sx={{ color: theme.palette.background.paper }}>
-                Hugo Alberto Garcia 1603, Córdoba Argentina
-              </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: { xs: "center", md: "flex-end" },
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+                <Place
+                  sx={{
+                    fontSize: 20,
+                    mr: 1,
+                    color: theme.palette.primary.main,
+                  }}
+                />
+                <Typography
+                  variant="body2"
+                  sx={{ color: theme.palette.background.paper }}
+                >
+                  Hugo Alberto Garcia 1603, Córdoba
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+                <Email
+                  sx={{
+                    fontSize: 20,
+                    mr: 1,
+                    color: theme.palette.primary.main,
+                  }}
+                />
+                <Typography
+                  variant="body2"
+                  sx={{ color: theme.palette.background.paper }}
+                >
+                  ventas@sauren.com
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+                <Phone
+                  sx={{
+                    fontSize: 20,
+                    mr: 1,
+                    color: theme.palette.primary.main,
+                  }}
+                />
+                <Typography
+                  variant="body2"
+                  sx={{ color: theme.palette.background.paper }}
+                >
+                  +54 351 7 336655
+                </Typography>
+              </Box>
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, justifyContent: { xs: 'center', sm: 'flex-start' } }}>
-              <Email sx={{ fontSize: 20, mr: 1, color: theme.palette.primary.main }} />
-              <Typography variant="body2" sx={{ color: theme.palette.background.paper }}>
-                ventas@sauren.com
-              </Typography>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, justifyContent: { xs: 'center', sm: 'flex-start' } }}>
-              <Phone sx={{ fontSize: 20, mr: 1, color: theme.palette.primary.main }} />
-              <Typography variant="body2" sx={{ color: theme.palette.background.paper }}>
-                +54 351 7 336655
-              </Typography>
-            </Box>
-          </Box>
-
-          {/* Legal */}
-          <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
-            <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600, color: theme.palette.background.paper }}>
-              Legal
-            </Typography>
-            <Link href="#" color="inherit" display="block" underline="hover" sx={{ mb: 1, color: theme.palette.background.paper }}>
-              Términos de servicio
-            </Link>
-            <Link href="#" color="inherit" display="block" underline="hover" sx={{ mb: 1, color: theme.palette.background.paper }}>
-              Política de privacidad
-            </Link>
-            <Link href="#" color="inherit" display="block" underline="hover" sx={{ mb: 1, color: theme.palette.background.paper }}>
-              Política de cookies
-            </Link>
-          </Box>
-        </Box>
+          </Grid>
+        </Grid>
 
         {/* Copyright */}
-        <Box sx={{ borderTop: '1px solid', borderColor: '#FF6600', pt: 3 }}>
-          <Typography variant="body2" sx={{ color: theme.palette.background.paper }} textAlign="center">
+        <Box
+          sx={{ borderTop: "1px solid", borderColor: "#FF6600", pt: 4, mt: 4 }}
+        >
+          <Typography
+            variant="body2"
+            sx={{ color: theme.palette.background.paper }}
+            textAlign="center"
+          >
             © {new Date().getFullYear()} Sauren. Todos los derechos reservados.
           </Typography>
         </Box>

@@ -28,7 +28,7 @@ const AboutUsPage: React.FC = () => {
             <AboutHeroSection />
             <OurMissionSection />
             <OurTeamSection />
-            <OurClientsSection />
+            {/* <OurClientsSection /> */}
         </Box>
 
     );

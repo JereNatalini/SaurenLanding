@@ -3,23 +3,18 @@ import { Box, Container, Typography, Card, CardContent, Avatar } from '@mui/mate
 
 const teamMembers = [
   {
-    name: 'Juan Pérez',
-    role: 'CEO & Founder',
+    name: 'Juan Santacroce',
+    role: 'Co-Founder & Full Stack Developer',
+    avatar: 'https://instagram.fcor18-1.fna.fbcdn.net/v/t51.2885-19/450397260_1135371631090160_5156320495696725436_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_ht=instagram.fcor18-1.fna.fbcdn.net&_nc_cat=108&_nc_oc=Q6cZ2QGx5kz95myoyuXeWpUu69SH201ZEI4LRP-i8MaQiN7ZKAx_mYAJT4YelU0-dMk8ne0&_nc_ohc=1IMApHhfensQ7kNvwGS40fU&_nc_gid=GJJt2Us87C181Z6H7AG35g&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfInyHphdOGXgeKuueNLtc5nwo85B4Eij3ZHCAQGB3Sjrw&oe=6832D149&_nc_sid=10d13b',
+  },
+  {
+    name: 'Jeremias Natalini',
+    role: 'Co-Founder & Full Stack Developer',
     avatar: 'https://via.placeholder.com/80',
   },
   {
-    name: 'María López',
-    role: 'CTO',
-    avatar: 'https://via.placeholder.com/80',
-  },
-  {
-    name: 'Carlos García',
-    role: 'Lead Developer',
-    avatar: 'https://via.placeholder.com/80',
-  },
-  {
-    name: 'Ana Rodríguez',
-    role: 'UI/UX Designer',
+    name: 'Elías Manca Wysocki',
+    role: 'Full Stack Developer',
     avatar: 'https://via.placeholder.com/80',
   },
 ];

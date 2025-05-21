@@ -1,59 +1,80 @@
-import { Box, Typography, Container } from '@mui/material';
-import Formulario from '../../components/Formulario';
+import { Box, Typography, Container } from "@mui/material";
+import Formulario from "../../components/Formulario";
+
 const ContactFormWithText = () => {
-    return (
+  return (
+    <Box
+      sx={{
+        width: "100%",
+        py: 10,
+        px: 3,
+        backgroundColor: "#333333",
+        borderTopRightRadius: "10%",
+        borderTopLeftRadius: "10%",
+      }}
+    >
+      <Container maxWidth="lg">
         <Box
-            sx={{
-                width: '100%',
-                py: 10,
-                px: 3,
-                backgroundColor: '#333333', // Fondo completamente oscuro
-                borderTopRightRadius: '10%',
-                borderTopLeftRadius: '10%',
-            }}
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            gap: 6,
+            alignItems: "stretch", // Cambiado para igualar alturas
+            justifyContent: "center",
+          }}
         >
-            <Container maxWidth="lg">
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: { xs: 'column', md: 'row' },
-                        gap: 6,
-                        alignItems: 'flex-start',
-                        justifyContent: 'center',
-                    }}
-                >
-                    {/* Sección de texto (izquierda) */}
-                    <Box sx={{ flex: 1, textAlign: 'left' }}>
-                        <Typography variant="h2" gutterBottom sx={{ color: '#ffffff', mb: 4 }}>
-                            ¿Qué sigue?
-                        </Typography>
-                        <Typography variant="body1" mb={3} sx={{ color: '#cccccc' }}>
-                            <strong>01</strong> Envíanos tu información técnica para evaluar tus necesidades y, si es necesario, un acuerdo de confidencialidad.
-                        </Typography>
-                        <Typography variant="body1" mb={3} sx={{ color: '#cccccc' }}>
-                            <strong>02</strong> Recibe tu propuesta y presupuesto en dos días hábiles.
-                        </Typography>
-                        <Typography variant="body1" mb={3} sx={{ color: '#cccccc' }}>
-                            <strong>03</strong> Firma el acuerdo marco y empecemos a impulsar tu negocio.
-                        </Typography>
-                        <Typography variant="body1" mb={5} sx={{ color: '#cccccc' }}>
-                            <strong>04</strong> Comienza el proceso de integración y prepárate para aprovechar al máximo nuestro servicio.
-                        </Typography>
+          {/* Sección de texto (izquierda) */}
+          <Box sx={{ 
+            flex: 1, 
+            textAlign: "left",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between" // Distribuye el espacio verticalmente
+          }}>
+            <Box>
+              <Typography variant="h2" gutterBottom sx={{ color: "#ffffff", mb: 4 }}>
+                Transformemos tu idea en realidad
+              </Typography>
 
-                        <Typography variant="h2" gutterBottom sx={{ color: '#ffffff', mb: 2 }}>
-                            ¿Listo para hablar ahora?
-                        </Typography>
-                        <Typography variant="body1" mb={4} sx={{ color: '#cccccc' }}>
-                            Programa una llamada con nuestro equipo hoy para iniciar la conversación.
-                        </Typography>
-                    </Box>
+              <Box component="ul" sx={{ pl: 0, listStyleType: "none" }}>
+                <Typography component="li" variant="body1" mb={3} sx={{ color: "#cccccc" }}>
+                  <strong>1.</strong> Compártenos tus requerimientos - evaluamos tu proyecto en 48h
+                </Typography>
+                <Typography component="li" variant="body1" mb={3} sx={{ color: "#cccccc" }}>
+                  <strong>2.</strong> Recibe una propuesta a medida con solución y presupuesto
+                </Typography>
+                <Typography component="li" variant="body1" mb={3} sx={{ color: "#cccccc" }}>
+                  <strong>3.</strong> Firma digital y comenzamos a trabajar inmediatamente
+                </Typography>
+                <Typography component="li" variant="body1" mb={5} sx={{ color: "#cccccc" }}>
+                  <strong>4.</strong> Implementación rápida con soporte continuo
+                </Typography>
+              </Box>
+            </Box>
 
-                    {/* Sección del formulario (derecha) */}
-                    <Formulario/>
-                </Box>
-            </Container>
+            <Box>
+              <Typography variant="h2" gutterBottom sx={{ color: "#ffffff", mb: 2 }}>
+                ¿Hablamos hoy mismo?
+              </Typography>
+              <Typography variant="body1" sx={{ color: "#cccccc" }}>
+                Agenda una llamada rápida con nuestro equipo de especialistas
+              </Typography>
+            </Box>
+          </Box>
+
+          {/* Sección del formulario (derecha) */}
+          <Box sx={{ 
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            height: "100%", // Toma el 100% de la altura del contenedor padre
+          }}>
+            <Formulario />
+          </Box>
         </Box>
-    );
+      </Container>
+    </Box>
+  );
 };
 
 export default ContactFormWithText;

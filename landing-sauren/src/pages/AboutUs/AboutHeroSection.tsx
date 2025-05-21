@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, Button } from '@mui/material';
+import {Link} from 'react-router-dom';
 
 const AboutHeroSection: React.FC = () => {
   return (
@@ -63,6 +64,8 @@ const AboutHeroSection: React.FC = () => {
             paddingX: 3,
             paddingY: 1.5,
           }}
+          href="https://wa.me/5493517336655?text=¡Hola!%20Me%20interesa%20una%20auditoría%20de%20software%20gratuita."
+          target="_blank"
         >
           Conoce Más
         </Button>
