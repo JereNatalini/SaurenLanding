@@ -28,6 +28,7 @@ const AboutUsPage: React.FC = () => {
             <AboutHeroSection />
             <OurMissionSection />
             <OurTeamSection />
+            {/* <OurClientsSection /> */}
         </Box>
     );
 };

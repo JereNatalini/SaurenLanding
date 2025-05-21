@@ -37,7 +37,7 @@ const steps = [
 
 const RoadmapWP: React.FC = () => {
   const theme = useTheme();
-  const primaryColor = theme.palette.secondary.main;
+  const primaryColor = theme.palette.primary.main;
 
   useEffect(() => {
     AOS.init({ duration: 700, once: true });
