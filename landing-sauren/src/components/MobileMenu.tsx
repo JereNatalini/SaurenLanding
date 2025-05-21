@@ -16,17 +16,12 @@ import {
   Close,
   Home,
   Info,
-  BusinessCenter,
-  Message,
-  Contacts,
   Facebook,
   Twitter,
   Instagram
 } from '@mui/icons-material';
 import logo from '../assets/images/icono.png';
 import { Link } from 'react-router-dom';
-import { Link as ScrollLink } from "react-scroll";
-
 
 interface MobileMenuProps {
   open: boolean;
@@ -96,9 +91,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ open, toggleDrawer }) => {
           {[
             { text: 'Home', icon: <Home />, link: '/', typeLink: Link },
             { text: 'About', icon: <Info />, link: '/about-us', typeLink: Link },
-            // { text: 'Services', icon: <BusinessCenter />, link: 'contact', typeLink: ScrollLink },
-            // { text: 'Testimonials', icon: <Message /> },
-            // { text: 'Contact', icon: <Contacts /> },
           ].map((item) => (
             <ListItem key={item.text} disablePadding sx={{ mb: 1.5 }}>
               <ListItemButton
