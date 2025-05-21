@@ -8,7 +8,7 @@ import logo2 from "../../assets/logos/LogoWepoint.webp";
 import logo3 from "../../assets/logos/LogoDacapo.webp";
 import logo4 from "../../assets/logos/LogoCaddy.webp";
 import logo5 from "../../assets/logos/LogoDinter.webp";
-import logo6 from "../../assets/logos/LogoMeFalta.webp";
+import logo6 from "../../assets/logos/LogoMeFalta.png";
 
 // Lista de logos de clientes
 const clientLogos = [logo1, logo2, logo3, logo4, logo5, logo6];
