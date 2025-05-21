@@ -90,7 +90,7 @@ const FeaturesWP: React.FC = () => {
                 <Typography variant="h3" sx={{ mb: 2 }}>
                   {feature.icon}
                 </Typography>
-                <Typography variant="h6" component="h3" gutterBottom>
+                <Typography variant="h6" component="h3" gutterBottom sx={{ color: '#333333' }}>
                   {feature.title}
                 </Typography>
                 <Typography variant="body1" color="textSecondary">

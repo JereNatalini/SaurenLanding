@@ -16,6 +16,8 @@ import { Container } from '@mui/material';
 import AboutUsPage from './pages/AboutUs/AboutUsPage';
 import SoftwareAuditSection from './pages/MainPage/SoftwareAuditSection';
 import BusinessTechUpdate from './pages/MainPage/BusinessTechUpdate';
+import ClientsSection from './pages/MainPage/ClientsSection';
+
 import ContactPage from './pages/ContactPage/ContactPage';
 function App() {
   React.useEffect(() => {
@@ -38,13 +40,16 @@ function App() {
               <div data-aos="fade-up">
                 <BusinessTechUpdate />
               </div>
-              <div data-aos="fade-up">
+              <div id='services' data-aos="fade-up">
                 <SoftwareAuditSection />
+              </div>
+              <div>
+                <ClientsSection />
               </div>
               <Container data-aos="zoom-in">
                 <FeaturesSection />
               </Container>
-              <div data-aos="slide-up">
+              <div id="contact" data-aos="slide-up">
                 <ContactSection />
               </div>
             </MainLayout>
@@ -72,6 +77,9 @@ function App() {
         <Route path="/about-us"
           element={<MainLayout>
             <AboutUsPage></AboutUsPage>
+            <div id="contact" data-aos="slide-up">
+                <ContactSection />
+            </div>
           </MainLayout>}
         />
         <Route path='contact'
