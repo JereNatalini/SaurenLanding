@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-import { AppBar, Toolbar, IconButton, Button, Box, useTheme } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Button,
+  Box,
+  useTheme,
+  Container,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom"; // Importa Link desde react-router-dom
+import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import MobileMenu from "../components/MobileMenu";
 import logo from "../assets/images/logo.png";
@@ -9,85 +17,110 @@ import logo from "../assets/images/logo.png";
 const Navbar: React.FC = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-  const toggleDrawer = () => setOpen(prev => !prev);
+  const toggleDrawer = () => setOpen((prev) => !prev);
 
   return (
     <>
       <AppBar
-        position="absolute"     // deja que el navbar se vaya al hacer scroll
+        position="absolute"
         color="transparent"
-        elevation={0}            // sin sombra
+        elevation={0}
         sx={{
-          width: { xs: "95%", sm: "90%", md: "80%" },
+          width: "100%",
+          left: 0,
+          right: 0,
           margin: "0 auto",
-          marginTop: "10px",
+          padding: { xs: "0 16px", sm: "0 24px", md: "0 48px" },
           boxShadow: "none",
+          backdropFilter: "blur(8px)",
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
         }}
       >
-        <Toolbar sx={{ justifyContent: "space-between" }}>
-          {/* Logo clickeable */}
-          <Box sx={{ display: "flex", alignItems: "center", width: "auto" }}>
+        <Toolbar
+          disableGutters
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+            maxWidth: "1400px",
+            margin: "0 auto",
+          }}
+        >
+          {/* Logo */}
+          <Box sx={{ flexGrow: 0 }}>
             <Link to="/" style={{ textDecoration: "none" }}>
               <Box
                 component="img"
                 src={logo}
                 alt="Sauren Logo"
                 sx={{
-                  width: { xs: "50%", md: "30%" },
-                  height: "auto",
+                  height: { xs: "40px", md: "50px" },
+                  width: "auto",
                 }}
               />
             </Link>
           </Box>
 
-          {/* Botones del Navbar para desktop */}
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+          {/* Desktop Navigation */}
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              gap: { md: 1, lg: 2 },
+              alignItems: "center",
+            }}
+          >
             <Button
-              color="inherit"
               component={Link}
               to="/"
               sx={{
+                color: theme.palette.text.primary,
+                fontWeight: 600,
+                fontSize: "1rem",
+                textTransform: "none",
+                px: 2,
+                py: 1,
                 "&:hover": {
-                  backgroundColor: theme.palette.primary.main,
-                  borderRadius: "8px",
+                  backgroundColor: theme.palette.primary.light,
+                  color: theme.palette.primary.contrastText,
                 },
-                fontWeight: "bold",
-                mx: 1,
               }}
             >
               Home
             </Button>
+
             <Button
-              color="inherit"
-              sx={{
-                "&:hover": {
-                  backgroundColor: theme.palette.primary.main,
-                  borderRadius: "8px",
-                },
-                fontWeight: "bold",
-                mx: 1,
-              }}
               component={Link}
               to="/about-us"
+              sx={{
+                color: theme.palette.text.primary,
+                fontWeight: 600,
+                fontSize: "1rem",
+                textTransform: "none",
+                px: 2,
+                py: 1,
+                "&:hover": {
+                  backgroundColor: theme.palette.primary.light,
+                  color: theme.palette.primary.contrastText,
+                },
+              }}
             >
               About Us
             </Button>
-            <ScrollLink
-              to={"contact"}
-              smooth={true}
-              duration={500}
-              offset={-70}
-            >
+
+            <ScrollLink to="contact" smooth={true} duration={500} offset={-70}>
               <Button
-                color="inherit"
                 sx={{
+                  color: theme.palette.text.primary,
+                  fontWeight: 600,
+                  fontSize: "1rem",
+                  textTransform: "none",
+                  px: 2,
+                  py: 1,
                   "&:hover": {
-                    backgroundColor: theme.palette.primary.main,
-                    borderRadius: "4px",
-                    transparency: 0.8,
+                    backgroundColor: theme.palette.primary.light,
+                    color: theme.palette.primary.contrastText,
                   },
-                  fontWeight: "bold",
-                  mx: 1,
                 }}
               >
                 Contact
@@ -95,14 +128,19 @@ const Navbar: React.FC = () => {
             </ScrollLink>
           </Box>
 
-          {/* Menú móvil para pantallas < sm */}
+          {/* Mobile Menu Button */}
           <IconButton
-            color="inherit"
+            size="large"
             edge="end"
+            color="inherit"
+            aria-label="menu"
             onClick={toggleDrawer}
-            sx={{ display: { xs: "block", md: "none" } }}
+            sx={{
+              display: { xs: "flex", md: "none" },
+              color: theme.palette.text.primary,
+            }}
           >
-            <MenuIcon />
+            <MenuIcon fontSize="large" />
           </IconButton>
         </Toolbar>
       </AppBar>

@@ -1,213 +1,305 @@
 import React from "react";
-import { Box, Typography, Container } from "@mui/material";
-import techImage from "../../assets/images/womenCoffee.jpg"; // 📌 Reemplaza con tu imagen real
-
+import { Box, Typography, Container, Button, useTheme } from "@mui/material";
+import techImage from "../../assets/images/womenCoffee.jpg";
+import { Link as ScrollLink } from "react-scroll";
+import TrueFocusInline from "../../components/TrueFocusInline";
+import TrueFocusWrapper from "../../components/TrueFocusWrapper";
 const BusinessTechUpdate: React.FC = () => {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #2E3192, #ED1C24)", // 🔥 Fondo llamativo
-        color: "#fff",
-        py: { xs: 6, md: 10 },
-        px: { xs: 3, md: 6 },
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" }, // 📌 Columna en mobile, fila en desktop
-        alignItems: "center",
-        justifyContent: "space-between",
+        position: "relative",
+        overflow: "hidden",
+        py: { xs: 8, md: 12 },
+        px: { xs: 2, sm: 4 },
+        background: `
+          linear-gradient(145deg, 
+            ${theme.palette.primary.dark} 0%, 
+            ${theme.palette.secondary.main} 100%
+          )
+        `,
+        color: theme.palette.common.white,
       }}
     >
-      <Container
+      {/* Elementos decorativos */}
+      <Box
         sx={{
+          position: "absolute",
+          top: -100,
+          right: -100,
+          width: 400,
+          height: 400,
+          borderRadius: "50%",
+          background: `radial-gradient(
+            circle, 
+            rgba(255,255,255,0.15) 0%, 
+            transparent 70%
+          )`,
+        }}
+      />
+
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: -150,
+          left: -150,
+          width: 500,
+          height: 500,
+          borderRadius: "50%",
+          background: `radial-gradient(
+            circle, 
+            rgba(255,255,255,0.1) 0%, 
+            transparent 70%
+          )`,
+        }}
+      />
+
+      <Container
+        maxWidth="lg"
+        sx={{
+          position: "relative",
+          zIndex: 1,
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
+          flexDirection: { xs: "column", lg: "row" },
           alignItems: "center",
-          justifyContent: "space-between",
-          width: "100%",
+          gap: { xs: 4, lg: 8 },
         }}
       >
+        {/* Contenido de texto */}
         <Box
           sx={{
             flex: 1,
-            display: { xs: "none", md: "flex" },
-            justifyContent: "center",
-            alignItems: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: { xs: "center", lg: "flex-start" },
+            textAlign: { xs: "center", lg: "left" },
+          }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: 800,
+              fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+              mb: 3,
+              lineHeight: 1.2,
+              textShadow: "0 2px 10px rgba(0,0,0,0.2)",
+              color: theme.palette.common.white,
+            }}
+          >
+            Transforma tu negocio con{" "}
+            <Box
+              component="span"
+              sx={{
+                display: "inline-block",
+                position: "relative",
+                zIndex: 2,
+              }}
+            >
+              <TrueFocusWrapper
+                text="tecnología inteligente"
+                manualMode={false}
+                blurAmount={3}
+                borderColor={theme.palette.secondary.light}
+                glowColor="rgba(255, 255, 255, 0.6)"
+                animationDuration={0.4}
+                pauseBetweenAnimations={1.5}
+              />
+            </Box>
+          </Typography>
+
+          <Typography
+            variant="h5"
+            component="p"
+            sx={{
+              fontWeight: 400,
+              fontSize: { xs: "1rem", sm: "1.25rem" },
+              mb: 4,
+              maxWidth: "600px",
+              opacity: 0.9,
+              textShadow: "0 2px 10px rgba(0,0,0,0.2)",
+              color: theme.palette.common.white,
+            }}
+          >
+            En un mundo que cambia rápidamente,{" "}
+            <strong>mantenerse actualizado</strong> es clave para el éxito.
+            Nuestras soluciones están diseñadas para{" "}
+            <strong>simplificar la tecnología</strong> y ayudarte a tomar
+            decisiones informadas sin complicaciones.
+          </Typography>
+
+          <Box
+            sx={{
+              display: "flex",
+              gap: 2,
+              flexDirection: { xs: "column", sm: "row" },
+            }}
+          >
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              sx={{
+                px: 4,
+                py: 1.5,
+                fontWeight: 700,
+                borderRadius: "50px",
+                boxShadow: `0 4px 20px ${theme.palette.common.white}`,
+                "&:hover": {
+                  transform: "translateY(-2px)",
+                  boxShadow: `0 6px 24px ${theme.palette.primary.main}`,
+                },
+                transition: "all 0.3s ease",
+              }}
+              href="https://wa.me/5493517336655?text=¡Hola!%20Me%20interesa%20una%20auditoría%20de%20software%20gratuita."
+            >
+              Descubre cómo
+            </Button>
+
+            <Button
+              component={ScrollLink}
+              to="features"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              variant="outlined"
+              color="inherit"
+              size="large"
+              sx={{
+                px: 4,
+                py: 1.5,
+                fontWeight: 600,
+                borderRadius: "50px",
+                borderWidth: "2px",
+                "&:hover": {
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                  borderWidth: "2px",
+                },
+                transition: "all 0.3s ease",
+              }}
+            >
+              Ver casos de éxito
+            </Button>
+          </Box>
+        </Box>
+
+        {/* Contenedor de imagen */}
+        <Box
+          sx={{
+            flex: 1,
             position: "relative",
-            overflow: "hidden",
+            maxWidth: "600px",
+            width: "100%",
+            perspective: "1000px",
           }}
         >
           <Box
             sx={{
               position: "relative",
-              width: "80%",
-              maxWidth: "600px",
-              transition: "transform 0.3s ease",
-              '&:hover': {
-                transform: "scale(1.02)",
-                '& .image-container': {
-                  transform: "translateY(-5px)",
-                  boxShadow: "0 15px 30px rgba(0, 0, 0, 0.3)",
+              borderRadius: "20px",
+              overflow: "hidden",
+              boxShadow: `
+                0 30px 60px -10px rgba(0,0,0,0.3),
+                0 18px 36px -18px rgba(0,0,0,0.33)
+              `,
+              transformStyle: "preserve-3d",
+              transition: "transform 0.5s ease, box-shadow 0.5s ease",
+              "&:hover": {
+                transform: "translateY(-10px) rotateX(5deg)",
+                boxShadow: `
+                  0 40px 80px -15px rgba(0,0,0,0.4),
+                  0 25px 50px -25px rgba(0,0,0,0.4)
+                `,
+                "&:after": {
+                  opacity: 1,
                 },
-                '& img': {
+                "& img": {
                   transform: "scale(1.05)",
-                  filter: "grayscale(0%)",
-                }
-              }
+                },
+              },
+              "&:after": {
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: `linear-gradient(
+                  135deg,
+                  rgba(255,255,255,0.1) 0%,
+                  transparent 100%
+                )`,
+                opacity: 0,
+                transition: "opacity 0.5s ease",
+              },
             }}
           >
-            {/* Fondo degradado con efecto 3D */}
             <Box
+              component="img"
+              src={techImage}
+              alt="Tecnología para negocios"
               sx={{
-                position: "absolute",
-                top: 20,
-                left: 20,
                 width: "100%",
-                height: "100%",
-                background: "linear-gradient(45deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 100%)",
-                transform: "rotate(-3deg)",
-                borderRadius: "16px",
-                zIndex: 1,
-                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)",
+                height: "auto",
+                display: "block",
+                transition: "transform 0.5s ease",
               }}
             />
 
-            {/* Contenedor principal de la imagen */}
             <Box
-              className="image-container"
               sx={{
-                position: "relative",
-                background: "#ffffff",
-                borderRadius: "16px",
-                overflow: "hidden",
-                zIndex: 2,
-                transition: "all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)",
-                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.12)",
-                cursor: "pointer",
-                '&:hover': {
-                  transform: "translateY(-4px)",
-                  boxShadow: "0 12px 32px rgba(0, 0, 0, 0.18)",
-
-                  '&:after': {
-                    opacity: 1,
-                  },
-
-                  '& .image-overlay': {
-                    opacity: 0.3,
-                  },
-
-                  '& img': {
-                    filter: "grayscale(0%) contrast(115%)",
-                    transform: "scale(1.03)",
-                  },
-
-                  '& .hover-text': {
-                    transform: "translateY(0)",
-                  }
-                },
-
-                '&:after': {
-                  content: '""',
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  border: "2px solid rgba(255, 255, 255, 0.2)",
-                  borderRadius: "16px",
-                  zIndex: 4,
-                  opacity: 0,
-                  transition: "opacity 0.3s ease",
-                }
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                padding: 3,
+                background: `linear-gradient(
+                  to top,
+                  rgba(0,0,0,0.8) 0%,
+                  transparent 100%
+                )`,
               }}
             >
-              {/* Overlay de color */}
-              <Box
-                className="image-overlay"
+              <Typography
+                variant="h6"
                 sx={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  background: "linear-gradient(45deg, rgba(16, 185, 129, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)",
-                  zIndex: 2,
-                  opacity: 0,
-                  transition: "opacity 0.3s ease",
-                  mixBlendMode: "soft-light",
+                  color: theme.palette.common.white,
+                  fontWeight: 600,
                 }}
-              />
-
-              {/* Imagen */}
-              <Box
-                component="img"
-                src={techImage}
-                alt="Tecnología actualizada"
+              >
+                Soluciones que impulsan tu negocio
+              </Typography>
+              <Typography
+                variant="body2"
                 sx={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "cover",
-                  display: "block",
-                  transformOrigin: "center",
-                  transition: "all 0.4s ease",
-                  filter: "grayscale(30%) contrast(105%)",
-                  transform: "scale(1.01)",
+                  color: "rgba(255,255,255,0.8)",
                 }}
-              />
-
+              >
+                Tecnología adaptada a tus necesidades reales
+              </Typography>
             </Box>
-            {/* Efecto de acento decorativo */}
-            <Box
-              sx={{
-                position: "absolute",
-                bottom: -10,
-                right: -10,
-                width: "60px",
-                height: "60px",
-                background: "linear-gradient(45deg, #2E3192, #ED1C24)",
-                borderRadius: "12px",
-                transform: "rotate(45deg)",
-                zIndex: 3,
-                opacity: 0.8,
-                boxShadow: "0 0 20px rgba(0, 180, 216, 0.4)",
-              }}
-            />
           </Box>
-        </Box>
 
-        {/* Texto a la derecha en md+ (centrado en xs) */}
-        <Box
-          sx={{
-            flex: 1,
-            textAlign: { xs: "center", md: "left" },
-          }}
-        >
-          {/* Título */}
-          <Typography
-            variant="h3"
+          {/* Elemento decorativo */}
+          <Box
             sx={{
-              fontWeight: "bold",
-              fontSize: { xs: "1.5rem", md: "2.5rem" },
-              mb: 3,
+              position: "absolute",
+              top: -20,
+              right: -20,
+              width: 80,
+              height: 80,
+              borderRadius: "50%",
+              background: `linear-gradient(
+                45deg,
+                ${theme.palette.secondary.light},
+                ${theme.palette.primary.light}
+              )`,
+              filter: "blur(15px)",
+              opacity: 0.7,
+              zIndex: -1,
             }}
-          >
-            Mantente actualizado sin complicaciones
-          </Typography>
-
-          {/* Texto principal */}
-          <Typography
-            variant="h6"
-            sx={{
-              maxWidth: "800px",
-              fontWeight: "400",
-              fontSize: { xs: "1rem", md: "1.5rem" },
-              opacity: 0.9,
-            }}
-          >
-            Sabemos lo importante que es para tu negocio{" "}
-            <strong>mantenerse al día con la tecnología</strong>. Pero a veces,{" "}
-            <strong>elegir las herramientas adecuadas</strong> sin una guía puede
-            ser difícil. ¡Nosotros estamos aquí para ayudarte a{" "}
-            <strong>tomar la mejor decisión</strong> sin complicaciones!
-          </Typography>
+          />
         </Box>
       </Container>
     </Box>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Box, Typography, Container, Button } from "@mui/material";
 import theme from "../../theme";
 
@@ -15,17 +15,18 @@ const dynamicTexts = [
   "un ERP"
 ];
 
-const minHeightValue = "80px"; // 🔥 Fija un espacio para evitar saltos
-
 const SoftwareAuditSection: React.FC = () => {
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [speed, setSpeed] = useState(100);
+  const textRef = useRef<HTMLDivElement>(null);
+
+  // Ajustamos el tamaño de fuente basado en el ancho del contenedor
+  const [fontSize, setFontSize] = useState({ xs: "2.2rem", md: "3rem" });
 
   useEffect(() => {
     const currentText = dynamicTexts[index];
-
     const typingEffect = setTimeout(() => {
       if (!isDeleting) {
         setText(currentText.substring(0, text.length + 1));
@@ -46,6 +47,30 @@ const SoftwareAuditSection: React.FC = () => {
     return () => clearTimeout(typingEffect);
   }, [text, isDeleting]);
 
+  // Efecto para ajustar el tamaño de fuente si el texto es muy largo
+  useEffect(() => {
+    const checkTextWidth = () => {
+      if (textRef.current) {
+        const containerWidth = textRef.current.offsetWidth;
+        const textWidth = textRef.current.scrollWidth;
+        
+        // Si el texto ocupa más del 90% del contenedor, reducimos el tamaño
+        if (textWidth > containerWidth * 0.9) {
+          setFontSize({ xs: "1.8rem", md: "2.5rem" });
+        } else {
+          setFontSize({ xs: "2.2rem", md: "3rem" });
+        }
+      }
+    };
+
+    checkTextWidth();
+    window.addEventListener('resize', checkTextWidth);
+    
+    return () => {
+      window.removeEventListener('resize', checkTextWidth);
+    };
+  }, [text]);
+
   return (
     <Container
       sx={{
@@ -56,20 +81,48 @@ const SoftwareAuditSection: React.FC = () => {
         alignItems: "center",
       }}
     >
-      {/* 🔹 Título */}
-      <Typography
-        variant="h3"
+      {/* Contenedor del texto animado con ref */}
+      <Box
+        ref={textRef}
         sx={{
-          fontWeight: "bold",
-          fontSize: { xs: "1.8rem", md: "2.5rem" },
-          mb: 2,
-          color: theme.palette.primary.main,
+          width: "100%",
+          maxWidth: "900px",
+          minHeight: "80px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          mb: 4,
+          overflow: "hidden", // Evita que el texto desbordado cause scroll
         }}
       >
-        ¿No sabes bien qué necesitas?😅
-      </Typography>
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 800,
+            fontSize: fontSize,
+            textAlign: "center",
+            background: "linear-gradient(90deg, #ED1C24, #2E3192)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            whiteSpace: "nowrap", // Evita saltos de línea
+            overflow: "hidden", // Oculta el texto que no cabe
+            textOverflow: "ellipsis", // Añade puntos suspensivos si el texto no cabe
+            px: 2, // Padding horizontal para evitar que el texto toque los bordes
+          }}
+        >
+          Necesito {text}
+          <span style={{ 
+            color: theme.palette.primary.main,
+            animation: "blink 1s infinite",
+            "@keyframes blink": {
+              "0%": { opacity: 1 },
+              "50%": { opacity: 0 },
+              "100%": { opacity: 1 },
+            }
+          }}>|</span>
+        </Typography>
+      </Box>
 
-      {/* 🔹 Texto fijo con énfasis en "auditoría gratuita" */}
       <Typography
         variant="h4"
         sx={{
@@ -77,7 +130,7 @@ const SoftwareAuditSection: React.FC = () => {
           fontWeight: "bold",
           maxWidth: "700px",
           mb: 4,
-          fontSize: { xs: "1.3rem", md: "2rem" }
+          fontSize: { xs: "1.3rem", md: "1.7rem" }
         }}
       >
         ¡Solicita tu{" "}
@@ -85,37 +138,6 @@ const SoftwareAuditSection: React.FC = () => {
         y nuestro equipo de expertos te ayudará a elegir la mejor solución!
       </Typography>
 
-      {/* 🔹 Contenedor con altura fija para prevenir saltos */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          textAlign: "center",
-          minHeight: minHeightValue,
-          width: "100%",
-          maxWidth: "800px",
-        }}
-      >
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: 800,
-            fontSize: { xs: "2rem", md: "2.2rem" },
-            textAlign: "center",
-            background: "linear-gradient(90deg, #ED1C24, #2E3192)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            display: "inline-block",
-            overflowWrap: "break-word",
-            wordBreak: "break-word",
-          }}
-        >
-          Necesito {text}
-          <span style={{ color: theme.palette.primary.main }}>|</span> {/* Cursor animado */}
-        </Typography>
-      </Box>
-
-      {/* 🔹 Botón CTA con enlace a WhatsApp */}
       <Button
         component="a"
         href="https://wa.me/5493517336655?text=¡Hola!%20Me%20interesa%20una%20auditoría%20de%20software%20gratuita."
