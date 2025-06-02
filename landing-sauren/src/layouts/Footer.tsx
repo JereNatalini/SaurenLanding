@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
               
               <Box
                 component={ScrollLink}
-                to="projects"
+                to="features"
                 smooth={true}
                 duration={500}
                 offset={-70}
