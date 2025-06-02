@@ -46,7 +46,7 @@ function App() {
               <div>
                 <ClientsSection />
               </div>
-              <Container data-aos="zoom-in">
+              <Container id="features" data-aos="zoom-in">
                 <FeaturesSection />
               </Container>
               <div id="contact" data-aos="slide-up">
