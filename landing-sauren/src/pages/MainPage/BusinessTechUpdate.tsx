@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Typography, Container, Button, useTheme } from "@mui/material";
 import techImage from "../../assets/images/womenCoffee.jpg";
 import { Link as ScrollLink } from "react-scroll";
-import TrueFocusInline from "../../components/TrueFocusInline";
 import TrueFocusWrapper from "../../components/TrueFocusWrapper";
 const BusinessTechUpdate: React.FC = () => {
   const theme = useTheme();

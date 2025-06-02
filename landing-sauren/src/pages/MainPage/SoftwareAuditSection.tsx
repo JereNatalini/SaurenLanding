@@ -113,12 +113,7 @@ const SoftwareAuditSection: React.FC = () => {
           Necesito {text}
           <span style={{ 
             color: theme.palette.primary.main,
-            animation: "blink 1s infinite",
-            "@keyframes blink": {
-              "0%": { opacity: 1 },
-              "50%": { opacity: 0 },
-              "100%": { opacity: 1 },
-            }
+            animation: "blink 1s infinite"
           }}>|</span>
         </Typography>
       </Box>
