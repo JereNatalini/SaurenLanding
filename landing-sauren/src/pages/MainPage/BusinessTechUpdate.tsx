@@ -2,7 +2,8 @@ import React from "react";
 import { Box, Typography, Container, Button, useTheme } from "@mui/material";
 import techImage from "../../assets/images/womenCoffee.jpg";
 import { Link as ScrollLink } from "react-scroll";
-
+import TrueFocusInline from "../../components/TrueFocusInline";
+import TrueFocusWrapper from "../../components/TrueFocusWrapper";
 const BusinessTechUpdate: React.FC = () => {
   const theme = useTheme();
 
@@ -91,17 +92,20 @@ const BusinessTechUpdate: React.FC = () => {
             <Box
               component="span"
               sx={{
-                background: `linear-gradient(
-                  to right, 
-                  ${theme.palette.common.white}, 
-                  ${theme.palette.common.white}
-                )`,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                fontWeight: 900,
+                display: "inline-block",
+                position: "relative",
+                zIndex: 2,
               }}
             >
-              tecnología inteligente
+              <TrueFocusWrapper
+                text="tecnología inteligente"
+                manualMode={false}
+                blurAmount={3}
+                borderColor={theme.palette.secondary.light}
+                glowColor="rgba(255, 255, 255, 0.6)"
+                animationDuration={0.4}
+                pauseBetweenAnimations={1.5}
+              />
             </Box>
           </Typography>
 
