@@ -1,11 +1,13 @@
-import React from "react";
-import { Box, Typography, Button, Container, useTheme } from "@mui/material";
-import { ArrowRightAlt, CheckCircle } from "@mui/icons-material";
+import React, { useRef } from "react";
+import { Box, Button, Container, useTheme } from "@mui/material";
+import { ArrowRightAlt } from "@mui/icons-material";
 import MagnetLines from "../../Animations/MagnetLines/MagnetLines";
 import Particles from "../../Backgrounds/Particles/Particles";
+import RotatingText from "../../TextAnimations/RotatingText/RotatingText";
 
 const FullScreenHero = () => {
   const theme = useTheme();
+  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <Box
@@ -19,7 +21,7 @@ const FullScreenHero = () => {
         py: 0,
       }}
     >
-      {/* Partículas con color primario */}
+      {/* Partículas animadas */}
       <Box
         sx={{
           position: "absolute",
@@ -49,6 +51,7 @@ const FullScreenHero = () => {
           zIndex: 2,
           py: { xs: 8, md: 10 },
           display: "flex",
+          flexDirection: { xs: "column-reverse", md: "row" },
           alignItems: "center",
           justifyContent: "space-between",
         }}
@@ -59,157 +62,146 @@ const FullScreenHero = () => {
             maxWidth: { xs: "100%", md: "50%" },
             textAlign: { xs: "center", md: "left" },
             pr: { md: 6 },
+            mt: { xs: 6, md: 0 },
           }}
         >
-          <Typography
-            variant="h1"
-            component="h1"
-            sx={{
-              mb: 3,
-              lineHeight: 1.1,
-              textShadow: `0 2px 10px rgba(0,0,0,0.1)`,
-              '& span': {
-                color: theme.palette.primary.main,
-                display: 'inline-block',
-                position: 'relative',
-                '&:after': {
-                  content: '""',
-                  position: 'absolute',
-                  bottom: '8px',
-                  left: 0,
-                  width: '100%',
-                  height: '6px',
-                  backgroundColor: theme.palette.primary.light,
-                  opacity: 0.4,
-                  zIndex: -1,
-                }
-              }
+          <Box 
+            ref={containerRef}
+            sx={{ 
+              minHeight: '40vh', 
+              display: 'flex', 
+              flexDirection: 'column', 
+              justifyContent: 'center',
+              position: 'relative' 
             }}
           >
-            Transforma tu negocio con <span>tecnología inteligente</span>
-          </Typography>
-
-          <Typography
-            variant="h5"
-            component="p"
-            sx={{
+            <Box sx={{ 
               mb: 4,
-              color: theme.palette.text.secondary,
-              lineHeight: 1.6,
-              maxWidth: "90%",
-              mx: { xs: "auto", md: 0 },
-            }}
-          >
-            Nuestras soluciones tecnológicas personalizadas escalan tu empresa 
-            al siguiente nivel con inteligencia artificial y análisis predictivo.
-          </Typography>
-
-          {/* Botones */}
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", sm: "row" },
-              gap: 3,
-              mb: 6,
-              justifyContent: { xs: "center", md: "flex-start" },
-            }}
-          >
-            <Button
-              variant="contained"
-              size="large"
-              endIcon={<ArrowRightAlt sx={{ fontSize: "1.5rem" }} />}
-              href="#contacto"
-              sx={{
-                px: 5,
-                py: 1.5,
-                borderRadius: "50px",
-                boxShadow: `0 4px 20px ${theme.palette.primary.main}40`,
-                transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
-                "&:hover": {
-                  transform: "translateY(-2px)",
-                  boxShadow: `0 6px 24px ${theme.palette.primary.main}60`,
-                },
-              }}
-            >
-              Comenzar ahora
-            </Button>
-
-            <Button
-              variant="outlined"
-              size="large"
-              sx={{
-                px: 5,
-                py: 1.5,
-                borderRadius: "50px",
-                borderWidth: "2px",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  borderWidth: "2px",
-                  backgroundColor: theme.palette.primary.light + "08",
-                },
-              }}
-            >
-              Ver casos de éxito
-            </Button>
-          </Box>
-
-          {/* Features */}
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, auto)" },
-              gap: 2,
-              justifyContent: { xs: "center", md: "flex-start" },
-            }}
-          >
-            {[
-              "Análisis en tiempo real",
-              "Tecnología escalable", 
-              "Soporte 24/7",
-              "Resultados garantizados"
-            ].map((item, index) => (
-              <Box
-                key={index}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  backgroundColor: theme.palette.background.paper,
-                  borderRadius: "12px",
-                  px: 2,
-                  py: 1,
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
-                }}
-              >
-                <CheckCircle
-                  sx={{
+              fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' },
+              lineHeight: 1.2,
+              fontWeight: 900,
+              fontFamily: 'NexaHeavy, Arial, sans-serif',
+              color: theme.palette.text.primary,
+              minHeight: '6rem'
+            }}>
+              Impulsa tu negocio con {' '}
+              <Box component="span" sx={{
+                display: 'inline-block',
+                minWidth: '200px',
+                position: 'relative',
+                verticalAlign: 'top',
+                textAlign: 'left'
+              }}>
+                <RotatingText
+                  texts={['tecnología', 'innovación', 'inteligencia', 'eficiencia']}
+                  mainClassName="text-rotate-main"
+                  staggerFrom="center"
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ 
+                    y: "-100%", 
+                    opacity: 0,
+                    transition: { duration: 0.3 }
+                  }}
+                  staggerDuration={0.02}
+                  splitLevelClassName="text-rotate-split"
+                  transition={{ 
+                    type: "spring", 
+                    damping: 30, 
+                    stiffness: 400,
+                    mass: 0.5
+                  }}
+                  rotationInterval={2500}
+                  style={{
                     color: theme.palette.primary.main,
-                    fontSize: "1.2rem",
+                    '&:after': {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: '8px',
+                      left: 0,
+                      width: '100%',
+                      height: '6px',
+                      backgroundColor: theme.palette.primary.light,
+                      opacity: 0.4,
+                      zIndex: -1,
+                    }
                   }}
                 />
-                <Typography
-                  variant="body1"
-                  sx={{ 
-                    fontWeight: 500,
-                    fontSize: "0.9rem"
-                  }}
-                >
-                  {item}
-                </Typography>
               </Box>
-            ))}
+            </Box>
+
+            <Box sx={{ 
+              mb: 6,
+              fontSize: { xs: '1.2rem', md: '1.5rem' },
+              lineHeight: 1.6,
+              fontWeight: 400,
+              fontFamily: 'NexaExtraLight, Arial, sans-serif',
+              color: theme.palette.text.secondary,
+            }}>
+              Descubre cómo nuestras soluciones pueden llevar tu empresa al siguiente nivel
+            </Box>
+
+            {/* Botones */}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                gap: 3,
+                mb: 6,
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
+            >
+              <Button
+                variant="contained"
+                size="large"
+                endIcon={<ArrowRightAlt sx={{ fontSize: "1.5rem" }} />}
+                href="#contacto"
+                sx={{
+                  px: 5,
+                  py: 1.5,
+                  borderRadius: "50px",
+                  boxShadow: `0 4px 20px ${theme.palette.primary.main}40`,
+                  transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                  "&:hover": {
+                    transform: "translateY(-2px)",
+                    boxShadow: `0 6px 24px ${theme.palette.primary.main}60`,
+                  },
+                }}
+              >
+                Comenzar ahora
+              </Button>
+
+              <Button
+                variant="outlined"
+                size="large"
+                sx={{
+                  px: 5,
+                  py: 1.5,
+                  borderRadius: "50px",
+                  borderWidth: "2px",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    borderWidth: "2px",
+                    backgroundColor: theme.palette.primary.light + "08",
+                  },
+                }}
+              >
+                Ver demostración
+              </Button>
+            </Box>
           </Box>
         </Box>
 
-        {/* Componente MagnetLines para desktop */}
+        {/* Componente MagnetLines para todas las pantallas */}
         <Box
           sx={{
-            display: { xs: "none", md: "flex" },
+            display: "flex",
             alignItems: "center",
             justifyContent: "center",
             position: "relative",
-            width: "40%",
-            minHeight: "60vh",
+            width: { xs: "100%", md: "40%" },
+            height: { xs: "40vh", md: "60vh" },
+            mb: { xs: 1, md: 0 },
           }}
         >
           <Box
@@ -224,12 +216,12 @@ const FullScreenHero = () => {
             }}
           >
             <MagnetLines
-              rows={9}
-              columns={9}
-              containerSize="40vmin"
+              rows={7}
+              columns={7}
+              containerSize={ { xs: "70vw", md: "40vmin" } }
               lineColor={theme.palette.primary.main}
-              lineWidth="0.6vmin"
-              lineHeight="4vmin"
+              lineWidth={ { xs: "0.8vmin", md: "0.6vmin" } }
+              lineHeight={ { xs: "3vmin", md: "4vmin" } }
               baseAngle={0}
               style={{ margin: 0 }}
             />
