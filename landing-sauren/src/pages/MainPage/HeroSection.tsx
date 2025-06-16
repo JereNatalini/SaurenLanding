@@ -1,204 +1,276 @@
 import React from "react";
-import { Box, Typography, Container, Button } from "@mui/material";
-import theme from "../../theme";
-import mainimage from "../../assets/images/mainpage.gif";
-import { ArrowForwardRounded } from "@mui/icons-material";
+import { Box, Typography, Button, Container, useTheme } from "@mui/material";
+import { ArrowRightAlt, CheckCircle } from "@mui/icons-material";
+import MagnetLines from "../../Animations/MagnetLines/MagnetLines";
+import Particles from "../../Backgrounds/Particles/Particles";
 
-const HeroSection: React.FC = () => {
+const FullScreenHero = () => {
+  const theme = useTheme();
+
   return (
-    <Container
+    <Box
       sx={{
-        minHeight: { xs: "auto", md: "100vh" }, // Ocupa toda la pantalla en pantallas grandes
+        minHeight: "100vh",
         display: "flex",
-        alignItems: "center", // Centra el contenido verticalmente
+        alignItems: "center",
+        position: "relative",
+        overflow: "hidden",
+        background: theme.palette.background.default,
+        py: 0,
       }}
     >
-      {/* Hero Section */}
+      {/* Partículas con color primario */}
       <Box
         sx={{
-          display: "flex",
-          flexDirection: { xs: "column-reverse", md: "row" },
-          alignItems: "center",
-          justifyContent: "space-between",
+          position: "absolute",
+          top: 0,
+          left: 0,
           width: "100%",
-          py: { xs: 4, md: 6 },
+          height: "100%",
+          zIndex: 1,
         }}
       >
-        {/* Left Content (Text Section) */}
+        <Particles
+          particleColors={[theme.palette.primary.main]}
+          particleCount={175}
+          particleSpread={15}
+          speed={0.15}
+          particleBaseSize={130}
+          moveParticlesOnHover={true}
+          alphaParticles={true}
+          disableRotation={false}
+        />
+      </Box>
+
+      <Container
+        maxWidth="xl"
+        sx={{
+          position: "relative",
+          zIndex: 2,
+          py: { xs: 8, md: 10 },
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        {/* Contenido de texto */}
         <Box
           sx={{
-            flex: 1.5, // Se mantiene ancho suficiente
+            maxWidth: { xs: "100%", md: "50%" },
             textAlign: { xs: "center", md: "left" },
-            pr: { md: 8, lg: 12 },
-            maxWidth: { xs: "100%", md: "750px" },
+            pr: { md: 6 },
           }}
         >
           <Typography
-            variant="h2"
+            variant="h1"
+            component="h1"
             sx={{
-              fontWeight: "bold",
-              mb: 2,
-              fontSize: { xs: "1.5rem", md: "2.3rem", lg: "2.5rem" }, // 🔹 Ajustamos el tamaño en md
+              mb: 3,
               lineHeight: 1.1,
-              textAlign: { xs: "center", md: "left" },
+              textShadow: `0 2px 10px rgba(0,0,0,0.1)`,
+              '& span': {
+                color: theme.palette.primary.main,
+                display: 'inline-block',
+                position: 'relative',
+                '&:after': {
+                  content: '""',
+                  position: 'absolute',
+                  bottom: '8px',
+                  left: 0,
+                  width: '100%',
+                  height: '6px',
+                  backgroundColor: theme.palette.primary.light,
+                  opacity: 0.4,
+                  zIndex: -1,
+                }
+              }
             }}
           >
-            {"Optimiza tu Negocio"}
-            <br />
-            {"con nuestras"}
-            <br />
-            <span
-              style={{
-                color: theme.palette.primary.main,
-                display: "inline-block",
-                whiteSpace: "nowrap",
-                fontSize: "clamp(2rem, 2.5vw, 2.5rem)", // 🔹 Se adapta mejor en md sin ser más chico que el resto
-                maxWidth: "100%",
-              }}
-            >
-              {"Auditorías de Software"}
-            </span>
+            Transforma tu negocio con <span>tecnología inteligente</span>
           </Typography>
 
           <Typography
-            variant="body1"
+            variant="h5"
+            component="p"
             sx={{
               mb: 4,
-              color: theme.palette.text.primary,
-              fontWeight: "bold",
-              fontSize: { xs: "1.1rem", md: "1.2rem", lg: "1.3rem" },
+              color: theme.palette.text.secondary,
+              lineHeight: 1.6,
+              maxWidth: "90%",
               mx: { xs: "auto", md: 0 },
             }}
           >
-            Potencia el rendimiento de tus procesos y
-            descubre oportunidades con diagnósticos tecnológicos a medida.
+            Nuestras soluciones tecnológicas personalizadas escalan tu empresa 
+            al siguiente nivel con inteligencia artificial y análisis predictivo.
           </Typography>
 
-          {/* Métricas alineadas */}
+          {/* Botones */}
           <Box
             sx={{
               display: "flex",
-              gap: 5, // Espacio entre métricas
+              flexDirection: { xs: "column", sm: "row" },
+              gap: 3,
+              mb: 6,
+              justifyContent: { xs: "center", md: "flex-start" },
+            }}
+          >
+            <Button
+              variant="contained"
+              size="large"
+              endIcon={<ArrowRightAlt sx={{ fontSize: "1.5rem" }} />}
+              href="#contacto"
+              sx={{
+                px: 5,
+                py: 1.5,
+                borderRadius: "50px",
+                boxShadow: `0 4px 20px ${theme.palette.primary.main}40`,
+                transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                "&:hover": {
+                  transform: "translateY(-2px)",
+                  boxShadow: `0 6px 24px ${theme.palette.primary.main}60`,
+                },
+              }}
+            >
+              Comenzar ahora
+            </Button>
+
+            <Button
+              variant="outlined"
+              size="large"
+              sx={{
+                px: 5,
+                py: 1.5,
+                borderRadius: "50px",
+                borderWidth: "2px",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  borderWidth: "2px",
+                  backgroundColor: theme.palette.primary.light + "08",
+                },
+              }}
+            >
+              Ver casos de éxito
+            </Button>
+          </Box>
+
+          {/* Features */}
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, auto)" },
+              gap: 2,
               justifyContent: { xs: "center", md: "flex-start" },
             }}
           >
             {[
-              { value: "100%", label: "Clientes satisfechos" },
-              { value: "2+", label: "Años de Experiencia" },
-              { value: "< 24h", label: "para resolver incidencias" },
+              "Análisis en tiempo real",
+              "Tecnología escalable", 
+              "Soporte 24/7",
+              "Resultados garantizados"
             ].map((item, index) => (
               <Box
                 key={index}
                 sx={{
                   display: "flex",
-                  flexDirection: "column",
                   alignItems: "center",
-                  textAlign: "center",
+                  gap: 1,
+                  backgroundColor: theme.palette.background.paper,
+                  borderRadius: "12px",
+                  px: 2,
+                  py: 1,
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
                 }}
               >
-                <Typography
-                  variant="h5"
+                <CheckCircle
                   sx={{
-                    fontWeight: "bold",
                     color: theme.palette.primary.main,
-                    fontSize: { xs: "1.6rem", md: "1.8rem", lg: "2rem" },
+                    fontSize: "1.2rem",
                   }}
-                >
-                  {item.value}
-                </Typography>
+                />
                 <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: { xs: "1rem", md: "1.1rem", lg: "1.2rem" },
+                  variant="body1"
+                  sx={{ 
+                    fontWeight: 500,
+                    fontSize: "0.9rem"
                   }}
                 >
-                  {item.label}
+                  {item}
                 </Typography>
               </Box>
             ))}
           </Box>
-
-
-          <Button
-            variant="contained"
-            startIcon={<ArrowForwardRounded />}
-            component="a"
-            href="https://wa.me/5493517336655?text=¡Hola!%20Me%20interesa%20una%20auditoría%20de%20software%20gratuita."
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{
-              px: { xs: 4, md: 6 },
-              py: 2,
-              fontSize: { xs: '1.2rem', md: '1.3rem' },
-              fontWeight: 'bold',
-              borderRadius: '12px',
-              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-              backgroundImage: theme =>
-                `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
-              position: 'relative',
-              overflow: 'hidden',
-              transform: 'translateZ(0)',
-              '&:hover': {
-                transform: 'translateY(-3px)',
-                boxShadow: theme => `0 8px 24px ${theme.palette.primary.main}80`,
-                '&::after': {
-                  left: '120%',
-                },
-              },
-              '&::after': {
-                content: '""',
-                position: 'absolute',
-                top: '-50%',
-                left: '-100%',
-                width: '40%',
-                height: '200%',
-                background:
-                  'linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%)',
-                transform: 'rotate(30deg)',
-                transition: 'left 0.6s ease-in-out',
-              },
-              mx: { xs: 'auto', md: 0 },
-              mt: 4,
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 1.5,
-              '& .MuiButton-startIcon': {
-                transition: 'transform 0.3s ease',
-                fontSize: '1.4em',
-              },
-              '&:hover .MuiButton-startIcon': {
-                transform: 'translateX(4px)',
-              },
-            }}
-          >
-            Auditoría Gratuita
-          </Button>
-
         </Box>
 
-        {/* Right Content (Graphic Section) */}
+        {/* Componente MagnetLines para desktop */}
         <Box
           sx={{
-            flex: 1.6, // Espacio para la imagen
-            display: "flex",
-            justifyContent: "center",
+            display: { xs: "none", md: "flex" },
             alignItems: "center",
-            mt: { xs: 2, md: 0 },
+            justifyContent: "center",
+            position: "relative",
+            width: "40%",
+            minHeight: "60vh",
           }}
         >
-          <img
-            src={mainimage}
-            alt="Auditorías de Software"
-            style={{
-              maxWidth: "110%",
-              height: "auto",
-              objectFit: "contain",
+          <Box
+            sx={{
+              position: "relative",
+              zIndex: 2,
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <MagnetLines
+              rows={9}
+              columns={9}
+              containerSize="40vmin"
+              lineColor={theme.palette.primary.main}
+              lineWidth="0.6vmin"
+              lineHeight="4vmin"
+              baseAngle={0}
+              style={{ margin: 0 }}
+            />
+          </Box>
+          
+          {/* Efecto de profundidad */}
+          <Box
+            sx={{
+              position: "absolute",
+              width: "80%",
+              height: "80%",
+              background: `radial-gradient(circle at center, 
+                ${theme.palette.primary.main}15 0%, 
+                transparent 70%)`,
+              borderRadius: "50%",
+              filter: "blur(40px)",
+              zIndex: 1,
             }}
           />
         </Box>
-      </Box>
-    </Container >
+      </Container>
+
+      {/* Elemento decorativo abstracto */}
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "-20%",
+          right: "-10%",
+          width: "60%",
+          height: "80%",
+          background: `linear-gradient(45deg, 
+            ${theme.palette.primary.main}10 0%, 
+            ${theme.palette.secondary.main}10 100%)`,
+          borderRadius: "50%",
+          filter: "blur(60px)",
+          zIndex: 0,
+          opacity: 0.6,
+        }}
+      />
+    </Box>
   );
 };
 
-export default HeroSection;
+export default FullScreenHero;

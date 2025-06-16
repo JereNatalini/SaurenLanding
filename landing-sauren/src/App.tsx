@@ -34,9 +34,7 @@ function App() {
           path="/"
           element={
             <MainLayout>
-              <Container data-aos="fade-up">
                 <HeroSection />
-              </Container>
               <div data-aos="fade-up">
                 <BusinessTechUpdate />
               </div>

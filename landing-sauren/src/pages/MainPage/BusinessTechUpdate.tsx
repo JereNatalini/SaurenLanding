@@ -192,6 +192,7 @@ const BusinessTechUpdate: React.FC = () => {
             maxWidth: "600px",
             width: "100%",
             perspective: "1000px",
+            display: { xs: "none", md: "block" },
           }}
         >
           <Box
