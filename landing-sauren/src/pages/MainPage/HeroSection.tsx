@@ -65,80 +65,76 @@ const FullScreenHero = () => {
             mt: { xs: 6, md: 0 },
           }}
         >
-          <Box 
+          <Box
             ref={containerRef}
-            sx={{ 
-              minHeight: '40vh', 
-              display: 'flex', 
-              flexDirection: 'column', 
-              justifyContent: 'center',
-              position: 'relative' 
+            sx={{
+              minHeight: "40vh",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              position: "relative",
             }}
           >
-            <Box sx={{ 
-              mb: 4,
-              fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' },
-              lineHeight: 1.2,
-              fontWeight: 900,
-              fontFamily: 'NexaHeavy, Arial, sans-serif',
-              color: theme.palette.text.primary,
-              minHeight: '6rem'
-            }}>
-              Impulsa tu negocio con {' '}
-              <Box component="span" sx={{
-                display: 'inline-block',
-                minWidth: '200px',
-                position: 'relative',
-                verticalAlign: 'top',
-                textAlign: 'left'
-              }}>
+            <Box
+              sx={{
+                mb: 4,
+                fontSize: { xs: "2.5rem", md: "3.5rem", lg: "4rem" },
+                lineHeight: 1.2,
+                fontWeight: 900,
+                fontFamily: "NexaHeavy, Arial, sans-serif",
+                color: theme.palette.text.primary,
+                minHeight: "6rem",
+              }}
+            >
+              Impulsa tu negocio con{" "}
+              <Box
+                component="span"
+                sx={{
+                  display: "inline-block",
+                  minWidth: "200px",
+                  position: "relative",
+                  verticalAlign: "top",
+                  textAlign: "left",
+                }}
+              >
                 <RotatingText
-                  texts={['tecnología', 'innovación', 'inteligencia', 'eficiencia']}
+                  texts={[
+                    "tecnología",
+                    "innovación",
+                    "inteligencia",
+                    "eficiencia",
+                  ]}
                   mainClassName="text-rotate-main"
                   staggerFrom="center"
-                  initial={{ y: "100%", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  exit={{ 
-                    y: "-100%", 
-                    opacity: 0,
-                    transition: { duration: 0.3 }
-                  }}
                   staggerDuration={0.02}
                   splitLevelClassName="text-rotate-split"
-                  transition={{ 
-                    type: "spring", 
-                    damping: 30, 
+                  transition={{
+                    type: "spring",
+                    damping: 30,
                     stiffness: 400,
-                    mass: 0.5
+                    mass: 0.5,
                   }}
                   rotationInterval={2500}
                   style={{
                     color: theme.palette.primary.main,
-                    '&:after': {
-                      content: '""',
-                      position: 'absolute',
-                      bottom: '8px',
-                      left: 0,
-                      width: '100%',
-                      height: '6px',
-                      backgroundColor: theme.palette.primary.light,
-                      opacity: 0.4,
-                      zIndex: -1,
-                    }
                   }}
                 />
               </Box>
             </Box>
 
-            <Box sx={{ 
-              mb: 6,
-              fontSize: { xs: '1.2rem', md: '1.5rem' },
-              lineHeight: 1.6,
-              fontWeight: 400,
-              fontFamily: 'NexaExtraLight, Arial, sans-serif',
-              color: theme.palette.text.secondary,
-            }}>
-              Descubre cómo nuestras soluciones pueden llevar tu empresa al siguiente nivel
+            <Box
+              sx={{
+                mb: 6,
+                fontSize: { xs: "1.2rem", md: "1.5rem" },
+                lineHeight: 1.6,
+                fontWeight: 400,
+                fontFamily: "NexaExtraLight, Arial, sans-serif",
+                color: theme.palette.text.primary,
+              }}
+            >
+              Descubre cómo nuestras soluciones pueden llevar tu empresa al
+              siguiente nivel
             </Box>
 
             {/* Botones */}
@@ -170,24 +166,6 @@ const FullScreenHero = () => {
               >
                 Comenzar ahora
               </Button>
-
-              <Button
-                variant="outlined"
-                size="large"
-                sx={{
-                  px: 5,
-                  py: 1.5,
-                  borderRadius: "50px",
-                  borderWidth: "2px",
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    borderWidth: "2px",
-                    backgroundColor: theme.palette.primary.light + "08",
-                  },
-                }}
-              >
-                Ver demostración
-              </Button>
             </Box>
           </Box>
         </Box>
@@ -216,17 +194,17 @@ const FullScreenHero = () => {
             }}
           >
             <MagnetLines
-              rows={7}
-              columns={7}
-              containerSize={ { xs: "70vw", md: "40vmin" } }
+              rows={9}
+              columns={9}
+              containerSize="60vmin"
               lineColor={theme.palette.primary.main}
-              lineWidth={ { xs: "0.8vmin", md: "0.6vmin" } }
-              lineHeight={ { xs: "3vmin", md: "4vmin" } }
+              lineWidth="0.8vmin"
+              lineHeight="5vmin"
               baseAngle={0}
               style={{ margin: 0 }}
             />
           </Box>
-          
+
           {/* Efecto de profundidad */}
           <Box
             sx={{
