@@ -180,7 +180,7 @@ const ProjectsSection: React.FC = () => {
             </Box>
             <Button
               variant="outlined"
-              href="/wepoint"
+              href="/momentosInolvidables"
               sx={{
                 borderColor: theme.palette.primary.main,
                 color: theme.palette.primary.main,

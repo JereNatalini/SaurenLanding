@@ -5,10 +5,13 @@ import MainLayout from './layouts/MainLayout';
 import HeroSection from './pages/MainPage/HeroSection';
 import FeaturesSection from './pages/MainPage/FeaturesSection';
 import ContactSection from './pages/MainPage/ContactSection';
+
 import HeroSectionWP from './pages/Projects/WePoint/HeroSectionWP';
 import FeaturesWP from './pages/Projects/WePoint/FeaturesWP';
 import BackgroundWP from './pages/Projects/WePoint/BackgroundWP';
 import RoadmapWP from './pages/Projects/WePoint/RoadmapWP';
+
+import HeroSectionMomentos from './pages/Projects/Momentos/HeroSectionMomentos';
 import './App.css';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
@@ -74,11 +77,19 @@ function App() {
             </MainLayout>
           }
         />
+        <Route
+          path="/momentosInolvidables"
+          element={
+            <MainLayout>
+              <HeroSectionMomentos/>
+            </MainLayout> 
+          }
+        />
         <Route path="/about-us"
           element={<MainLayout>
             <AboutUsPage></AboutUsPage>
             <div id="contact" data-aos="slide-up">
-                <ContactSection />
+              <ContactSection />
             </div>
           </MainLayout>}
         />
