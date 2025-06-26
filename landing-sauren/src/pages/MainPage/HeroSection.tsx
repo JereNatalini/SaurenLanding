@@ -38,7 +38,6 @@ const FullScreenHero = () => {
           particleSpread={15}
           speed={0.15}
           particleBaseSize={130}
-          moveParticlesOnHover={true}
           alphaParticles={true}
           disableRotation={false}
         />
