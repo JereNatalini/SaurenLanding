@@ -7,18 +7,17 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SchoolIcon from '@mui/icons-material/School';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import theme from '../../../theme';
-import featuresImage from '../../../assets/images/momentosPresta.png';
 
 const FeaturesSectionMomentos: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 600, once: true });
   }, []);
-  
+
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const features = [
     {
-      icon: <ShoppingCartIcon sx={{ fontSize: 48, color: '#FFB000', mb: 1 }} aria-hidden />,
+      icon: <ShoppingCartIcon sx={{ fontSize: 48, color: '#FFB000' }} aria-hidden />,
       title: 'E-commerce',
       description: 'Implementación completa de PrestaShop con diseño responsive, optimizado para conversiones tanto en B2B como en B2C.',
       details: [
@@ -29,7 +28,7 @@ const FeaturesSectionMomentos: React.FC = () => {
       ]
     },
     {
-      icon: <SchoolIcon sx={{ fontSize: 48, color: '#0061A3', mb: 1 }} aria-hidden />,
+      icon: <SchoolIcon sx={{ fontSize: 48, color: '#0061A3' }} aria-hidden />,
       title: 'Capacitación',
       description: 'Programas de formación personalizados para tu equipo, con soporte continuo en el uso de PrestaShop.',
       details: [
@@ -40,7 +39,7 @@ const FeaturesSectionMomentos: React.FC = () => {
       ]
     },
     {
-      icon: <SyncAltIcon sx={{ fontSize: 48, color: '#E2351C', mb: 1 }} aria-hidden />,
+      icon: <SyncAltIcon sx={{ fontSize: 48, color: '#E2351C' }} aria-hidden />,
       title: 'Integración Dux',
       description: 'Solución de sincronización avanzada con Dux para conectar tu tienda con Wepoint y sistemas internos.',
       details: [
@@ -53,7 +52,7 @@ const FeaturesSectionMomentos: React.FC = () => {
   ];
 
   return (
-    <Box component="section" sx={{ 
+    <Box component="section" sx={{
       py: { xs: 6, md: 10 },
       backgroundColor: '#f8f9fa',
       position: 'relative',
@@ -69,161 +68,234 @@ const FeaturesSectionMomentos: React.FC = () => {
       }
     }}>
       <Container maxWidth="lg" sx={{ position: 'relative' }}>
-        <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }} data-aos="fade-up">
-          <Typography variant="h4" component="h2" sx={{ 
-            fontWeight: 800, 
-            mb: 2,
-            color: '#333'
-          }}>
-            Soluciones Integrales
-          </Typography>
-          <Typography variant="body1" sx={{ 
-            color: theme.palette.text.secondary, 
-            maxWidth: '700px', 
-            mx: 'auto',
-            fontSize: '1.1rem',
-            mb: 3
-          }}>
-            Implementamos soluciones completas para potenciar tu negocio digital
-          </Typography>
-        </Box>
-
         <Box sx={{
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
           alignItems: 'flex-start',
           justifyContent: 'space-between',
           gap: 4,
-          position: 'relative'
+          position: 'relative',
+          minHeight: 600
         }}>
-          {/* Imagen a la izquierda - Más compacta */}
-          <Box 
-            sx={{ 
-              width: { xs: '100%', md: '40%' },
-              textAlign: 'center',
+          {/* Contenido a la izquierda - Rediseñado */}
+          <Box
+            sx={{
+              width: { xs: '100%', md: '45%' },
               position: 'relative',
-              zIndex: 2
+              zIndex: 3,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 4
             }}
             data-aos="fade-right"
           >
-            <Box
-              component="img"
-              src={featuresImage}
-              alt="Soluciones e-commerce"
-              sx={{ 
-                width: '100%', 
-                maxWidth: 450,
-                borderRadius: '12px',
-                boxShadow: '0 15px 40px rgba(0,0,0,0.15)',
-                transform: 'rotate(-1deg)',
-                transition: 'transform 0.3s ease',
-                '&:hover': {
-                  transform: 'rotate(0deg)'
-                }
-              }}
-            />
-            
+            {/* Panel superior con título y descripción */}
             <Box sx={{
-              mt: 4,
+              p: 4,
+              bgcolor: 'white',
+              borderRadius: '12px',
+              boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
+              textAlign: 'left',
+              borderLeft: '4px solid #FFB000',
+              background: 'linear-gradient(to bottom right, #ffffff, #f9f9f9)',
+              position: 'relative',
+              overflow: 'hidden',
+              '&:before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                width: '120px',
+                height: '120px',
+                background: `linear-gradient(45deg, ${theme.palette.primary.light}, ${theme.palette.secondary.light})`,
+                borderRadius: '50%',
+                transform: 'translate(40%, -40%)',
+                opacity: 0.1
+              }
+            }}>
+              <Typography variant="h4" sx={{
+                fontWeight: 800,
+                mb: 2,
+                color: '#333',
+                position: 'relative'
+              }}>
+                Tu E-commerce de Alto Rendimiento
+              </Typography>
+
+              <Typography variant="body1" sx={{
+                color: theme.palette.text.secondary,
+                mb: 3,
+                fontSize: '1.1rem',
+                lineHeight: 1.6,
+                position: 'relative'
+              }}>
+                Desarrollamos tiendas online que convierten visitantes en clientes, con tecnología PrestaShop y soluciones a medida.
+              </Typography>
+
+              <Box sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 2,
+                mt: 3
+              }}>
+                {['Responsive', 'Optimizada', 'Escalable', 'Segura'].map((item, i) => (
+                  <Box key={i} sx={{
+                    bgcolor: '#f0f7ff',
+                    px: 2,
+                    py: 1,
+                    borderRadius: '20px',
+                    fontWeight: 600,
+                    color: '#0061A3',
+                    display: 'flex',
+                    alignItems: 'center'
+                  }}>
+                    <Box sx={{
+                      width: '8px',
+                      height: '8px',
+                      bgcolor: '#0061A3',
+                      borderRadius: '50%',
+                      mr: 1
+                    }} />
+                    {item}
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+
+            {/* Panel de características de PrestaShop */}
+            <Box sx={{
               p: 3,
               bgcolor: 'white',
               borderRadius: '12px',
               boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
               textAlign: 'left',
-              borderLeft: '4px solid #FFB000'
+              borderTop: '4px solid #E2351C',
+              position: 'relative',
+              overflow: 'hidden'
             }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
-                ¿Por qué PrestaShop?
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              <Box sx={{
+                display: 'flex',
+                alignItems: 'center',
+                mb: 2
+              }}>
+                <Box sx={{
+                  width: '40px',
+                  height: '40px',
+                  bgcolor: '#0061A3',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mr: 2
+                }}>
+                  <Box sx={{ color: 'white', fontSize: '24px' }}>✓</Box>
+                </Box>
+                <Typography variant="h5" sx={{ fontWeight: 700 }}>
+                  ¿Por qué PrestaShop?
+                </Typography>
+              </Box>
+
+              <Typography variant="body1" sx={{
+                color: theme.palette.text.secondary,
+                mb: 2,
+                pl: 6
+              }}>
                 La plataforma ideal para negocios que buscan escalabilidad y control total sobre su e-commerce.
               </Typography>
-              
-              <Box component="ul" sx={{ 
-                pl: 2.5, 
+
+              <Box component="ul" sx={{
+                pl: 6,
                 mt: 2,
                 '& li': {
-                  mb: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  mb: 1.5,
                   position: 'relative',
-                  pl: '1.5rem',
                   '&:before': {
-                    content: '"✓"',
-                    position: 'absolute',
-                    left: 0,
-                    color: '#0061A3',
-                    fontWeight: 'bold'
+                    content: '""',
+                    display: 'inline-block',
+                    width: '12px',
+                    height: '12px',
+                    bgcolor: '#FFB000',
+                    borderRadius: '50%',
+                    mr: 1.5,
+                    flexShrink: 0
                   }
                 }
               }}>
                 <li>Altamente personalizable</li>
                 <li>Gran ecosistema de módulos</li>
                 <li>Optimizado para SEO</li>
-                <li>Comunidad activa</li>
+                <li>Comunidad activa de desarrollo</li>
               </Box>
             </Box>
           </Box>
-          
-          {/* CardSwap a la derecha - Más grande y desplazado */}
-          <Box sx={{ 
-            width: { xs: '100%', md: '60%' },
-            position: 'relative',
-            minHeight: 500,
-            transform: { md: 'translateX(5%)' },
-            zIndex: 1
+
+          {/* CardSwap a la derecha - Posicionado absolutamente */}
+          <Box sx={{
+            position: 'absolute',
+            top: '60%', // Cambiado de 50% a 60% para bajar más
+            right: 0,
+            transform: 'translate(35%, -50%)', // Aumentado de 25% a 35% para más a la derecha
+            width: '55%',
+            maxWidth: 600,
+            zIndex: 1,
+            height: 500
           }}>
             <CardSwap
               cardDistance={isMobile ? 30 : 60}
               verticalDistance={isMobile ? 40 : 70}
-              delay={5000}
+              delay={4500}
               pauseOnHover={true}
               width="100%"
-              height={isMobile ? 400 : 500}
+              height={500}
             >
               {features.map((feat, idx) => (
-                <Card key={idx} customClass="swap-card">    
+                <Card key={idx} customClass="swap-card">
                   <Box>
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                       {feat.icon}
-                      <Typography variant="h5" sx={{ 
-                        fontWeight: 700, 
+                      <Typography variant="h5" sx={{
+                        fontWeight: 700,
                         ml: 2,
                         color: 'text.primary'
                       }}>
                         {feat.title}
                       </Typography>
                     </Box>
-                    
-                    <Typography variant="body1" sx={{ 
-                      color: 'text.secondary', 
+
+                    <Typography variant="body1" sx={{
+                      color: 'text.secondary',
                       mb: 3,
-                      fontSize: '1.1rem'
+                      fontSize: '1.1rem',
+                      lineHeight: 1.6
                     }}>
                       {feat.description}
                     </Typography>
-                    
-                    <Box component="ul" sx={{ 
-                      pl: 0, 
+
+                    <Box component="ul" sx={{
+                      pl: 0,
                       mb: 3,
                       '& li': {
                         display: 'flex',
                         alignItems: 'flex-start',
-                        mb: 1.5,
+                        mb: 1.8,
                         '&:before': {
                           content: '""',
                           display: 'inline-block',
-                          width: '6px',
-                          height: '6px',
+                          width: '8px',
+                          height: '8px',
                           bgcolor: '#E2351C',
                           borderRadius: '50%',
-                          mt: '0.6rem',
-                          mr: 1.5,
+                          mt: '0.7rem',
+                          mr: 2,
                           flexShrink: 0
                         }
                       }
                     }}>
                       {feat.details.map((detail, i) => (
                         <li key={i}>
-                          <Typography variant="body2" sx={{ color: 'text.primary' }}>
+                          <Typography variant="body1" sx={{ color: 'text.primary', fontWeight: 500 }}>
                             {detail}
                           </Typography>
                         </li>
