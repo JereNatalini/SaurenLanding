@@ -1,0 +1,53 @@
+.card-swap-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(5%, 20%);
+  transform-origin: bottom right;
+
+  perspective: 900px;
+  overflow: visible;
+
+  /* Borde degradado con colores corporativos */
+  border: 4px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(90deg, #E2351C, #0061A3, #FFB000);
+  border-radius: 12px;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+
+  /* Fondo y texto legible */
+  background: #fff;
+  color: #333;
+  border: 2px solid var(--mui-palette-divider);
+  border-radius: 12px;
+  padding: 1.5rem;
+
+  /* Sombra suave con toque de color */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(226, 53, 28, 0.1);
+
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .card-swap-container {
+    transform: scale(0.75) translate(25%, 25%);
+    max-width: 400px;
+    height: 450px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-swap-container {
+    transform: scale(0.55) translate(25%, 25%);
+    max-width: 300px;
+    height: 350px;
+  }
+}

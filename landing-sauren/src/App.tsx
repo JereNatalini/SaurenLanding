@@ -22,6 +22,7 @@ import BusinessTechUpdate from './pages/MainPage/BusinessTechUpdate';
 import ClientsSection from './pages/MainPage/ClientsSection';
 
 import ContactPage from './pages/ContactPage/ContactPage';
+import FeaturesSectionMomentos from './pages/Projects/Momentos/FeaturesSectionMomentos';
 function App() {
   React.useEffect(() => {
     AOS.init({
@@ -82,6 +83,9 @@ function App() {
           element={
             <MainLayout>
               <HeroSectionMomentos/>
+              <div>
+                <FeaturesSectionMomentos/>
+              </div>
             </MainLayout> 
           }
         />
