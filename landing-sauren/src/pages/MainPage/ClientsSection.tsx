@@ -67,40 +67,17 @@ const ClientsSection: React.FC = () => {
   return (
     <Box
       sx={{
-        py: { xs: 8, md: 12 },
+        pt: { xs: 0, md: 0 },
+        pb: { xs: 8, md: 20 },
         backgroundColor: theme.palette.background.default,
         position: "relative",
-        width: "100%", // CORREGIDO: evita que se pase de viewport
+        width: "100%",
         overflowX: "hidden",
       }}
     >
-      <Box sx={{ px: { xs: 4, md: 8 } }}>
+      <Box sx={{ pl: { xs: 0, md: 20 } }}>
         <Grid container spacing={6} alignItems="center">
-          {/* Columna del InfiniteScroll (izquierda) */}
-          <Grid item xs={12} md={7}>
-            <Box
-              sx={{
-                position: "relative",
-                height: { xs: "400px", md: "500px" },
-                pr: { md: 6 },
-              }}
-            >
-              <InfiniteScroll
-                items={logoItems}
-                isTilted={true}
-                tiltDirection="left"
-                autoplay={true}
-                autoplaySpeed={0.3}
-                autoplayDirection="down"
-                pauseOnHover={true}
-                width="100%"
-                maxHeight="100%"
-                itemMinHeight={180}
-              />
-            </Box>
-          </Grid>
-
-          {/* Columna del texto (derecha) */}
+          {/* Columna del texto (izquierda) */}
           <Grid item xs={12} md={5}>
             <Typography
               variant="h2"
@@ -123,13 +100,46 @@ const ClientsSection: React.FC = () => {
               variant="body1"
               sx={{
                 mb: 3,
-                color: theme.palette.text.secondary,
+                color: theme.palette.text.primary,
                 fontSize: "1.1rem",
               }}
             >
               Estas empresas líderes en sus sectores han elegido nuestros
-              servicios para llevar sus servicios al siguiente nivel.
+              talentos para llevar sus servicios al siguiente nivel.
             </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                color: theme.palette.text.primary,
+                fontSize: "1.1rem",
+              }}
+            >
+              Desde startups innovadoras hasta corporaciones establecidas, cada
+              cliente representa una historia de éxito compartido.
+            </Typography>
+          </Grid>
+
+          {/* Columna del InfiniteScroll (derecha) */}
+          <Grid item xs={12} md={7}>
+            <Box
+              sx={{
+                height: { xs: "400px", md: "700px" },
+                pr: { md: 0 },
+              }}
+            >
+              <InfiniteScroll
+                items={logoItems}
+                isTilted={true}
+                tiltDirection="left"
+                autoplay={true}
+                autoplaySpeed={0.3}
+                autoplayDirection="down"
+                pauseOnHover={false}
+                width="100%"
+                maxHeight="100%"
+                itemMinHeight={150}
+              />
+            </Box>
           </Grid>
         </Grid>
       </Box>

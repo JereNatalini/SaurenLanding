@@ -37,12 +37,11 @@ function App() {
               <HeroSection />
 
               <BusinessTechUpdate />
-
-              <div id="services" data-aos="fade-up">
-                <SoftwareAuditSection />
-              </div>
               <div>
                 <ClientsSection />
+              </div>
+              <div id="services" data-aos="fade-up">
+                <SoftwareAuditSection />
               </div>
               <Container id="features" data-aos="zoom-in">
                 <FeaturesSection />
