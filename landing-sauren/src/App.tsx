@@ -40,12 +40,12 @@ function App() {
               <div>
                 <ClientsSection />
               </div>
-              <div id="services" data-aos="fade-up">
-                <SoftwareAuditSection />
-              </div>
               <Container id="features" data-aos="zoom-in">
                 <FeaturesSection />
               </Container>
+              <div id="services" data-aos="fade-up">
+                <SoftwareAuditSection />
+              </div>
               <div id="contact" data-aos="slide-up">
                 <ContactSection />
               </div>
