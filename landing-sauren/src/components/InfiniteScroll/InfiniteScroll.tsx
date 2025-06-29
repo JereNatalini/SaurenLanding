@@ -32,18 +32,19 @@ interface InfiniteScrollProps {
 }
 
 const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
-  width = "30rem",
-  maxHeight = "100%",
-  negativeMargin = "-0.5em",
   items = [],
-  itemMinHeight = 150,
   isTilted = false,
   tiltDirection = "left",
-  autoplay = false,
-  autoplaySpeed = 0.5,
+  autoplay = true,
+  autoplaySpeed = 1,
   autoplayDirection = "down",
-  pauseOnHover = false,
+  pauseOnHover = true,
+  width = "100%",
+  maxHeight = "100%",
+  itemMinHeight = 100,
+  negativeMargin,
 }) => {
+  const duplicatedItems = [...items, ...items];
   const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -67,14 +68,18 @@ const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
     const itemHeight = firstItem.offsetHeight;
     const itemMarginTop = parseFloat(itemStyle.marginTop) || 0;
     const totalItemHeight = itemHeight + itemMarginTop;
-    const totalHeight =
-      itemHeight * items.length + itemMarginTop * (items.length - 1);
+    const totalHeight = totalItemHeight * items.length;
 
     const wrapFn = gsap.utils.wrap(-totalHeight, totalHeight);
 
     divItems.forEach((child, i) => {
       const y = i * totalItemHeight;
-      gsap.set(child, { y });
+      gsap.set(child, {
+        y: y,
+        modifiers: {
+          y: gsap.utils.unitize(wrapFn),
+        },
+      });
     });
 
     const observer = Observer.create({
@@ -186,7 +191,7 @@ const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
             transform: getTiltTransform(),
           }}
         >
-          {items.map((item, i) => (
+          {duplicatedItems.map((item, i) => (
             <div className="infinite-scroll-item" key={i}>
               {item.content}
             </div>

@@ -21,7 +21,7 @@ const clientLogos = [
 const ClientsSection: React.FC = () => {
   const theme = useTheme();
 
-  const logoItems = [...clientLogos, ...clientLogos].map((logo, index) => ({
+  const logoItems = clientLogos.map((logo, index) => ({
     content: (
       <Box
         key={index}
@@ -65,79 +65,133 @@ const ClientsSection: React.FC = () => {
   }));
 
   return (
-    <Box
-      sx={{
-        py: { xs: 8, md: 12 },
-        backgroundColor: theme.palette.background.default,
-        position: "relative",
-        width: "100%",
-        overflowX: "hidden",
-      }}
-    >
-      <Box sx={{ pl: { xs: 0, md: 20 } }}>
-        <Grid container spacing={6} alignItems="center">
-          {/* Columna del texto (izquierda) */}
-          <Grid item xs={12} md={5}>
-            <Typography
-              variant="h2"
-              sx={{
-                mb: 4,
-                color: theme.palette.text.primary,
-              }}
-            >
-              EMPRESAS QUE{" "}
-              <Box component="span" sx={{ color: theme.palette.primary.main }}>
-                CONFÍAN
-              </Box>{" "}
-              EN NOSOTROS
-            </Typography>
-
-            <Typography
-              variant="body1"
-              sx={{
-                mb: 3,
-                color: theme.palette.text.primary,
-              }}
-            >
-              Estas empresas líderes en sus sectores han elegido nuestros
-              talentos para llevar sus servicios al siguiente nivel.
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                color: theme.palette.text.primary,
-              }}
-            >
-              Desde startups innovadoras hasta corporaciones establecidas, cada
-              cliente representa una historia de éxito compartido.
-            </Typography>
-          </Grid>
-
-          {/* Columna del InfiniteScroll (derecha) */}
-          <Grid item xs={12} md={7}>
+    <>
+      {/* Mobile Version */}
+      <Box sx={{ display: { xs: "block", md: "none" } }}>
+        <Box
+          sx={{
+            pt: 0,
+            pb: 0,
+            backgroundColor: theme.palette.background.default,
+            position: "relative",
+            width: "100%",
+            overflow: "hidden",
+            height: "550px",
+          }}
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              zIndex: 0,
+            }}
+          >
+            <InfiniteScroll
+              items={logoItems}
+              isTilted={true}
+              tiltDirection={"left"}
+              autoplay={true}
+              autoplaySpeed={0.3}
+              autoplayDirection="down"
+              pauseOnHover={false}
+              width="100%"
+              maxHeight="100%"
+              itemMinHeight={150}
+            />
+          </Box>
+          <Box
+            sx={{
+              position: "relative",
+              zIndex: 1,
+              height: "100%",
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              backdropFilter: "blur(2px)",
+            }}
+          >
             <Box
               sx={{
-                height: { xs: "400px", md: "700px" },
-                pr: { md: 0 },
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                width: "90%",
+                p: 4,
               }}
             >
-              <InfiniteScroll
-                items={logoItems}
-                isTilted={true}
-                tiltDirection="left"
-                autoplay={true}
-                autoplaySpeed={0.3}
-                autoplayDirection="down"
-                pauseOnHover={false}
-                width="100%"
-                maxHeight="100%"
-                itemMinHeight={150}
-              />
+              <Typography variant="h2" sx={{ mb: 4, color: "#FFFFFF", textAlign: "center" }}>
+                EMPRESAS QUE{" "}
+                <Box component="span" sx={{ color: theme.palette.primary.main }}>
+                  CONFÍAN
+                </Box>{" "}
+                EN NOSOTROS
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 3, color: "#FFFFFF", textAlign: "center" }}>
+                Estas empresas líderes en sus sectores han elegido nuestros talentos para llevar sus servicios al siguiente nivel.
+              </Typography>
+              <Typography variant="body1" sx={{ color: "#FFFFFF", textAlign: "center" }}>
+                Desde startups innovadoras hasta corporaciones establecidas, cada cliente representa una historia de éxito compartido.
+              </Typography>
             </Box>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </Box>
-    </Box>
+
+      {/* Desktop Version */}
+      <Box sx={{ display: { xs: "none", md: "block" } }}>
+        <Box
+          sx={{
+            pt: 0, // No top padding to connect with the previous section
+            pb: 12,
+            backgroundColor: theme.palette.background.default,
+            position: "relative",
+            width: "100%",
+            overflowX: "hidden",
+          }}
+        >
+          <Box sx={{ pl: 20 }}>
+            <Grid container spacing={6} alignItems="center">
+              <Grid item xs={12} md={5}>
+                <Typography variant="h2" sx={{ mb: 4, color: theme.palette.text.primary }}>
+                  EMPRESAS QUE{" "}
+                  <Box component="span" sx={{ color: theme.palette.primary.main }}>
+                    CONFÍAN
+                  </Box>{" "}
+                  EN NOSOTROS
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 3, color: theme.palette.text.primary }}>
+                  Estas empresas líderes en sus sectores han elegido nuestros talentos para llevar sus servicios al siguiente nivel.
+                </Typography>
+                <Typography variant="body1" sx={{ color: theme.palette.text.primary }}>
+                  Desde startups innovadoras hasta corporaciones establecidas, cada cliente representa una historia de éxito compartido.
+                </Typography>
+              </Grid>
+              <Grid item xs={12} md={7}>
+                <Box sx={{ height: "700px" }}>
+                  <InfiniteScroll
+                    items={logoItems}
+                    isTilted={true}
+                    tiltDirection="left"
+                    autoplay={true}
+                    autoplaySpeed={0.3}
+                    autoplayDirection="down"
+                    pauseOnHover={false}
+                    width="100%"
+                    maxHeight="100%"
+                    itemMinHeight={150}
+                  />
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+      </Box>
+    </>
   );
 };
 
