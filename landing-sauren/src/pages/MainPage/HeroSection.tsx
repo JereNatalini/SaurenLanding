@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { Box, Button, Container, useTheme, Typography } from "@mui/material";
 import { ArrowRightAlt } from "@mui/icons-material";
 import MagnetLines from "../../Animations/MagnetLines/MagnetLines";
