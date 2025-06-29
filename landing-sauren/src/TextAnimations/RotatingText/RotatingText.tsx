@@ -191,9 +191,9 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
                   {wordObj.characters.map((char, charIndex) => (
                     <motion.div
                       key={charIndex}
-                      initial={typedInitial}
+                      initial={typedInitial as any}
                       animate={typedAnimate}
-                      exit={typedExit}
+                      exit={typedExit as any}
                       transition={{
                         ...typedTransition,
                         delay: getStaggerDelay(previousCharsCount + charIndex, totalChars),
