@@ -145,7 +145,7 @@ const FullScreenHero = () => {
                 variant="contained"
                 size="large"
                 endIcon={<ArrowRightAlt sx={{ fontSize: "1.5rem" }} />}
-                href="#contacto"
+                href="https://wa.me/5493517336655?text=¡Hola!%20Me%20interesa%20una%20auditoría%20de%20software%20gratuita."
                 sx={{
                   px: 5,
                   py: 1.5,
