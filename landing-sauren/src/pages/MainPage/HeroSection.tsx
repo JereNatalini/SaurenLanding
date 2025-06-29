@@ -21,6 +21,27 @@ const FullScreenHero = () => {
         py: 0,
       }}
     >
+      {/* Partículas animadas */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+        }}
+      >
+        <Particles
+          particleColors={[theme.palette.primary.main]}
+          particleCount={100}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          alphaParticles={true}
+          disableRotation={false}
+        />
+      </Box>
       <Container
         maxWidth="xl"
         sx={{
