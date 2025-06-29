@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, Button, Chip } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardMedia, Button, Chip, useTheme } from '@mui/material';
 import { Storage, ShoppingCart } from '@mui/icons-material';
-import theme from '../../theme';
 import { useNavigate } from 'react-router-dom';
 
 import momentosps from '../../assets/images/momentosPresta.png';
@@ -9,25 +8,23 @@ import wepointLogin from '../../assets/images/WepointLogin.png';
 
 const ProjectsSection: React.FC = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const goToWepoint = () => navigate('/wepoint');
   return (
     <Box
       sx={{
-        py: 10,
+        py: { xs: 4, md: 6 },
         px: { xs: 2, md: 4 },
-        backgroundColor: '#ffffff', // Fondo blanco para un look limpio
+        backgroundColor: "transparent",
       }}
     >
       {/* Título */}
       <Typography
-        variant="h3"
+        variant="h2"
         sx={{
-          fontWeight: 'bold',
           textAlign: 'center',
           mb: 2,
-          color: theme.palette.text.primary,
-          fontSize: { xs: '2rem', md: '3rem' }, // Título más grande y llamativo
         }}
       >
         <span style={{ color: theme.palette.primary.main }}>CASOS DE EXITO</span>
@@ -40,162 +37,171 @@ const ProjectsSection: React.FC = () => {
           color: theme.palette.text.primary,
           maxWidth: '800px',
           mx: 'auto',
-          fontSize: { xs: '1rem', md: '1.25rem' }, // Texto más grande y legible
         }}
       >
         Descubre cómo hemos transformado ideas en soluciones digitales innovadoras.
       </Typography>
 
-      {/* Contenedor de proyectos con flexbox */}
+      {/* Contenedor de proyectos con diseño minimalista */}
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' }, // Columna en móvil, fila en desktop
-          gap: 4, // Espaciado entre tarjetas
+          flexDirection: 'column',
+          gap: { xs: 6, md: 10 }, // Espaciado entre proyectos
           maxWidth: '1200px',
           mx: 'auto',
-          justifyContent: 'center', // Centrar las tarjetas
         }}
       >
-        {/* Proyecto 1: Portal para el empleado de Wepoint */}
-        <Card
+        {/* Proyecto 1: Wepoint */}
+        <Box
           sx={{
-            flex: 1, // Ocupa el espacio disponible
-            maxWidth: { xs: '100%', md: '400px' }, // Ancho máximo en desktop
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: 'center',
+            gap: { xs: 4, md: 8 },
+            p: { xs: 2, md: 4 },
             borderRadius: '12px',
-            overflow: 'hidden',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            transition: 'transform 0.3s ease',
             ':hover': {
-              transform: 'translateY(-8px)',
-              boxShadow: '0 12px 24px rgba(0,0,0,0.2)',
+              transform: 'translateY(-5px)',
             },
           }}
         >
-          <CardMedia
-            component="img"
-            image={wepointLogin}
-            alt="Portal para el empleado de Wepoint"
-            sx={{ height: '200px', objectFit: 'cover' }}
-          />
-          <CardContent
+          <Box
             sx={{
-              p: 3,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              height: 'calc(100% - 200px)', // Ajuste para que el contenido no desborde
+              flex: 1,
+              minWidth: { xs: '100%', md: '50%' },
+              borderRadius: '8px',
+              overflow: 'hidden',
+              boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
             }}
           >
-            <Box>
-              <Chip
-                icon={<Storage />}
-                label="Warehouse App"
-                sx={{
-                  mb: 2,
-                  color: '#FFF',
-                  backgroundColor: theme.palette.primary.main,
-                  fontWeight: 'bold',
-                }}
-              />
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.primary.main }}
-              >
-                wepoint.ar
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                Aplicación de gestión de stock con visualizacion de existencias en tiempo real.
-              </Typography>
-            </Box>
+            <Box
+              component="img"
+              src={wepointLogin}
+              alt="Portal para el empleado de Wepoint"
+              sx={{
+                width: '100%',
+                height: 'auto',
+                maxHeight: { xs: '250px', md: '400px' },
+                objectFit: 'cover',
+                display: 'block',
+              }}
+            />
+          </Box>
+          <Box
+            sx={{
+              flex: 1,
+              textAlign: { xs: 'center', md: 'left' },
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontWeight: 'bold',
+                mb: 2,
+                color: theme.palette.primary.main,
+              }}
+            >
+              wepoint.ar
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+              Aplicación de gestión de stock con visualización de existencias en tiempo real.
+            </Typography>
             <Button
-              variant="outlined"
+              variant="contained"
               onClick={goToWepoint}
               sx={{
-                borderColor: theme.palette.primary.main,
-                color: theme.palette.primary.main,
+                px: 4,
+                py: 1.5,
+                borderRadius: '50px',
                 fontWeight: 'bold',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
                 ':hover': {
-                  backgroundColor: theme.palette.primary.main,
-                  color: '#FFF',
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.2)',
                 },
-                mt: 'auto', // Empuja el botón hacia abajo
               }}
             >
               Ver más
             </Button>
-          </CardContent>
-        </Card>
+          </Box>
+        </Box>
 
-        {/* Proyecto 3: Tienda web en Prestashop */}
-        <Card
+        {/* Proyecto 2: Momentos Inolvidables */}
+        <Box
           sx={{
-            flex: 1, // Ocupa el espacio disponible
-            maxWidth: { xs: '100%', md: '400px' }, // Ancho máximo en desktop
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row-reverse' }, // Invertir orden en desktop
+            alignItems: 'center',
+            gap: { xs: 4, md: 8 },
+            p: { xs: 2, md: 4 },
             borderRadius: '12px',
-            overflow: 'hidden',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            transition: 'transform 0.3s ease',
             ':hover': {
-              transform: 'translateY(-8px)',
-              boxShadow: '0 12px 24px rgba(0,0,0,0.2)',
+              transform: 'translateY(-5px)',
             },
           }}
         >
-          <CardMedia
-            component="img"
-            image={momentosps}
-            alt="Tienda web para Momentos Inolvidables"
-            sx={{ height: '200px', objectFit: 'cover' }}
-          />
-          <CardContent
+          <Box
             sx={{
-              p: 3,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              height: 'calc(100% - 200px)', // Ajuste para que el contenido no desborde
+              flex: 1,
+              minWidth: { xs: '100%', md: '50%' },
+              borderRadius: '8px',
+              overflow: 'hidden',
+              boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
             }}
           >
-            <Box>
-              <Chip
-                icon={<ShoppingCart />}
-                label="E-Commerce"
-                sx={{
-                  mb: 2,
-                  color: '#FFF',
-                  backgroundColor: theme.palette.primary.main,
-                  fontWeight: 'bold',
-                }}
-              />
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: 'bold', mb: 1, color: theme.palette.primary.main }}
-              >
-                momentosinolvidables.com.ar
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                Tienda web para Momentos Inolvidables, con integración hacia Wepoint.
-              </Typography>
-            </Box>
+            <Box
+              component="img"
+              src={momentosps}
+              alt="Tienda web para Momentos Inolvidables"
+              sx={{
+                width: '100%',
+                height: 'auto',
+                maxHeight: { xs: '250px', md: '400px' },
+                objectFit: 'cover',
+                display: 'block',
+              }}
+            />
+          </Box>
+          <Box
+            sx={{
+              flex: 1,
+              textAlign: { xs: 'center', md: 'left' },
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontWeight: 'bold',
+                mb: 2,
+                color: theme.palette.primary.main,
+                fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2.125rem' }, // Ajuste de tamaño de fuente responsivo
+              }}
+            >
+              momentosinolvidables.com.ar
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+              Tienda web para Momentos Inolvidables, con integración hacia Wepoint.
+            </Typography>
             <Button
-              variant="outlined"
+              variant="contained"
               href="/wepoint"
               sx={{
-                borderColor: theme.palette.primary.main,
-                color: theme.palette.primary.main,
+                px: 4,
+                py: 1.5,
+                borderRadius: '50px',
                 fontWeight: 'bold',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
                 ':hover': {
-                  backgroundColor: theme.palette.primary.main,
-                  color: '#FFF',
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.2)',
                 },
-                mt: 'auto', // Empuja el botón hacia abajo
               }}
             >
               Ver más
             </Button>
-          </CardContent>
-        </Card>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );

@@ -1,204 +1,222 @@
-import React from "react";
-import { Box, Typography, Container, Button } from "@mui/material";
-import theme from "../../theme";
-import mainimage from "../../assets/images/mainpage.gif";
-import { ArrowForwardRounded } from "@mui/icons-material";
+import React, { useRef } from "react";
+import { Box, Button, Container, useTheme, Typography } from "@mui/material";
+import { ArrowRightAlt } from "@mui/icons-material";
+import MagnetLines from "../../Animations/MagnetLines/MagnetLines";
+import Particles from "../../Backgrounds/Particles/Particles";
+import RotatingText from "../../TextAnimations/RotatingText/RotatingText";
 
-const HeroSection: React.FC = () => {
+const FullScreenHero = () => {
+  const theme = useTheme();
+  const containerRef = useRef<HTMLDivElement>(null);
+
   return (
-    <Container
+    <Box
       sx={{
-        minHeight: { xs: "auto", md: "100vh" }, // Ocupa toda la pantalla en pantallas grandes
+        minHeight: "100vh",
         display: "flex",
-        alignItems: "center", // Centra el contenido verticalmente
+        alignItems: "center",
+        position: "relative",
+        overflow: "hidden",
+        background: "transparent",
+        py: 0,
       }}
     >
-      {/* Hero Section */}
+      {/* Partículas animadas */}
       <Box
         sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+        }}
+      >
+        <Particles
+          particleColors={[theme.palette.primary.main]}
+          particleCount={100}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          alphaParticles={true}
+          disableRotation={false}
+        />
+      </Box>
+      <Container
+        maxWidth="xl"
+        sx={{
+          position: "relative",
+          zIndex: 2,
+          py: { xs: 8, md: 10 },
           display: "flex",
           flexDirection: { xs: "column-reverse", md: "row" },
           alignItems: "center",
           justifyContent: "space-between",
-          width: "100%",
-          py: { xs: 4, md: 6 },
         }}
       >
-        {/* Left Content (Text Section) */}
+        {/* Contenido de texto */}
         <Box
           sx={{
-            flex: 1.5, // Se mantiene ancho suficiente
+            maxWidth: { xs: "100%", md: "50%" },
             textAlign: { xs: "center", md: "left" },
-            pr: { md: 8, lg: 12 },
-            maxWidth: { xs: "100%", md: "750px" },
+            pl: { md: 20 }, // Añadir padding-left para alinear con ClientsSection
+            mt: { xs: 6, md: 0 },
           }}
         >
-          <Typography
-            variant="h2"
+          <Box
+            ref={containerRef}
             sx={{
-              fontWeight: "bold",
-              mb: 2,
-              fontSize: { xs: "1.5rem", md: "2.3rem", lg: "2.5rem" }, // 🔹 Ajustamos el tamaño en md
-              lineHeight: 1.1,
-              textAlign: { xs: "center", md: "left" },
+              minHeight: "40vh",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              position: "relative",
             }}
           >
-            {"Optimiza tu Negocio"}
-            <br />
-            {"con nuestras"}
-            <br />
-            <span
-              style={{
-                color: theme.palette.primary.main,
-                display: "inline-block",
-                whiteSpace: "nowrap",
-                fontSize: "clamp(2rem, 2.5vw, 2.5rem)", // 🔹 Se adapta mejor en md sin ser más chico que el resto
-                maxWidth: "100%",
+            <Typography
+              variant="h1"
+              component="div"
+              sx={{
+                mb: 4,
+                minHeight: "6rem",
               }}
             >
-              {"Auditorías de Software"}
-            </span>
-          </Typography>
-
-          <Typography
-            variant="body1"
-            sx={{
-              mb: 4,
-              color: theme.palette.text.primary,
-              fontWeight: "bold",
-              fontSize: { xs: "1.1rem", md: "1.2rem", lg: "1.3rem" },
-              mx: { xs: "auto", md: 0 },
-            }}
-          >
-            Potencia el rendimiento de tus procesos y
-            descubre oportunidades con diagnósticos tecnológicos a medida.
-          </Typography>
-
-          {/* Métricas alineadas */}
-          <Box
-            sx={{
-              display: "flex",
-              gap: 5, // Espacio entre métricas
-              justifyContent: { xs: "center", md: "flex-start" },
-            }}
-          >
-            {[
-              { value: "100%", label: "Clientes satisfechos" },
-              { value: "2+", label: "Años de Experiencia" },
-              { value: "< 24h", label: "para resolver incidencias" },
-            ].map((item, index) => (
+              Impulsa tu negocio con{" "}
               <Box
-                key={index}
+                component="span"
                 sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  textAlign: "center",
+                  display: "inline-block",
+                  minWidth: "200px",
+                  position: "relative",
+                  verticalAlign: "top",
+                  textAlign: "left",
+                  color: theme.palette.primary.main,
                 }}
               >
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: "bold",
+                <RotatingText
+                  texts={[
+                    "tecnología",
+                    "innovación",
+                    "inteligencia",
+                    "eficiencia",
+                  ]}
+                  mainClassName="text-rotate-main"
+                  staggerFrom="center"
+                  animate={{ y: 0, opacity: 1 }}
+                  staggerDuration={0.02}
+                  splitLevelClassName="text-rotate-split"
+                  transition={{
+                    type: "spring",
+                    damping: 30,
+                    stiffness: 400,
+                    mass: 0.5,
+                  }}
+                  rotationInterval={2500}
+                  style={{
                     color: theme.palette.primary.main,
-                    fontSize: { xs: "1.6rem", md: "1.8rem", lg: "2rem" },
                   }}
-                >
-                  {item.value}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: { xs: "1rem", md: "1.1rem", lg: "1.2rem" },
-                  }}
-                >
-                  {item.label}
-                </Typography>
+                />
               </Box>
-            ))}
+            </Typography>
+
+            <Typography
+              variant="h5"
+              component="p"
+              sx={{
+                mb: 6,
+                color: theme.palette.text.primary,
+              }}
+            >
+              Descubre cómo nuestras soluciones pueden llevar tu empresa al
+              siguiente nivel
+            </Typography>
+
+            {/* Botones */}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                gap: 3,
+                mb: 6,
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
+            >
+              <Button
+                variant="contained"
+                size="large"
+                endIcon={<ArrowRightAlt sx={{ fontSize: "1.5rem" }} />}
+                href="#contacto"
+                sx={{
+                  px: 5,
+                  py: 1.5,
+                  borderRadius: "50px",
+                  boxShadow: `0 4px 20px ${theme.palette.primary.main}40`,
+                  transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                  "&:hover": {
+                    transform: "translateY(-2px)",
+                    boxShadow: `0 6px 24px ${theme.palette.primary.main}60`,
+                  },
+                }}
+              >
+                Comenzar ahora
+              </Button>
+            </Box>
           </Box>
-
-
-          <Button
-            variant="contained"
-            startIcon={<ArrowForwardRounded />}
-            component="a"
-            href="https://wa.me/5493517336655?text=¡Hola!%20Me%20interesa%20una%20auditoría%20de%20software%20gratuita."
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{
-              px: { xs: 4, md: 6 },
-              py: 2,
-              fontSize: { xs: '1.2rem', md: '1.3rem' },
-              fontWeight: 'bold',
-              borderRadius: '12px',
-              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-              backgroundImage: theme =>
-                `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
-              position: 'relative',
-              overflow: 'hidden',
-              transform: 'translateZ(0)',
-              '&:hover': {
-                transform: 'translateY(-3px)',
-                boxShadow: theme => `0 8px 24px ${theme.palette.primary.main}80`,
-                '&::after': {
-                  left: '120%',
-                },
-              },
-              '&::after': {
-                content: '""',
-                position: 'absolute',
-                top: '-50%',
-                left: '-100%',
-                width: '40%',
-                height: '200%',
-                background:
-                  'linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%)',
-                transform: 'rotate(30deg)',
-                transition: 'left 0.6s ease-in-out',
-              },
-              mx: { xs: 'auto', md: 0 },
-              mt: 4,
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 1.5,
-              '& .MuiButton-startIcon': {
-                transition: 'transform 0.3s ease',
-                fontSize: '1.4em',
-              },
-              '&:hover .MuiButton-startIcon': {
-                transform: 'translateX(4px)',
-              },
-            }}
-          >
-            Auditoría Gratuita
-          </Button>
-
         </Box>
 
-        {/* Right Content (Graphic Section) */}
+        {/* Componente MagnetLines para todas las pantallas */}
         <Box
           sx={{
-            flex: 1.6, // Espacio para la imagen
             display: "flex",
-            justifyContent: "center",
             alignItems: "center",
-            mt: { xs: 2, md: 0 },
+            justifyContent: "center",
+            position: "relative",
+            width: { xs: "100%", md: "40%" },
+            height: { xs: "40vh", md: "60vh" },
+            mb: { xs: 1, md: 0 },
           }}
         >
-          <img
-            src={mainimage}
-            alt="Auditorías de Software"
-            style={{
-              maxWidth: "110%",
-              height: "auto",
-              objectFit: "contain",
+          <Box
+            sx={{
+              position: "relative",
+              zIndex: 2,
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <MagnetLines
+              rows={9}
+              columns={9}
+              containerSize="60vmin"
+              lineColor={theme.palette.primary.main}
+              lineWidth="0.8vmin"
+              lineHeight="5vmin"
+              baseAngle={0}
+              style={{ margin: 0 }}
+            />
+          </Box>
+
+          {/* Efecto de profundidad */}
+          <Box
+            sx={{
+              position: "absolute",
+              width: "80%",
+              height: "80%",
+              background: `radial-gradient(circle at center, 
+                ${theme.palette.primary.main}15 0%, 
+                transparent 70%)`,
+              borderRadius: "50%",
+              filter: "blur(40px)",
+              zIndex: 1,
             }}
           />
         </Box>
-      </Box>
-    </Container >
+      </Container>
+    </Box>
   );
 };
 
-export default HeroSection;
+export default FullScreenHero;
