@@ -31,8 +31,6 @@ const Navbar: React.FC = () => {
           margin: "0 auto",
           padding: { xs: "0 16px", sm: "0 24px", md: "0 48px" },
           boxShadow: "none",
-          backdropFilter: "blur(8px)",
-          backgroundColor: "rgba(255, 255, 255, 0.8)",
         }}
       >
         <Toolbar

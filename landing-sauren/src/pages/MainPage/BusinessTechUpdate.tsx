@@ -3,6 +3,21 @@ import { Box, Typography, Container, Button, useTheme } from "@mui/material";
 import techImage from "../../assets/images/womenCoffee.jpg";
 import { Link as ScrollLink } from "react-scroll";
 import TrueFocusWrapper from "../../components/TrueFocusWrapper";
+import Particles from "../../Backgrounds/Particles/Particles";
+
+// Importar los iconos
+import barCodeScanner from "../../assets/BusinessTechUpdate/barCodeScanner.png";
+import glasess from "../../assets/BusinessTechUpdate/glasess.png";
+import ia from "../../assets/BusinessTechUpdate/ia.png";
+import iphone11 from "../../assets/BusinessTechUpdate/iphone11.png";
+import qrCode from "../../assets/BusinessTechUpdate/qrCode.png";
+import terminal from "../../assets/BusinessTechUpdate/terminal.png";
+import botDog from "../../assets/BusinessTechUpdate/botDog.png";
+import camera from "../../assets/BusinessTechUpdate/camera.png";
+import drone from "../../assets/BusinessTechUpdate/drone.png";
+import ibmPc from "../../assets/BusinessTechUpdate/ibmPc.png";
+import screen from "../../assets/BusinessTechUpdate/screen.png";
+
 const BusinessTechUpdate: React.FC = () => {
   const theme = useTheme();
 
@@ -13,45 +28,268 @@ const BusinessTechUpdate: React.FC = () => {
         overflow: "hidden",
         py: { xs: 8, md: 12 },
         px: { xs: 2, sm: 4 },
-        background: `
-          linear-gradient(145deg, 
-            ${theme.palette.primary.dark} 0%, 
-            ${theme.palette.secondary.main} 100%
-          )
-        `,
-        color: theme.palette.common.white,
+        background: "transparent", // Fondo transparente
+        color: theme.palette.text.primary, // Color de texto por defecto
       }}
     >
-      {/* Elementos decorativos */}
+      {/* Partículas animadas */}
       <Box
         sx={{
           position: "absolute",
-          top: -100,
-          right: -100,
-          width: 400,
-          height: 400,
-          borderRadius: "50%",
-          background: `radial-gradient(
-            circle, 
-            rgba(255,255,255,0.15) 0%, 
-            transparent 70%
-          )`,
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+          maxWidth: "800px", // Limitar el ancho para centrar en el texto
+          maxHeight: "400px", // Limitar la altura para centrar en el texto
+        }}
+      >
+        <Particles
+          particleColors={[theme.palette.primary.main]}
+          particleCount={100}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          alphaParticles={true}
+          disableRotation={false}
+        />
+      </Box>
+
+      {/* Iconos dispersos */}
+      <Box
+        component="img"
+        src={barCodeScanner}
+        alt="Bar Code Scanner"
+        sx={{
+          position: "absolute",
+          top: "10%",
+          left: "5%",
+          width: { xs: "80px", md: "100px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(5deg)' }
         }}
       />
-
       <Box
+        component="img"
+        src={glasess}
+        alt="Glasses"
         sx={{
           position: "absolute",
-          bottom: -150,
-          left: -150,
-          width: 500,
-          height: 500,
-          borderRadius: "50%",
-          background: `radial-gradient(
-            circle, 
-            rgba(255,255,255,0.1) 0%, 
-            transparent 70%
-          )`,
+          bottom: "15%",
+          right: "8%",
+          width: { xs: "80px", md: "110px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(-5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={ia}
+        alt="AI Icon"
+        sx={{
+          position: "absolute",
+          top: "20%",
+          right: "15%",
+          width: { xs: "90px", md: "120px" },
+          opacity: 0.3,
+          zIndex: 0,
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={iphone11}
+        alt="iPhone"
+        sx={{
+          position: "absolute",
+          bottom: "5%",
+          left: "10%",
+          width: { xs: "70px", md: "90px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={qrCode}
+        alt="QR Code"
+        sx={{
+          position: "absolute",
+          top: "5%",
+          right: "5%",
+          width: { xs: "60px", md: "80px" },
+          opacity: 0.3,
+          zIndex: 0,
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(-5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={terminal}
+        alt="Terminal"
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          left: "20%",
+          width: { xs: "80px", md: "100px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={botDog}
+        alt="Bot Dog"
+        sx={{
+          position: "absolute",
+          top: "5%",
+          left: "25%",
+          width: { xs: "90px", md: "110px" },
+          opacity: 0.3,
+          zIndex: 0,
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={camera}
+        alt="Camera"
+        sx={{
+          position: "absolute",
+          bottom: "20%",
+          left: "5%",
+          width: { xs: "70px", md: "90px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(-5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={drone}
+        alt="Drone"
+        sx={{
+          position: "absolute",
+          top: "30%",
+          left: "10%",
+          width: { xs: "100px", md: "130px" },
+          opacity: 0.3,
+          zIndex: 0,
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={ibmPc}
+        alt="IBM PC"
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          right: "20%",
+          width: { xs: "90px", md: "120px" },
+          opacity: 0.3,
+          zIndex: 0,
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={screen}
+        alt="Screen"
+        sx={{
+          position: "absolute",
+          top: "15%",
+          left: "40%",
+          width: { xs: "80px", md: "100px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(-5deg)' }
+        }}
+      />
+      {/* Repeticiones para simetría */}
+      <Box
+        component="img"
+        src={ia}
+        alt="AI Icon"
+        sx={{
+          position: "absolute",
+          bottom: "25%",
+          left: "18%",
+          width: { xs: "70px", md: "100px" },
+          opacity: 0.2,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={qrCode}
+        alt="QR Code"
+        sx={{
+          position: "absolute",
+          top: "35%",
+          left: "3%",
+          width: { xs: "50px", md: "70px" },
+          opacity: 0.2,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={drone}
+        alt="Drone"
+        sx={{
+          position: "absolute",
+          bottom: "30%",
+          right: "10%",
+          width: { xs: "80px", md: "110px" },
+          opacity: 0.2,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(-5deg)' }
         }}
       />
 
@@ -61,8 +299,9 @@ const BusinessTechUpdate: React.FC = () => {
           position: "relative",
           zIndex: 1,
           display: "flex",
-          flexDirection: { xs: "column", lg: "row" },
-          alignItems: "center",
+          flexDirection: "column", // Siempre columna para centrar
+          alignItems: "center", // Centrar horizontalmente
+          textAlign: "center", // Centrar texto
           gap: { xs: 4, lg: 8 },
         }}
       >
@@ -72,19 +311,16 @@ const BusinessTechUpdate: React.FC = () => {
             flex: 1,
             display: "flex",
             flexDirection: "column",
-            alignItems: { xs: "center", lg: "flex-start" },
-            textAlign: { xs: "center", lg: "left" },
+            alignItems: "center", // Centrar horizontalmente
+            textAlign: "center", // Centrar texto
           }}
         >
           <Typography
             variant="h2"
             sx={{
-              fontWeight: 800,
-              fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
               mb: 3,
-              lineHeight: 1.2,
-              textShadow: "0 2px 10px rgba(0,0,0,0.2)",
-              color: theme.palette.common.white,
+              textShadow: "none", // Eliminar sombra de texto
+              color: theme.palette.text.primary, // Color de texto por defecto
             }}
           >
             Transforma tu negocio con{" "}
@@ -100,8 +336,8 @@ const BusinessTechUpdate: React.FC = () => {
                 text="tecnología inteligente"
                 manualMode={false}
                 blurAmount={3}
-                borderColor={theme.palette.secondary.light}
-                glowColor="rgba(255, 255, 255, 0.6)"
+                borderColor="red"
+                glowColor="rgba(255, 0, 0, 0.6)"
                 animationDuration={0.4}
                 pauseBetweenAnimations={1.5}
               />
@@ -112,20 +348,20 @@ const BusinessTechUpdate: React.FC = () => {
             variant="h5"
             component="p"
             sx={{
-              fontWeight: 400,
-              fontSize: { xs: "1rem", sm: "1.25rem" },
               mb: 4,
               maxWidth: "600px",
               opacity: 0.9,
-              textShadow: "0 2px 10px rgba(0,0,0,0.2)",
-              color: theme.palette.common.white,
+              textShadow: "none", // Eliminar sombra de texto
+              color: theme.palette.text.primary,
             }}
           >
-            En un mundo que cambia rápidamente,{" "}
-            <strong>mantenerse actualizado</strong> es clave para el éxito.
-            Nuestras soluciones están diseñadas para{" "}
-            <strong>simplificar la tecnología</strong> y ayudarte a tomar
-            decisiones informadas sin complicaciones.
+            <Box component="span" sx={{ display: { xs: "none", md: "inline" } }}>
+              En un mundo que cambia rápidamente,{" "}
+              <strong>mantenerse actualizado</strong> es clave para el éxito.
+              Nuestras soluciones están diseñadas para{" "}
+              <strong>simplificar la tecnología</strong> y ayudarte a tomar
+              decisiones informadas sin complicaciones.
+            </Box>
           </Typography>
 
           <Box
@@ -144,7 +380,7 @@ const BusinessTechUpdate: React.FC = () => {
                 py: 1.5,
                 fontWeight: 700,
                 borderRadius: "50px",
-                boxShadow: `0 4px 20px ${theme.palette.common.white}`,
+                boxShadow: `0 4px 20px rgba(0,0,0,0.1)`, // Sombra más suave
                 "&:hover": {
                   transform: "translateY(-2px)",
                   boxShadow: `0 6px 24px ${theme.palette.primary.main}`,
@@ -163,7 +399,7 @@ const BusinessTechUpdate: React.FC = () => {
               duration={500}
               offset={-70}
               variant="outlined"
-              color="inherit"
+              color="primary" // Usar color primario para el borde
               size="large"
               sx={{
                 px: 4,
@@ -172,7 +408,7 @@ const BusinessTechUpdate: React.FC = () => {
                 borderRadius: "50px",
                 borderWidth: "2px",
                 "&:hover": {
-                  backgroundColor: "rgba(255,255,255,0.1)",
+                  backgroundColor: "rgba(0,0,0,0.05)", // Fondo más suave al pasar el ratón
                   borderWidth: "2px",
                 },
                 transition: "all 0.3s ease",
@@ -182,127 +418,10 @@ const BusinessTechUpdate: React.FC = () => {
             </Button>
           </Box>
         </Box>
-
-        {/* Contenedor de imagen */}
-        <Box
-          sx={{
-            flex: 1,
-            position: "relative",
-            maxWidth: "600px",
-            width: "100%",
-            perspective: "1000px",
-          }}
-        >
-          <Box
-            sx={{
-              position: "relative",
-              borderRadius: "20px",
-              overflow: "hidden",
-              boxShadow: `
-                0 30px 60px -10px rgba(0,0,0,0.3),
-                0 18px 36px -18px rgba(0,0,0,0.33)
-              `,
-              transformStyle: "preserve-3d",
-              transition: "transform 0.5s ease, box-shadow 0.5s ease",
-              "&:hover": {
-                transform: "translateY(-10px) rotateX(5deg)",
-                boxShadow: `
-                  0 40px 80px -15px rgba(0,0,0,0.4),
-                  0 25px 50px -25px rgba(0,0,0,0.4)
-                `,
-                "&:after": {
-                  opacity: 1,
-                },
-                "& img": {
-                  transform: "scale(1.05)",
-                },
-              },
-              "&:after": {
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: `linear-gradient(
-                  135deg,
-                  rgba(255,255,255,0.1) 0%,
-                  transparent 100%
-                )`,
-                opacity: 0,
-                transition: "opacity 0.5s ease",
-              },
-            }}
-          >
-            <Box
-              component="img"
-              src={techImage}
-              alt="Tecnología para negocios"
-              sx={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-                transition: "transform 0.5s ease",
-              }}
-            />
-
-            <Box
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                padding: 3,
-                background: `linear-gradient(
-                  to top,
-                  rgba(0,0,0,0.8) 0%,
-                  transparent 100%
-                )`,
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  color: theme.palette.common.white,
-                  fontWeight: 600,
-                }}
-              >
-                Soluciones que impulsan tu negocio
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{
-                  color: "rgba(255,255,255,0.8)",
-                }}
-              >
-                Tecnología adaptada a tus necesidades reales
-              </Typography>
-            </Box>
-          </Box>
-
-          {/* Elemento decorativo */}
-          <Box
-            sx={{
-              position: "absolute",
-              top: -20,
-              right: -20,
-              width: 80,
-              height: 80,
-              borderRadius: "50%",
-              background: `linear-gradient(
-                45deg,
-                ${theme.palette.secondary.light},
-                ${theme.palette.primary.light}
-              )`,
-              filter: "blur(15px)",
-              opacity: 0.7,
-              zIndex: -1,
-            }}
-          />
-        </Box>
       </Container>
     </Box>
   );
 };
 
 export default BusinessTechUpdate;
+
