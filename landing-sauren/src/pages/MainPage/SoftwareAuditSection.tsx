@@ -104,9 +104,6 @@ const SoftwareAuditSection: React.FC = () => {
             background: "linear-gradient(90deg, #ED1C24, #2E3192)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            whiteSpace: "nowrap", // Evita saltos de línea
-            overflow: "hidden", // Oculta el texto que no cabe
-            textOverflow: "ellipsis", // Añade puntos suspensivos si el texto no cabe
             px: 2, // Padding horizontal para evitar que el texto toque los bordes
           }}
         >
@@ -130,6 +127,7 @@ const SoftwareAuditSection: React.FC = () => {
           fontWeight: "bold",
           maxWidth: "700px",
           mb: 4,
+          fontSize: { xs: "1.5rem", md: "2.125rem" }, // Reducir tamaño en móvil
         }}
       >
         ¡Solicita tu{" "}
