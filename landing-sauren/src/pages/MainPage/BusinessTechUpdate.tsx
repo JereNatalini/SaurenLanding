@@ -5,6 +5,19 @@ import { Link as ScrollLink } from "react-scroll";
 import TrueFocusWrapper from "../../components/TrueFocusWrapper";
 import Particles from "../../Backgrounds/Particles/Particles";
 
+// Importar los iconos
+import barCodeScanner from "../../assets/BusinessTechUpdate/barCodeScanner.png";
+import glasess from "../../assets/BusinessTechUpdate/glasess.png";
+import ia from "../../assets/BusinessTechUpdate/ia.png";
+import iphone11 from "../../assets/BusinessTechUpdate/iphone11.png";
+import qrCode from "../../assets/BusinessTechUpdate/qrCode.png";
+import terminal from "../../assets/BusinessTechUpdate/terminal.png";
+import botDog from "../../assets/BusinessTechUpdate/botDog.png";
+import camera from "../../assets/BusinessTechUpdate/camera.png";
+import drone from "../../assets/BusinessTechUpdate/drone.png";
+import ibmPc from "../../assets/BusinessTechUpdate/ibmPc.png";
+import screen from "../../assets/BusinessTechUpdate/screen.png";
+
 const BusinessTechUpdate: React.FC = () => {
   const theme = useTheme();
 
@@ -43,6 +56,243 @@ const BusinessTechUpdate: React.FC = () => {
           disableRotation={false}
         />
       </Box>
+
+      {/* Iconos dispersos */}
+      <Box
+        component="img"
+        src={barCodeScanner}
+        alt="Bar Code Scanner"
+        sx={{
+          position: "absolute",
+          top: "10%",
+          left: "5%",
+          width: { xs: "80px", md: "100px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={glasess}
+        alt="Glasses"
+        sx={{
+          position: "absolute",
+          bottom: "15%",
+          right: "8%",
+          width: { xs: "80px", md: "110px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(-5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={ia}
+        alt="AI Icon"
+        sx={{
+          position: "absolute",
+          top: "20%",
+          right: "15%",
+          width: { xs: "90px", md: "120px" },
+          opacity: 0.3,
+          zIndex: 0,
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={iphone11}
+        alt="iPhone"
+        sx={{
+          position: "absolute",
+          bottom: "5%",
+          left: "10%",
+          width: { xs: "70px", md: "90px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={qrCode}
+        alt="QR Code"
+        sx={{
+          position: "absolute",
+          top: "5%",
+          right: "5%",
+          width: { xs: "60px", md: "80px" },
+          opacity: 0.3,
+          zIndex: 0,
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(-5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={terminal}
+        alt="Terminal"
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          left: "20%",
+          width: { xs: "80px", md: "100px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={botDog}
+        alt="Bot Dog"
+        sx={{
+          position: "absolute",
+          top: "5%",
+          left: "25%",
+          width: { xs: "90px", md: "110px" },
+          opacity: 0.3,
+          zIndex: 0,
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={camera}
+        alt="Camera"
+        sx={{
+          position: "absolute",
+          bottom: "20%",
+          left: "5%",
+          width: { xs: "70px", md: "90px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(-5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={drone}
+        alt="Drone"
+        sx={{
+          position: "absolute",
+          top: "30%",
+          left: "10%",
+          width: { xs: "100px", md: "130px" },
+          opacity: 0.3,
+          zIndex: 0,
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={ibmPc}
+        alt="IBM PC"
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          right: "20%",
+          width: { xs: "90px", md: "120px" },
+          opacity: 0.3,
+          zIndex: 0,
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={screen}
+        alt="Screen"
+        sx={{
+          position: "absolute",
+          top: "15%",
+          left: "40%",
+          width: { xs: "80px", md: "100px" },
+          opacity: 0.3,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.3))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(-5deg)' }
+        }}
+      />
+      {/* Repeticiones para simetría */}
+      <Box
+        component="img"
+        src={ia}
+        alt="AI Icon"
+        sx={{
+          position: "absolute",
+          bottom: "25%",
+          left: "18%",
+          width: { xs: "70px", md: "100px" },
+          opacity: 0.2,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={qrCode}
+        alt="QR Code"
+        sx={{
+          position: "absolute",
+          top: "35%",
+          left: "3%",
+          width: { xs: "50px", md: "70px" },
+          opacity: 0.2,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(5deg)' }
+        }}
+      />
+      <Box
+        component="img"
+        src={drone}
+        alt="Drone"
+        sx={{
+          position: "absolute",
+          bottom: "30%",
+          right: "10%",
+          width: { xs: "80px", md: "110px" },
+          opacity: 0.2,
+          zIndex: 0,
+          display: { xs: "none", sm: "block" },
+          filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2))',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': { transform: 'scale(1.1) rotate(-5deg)' }
+        }}
+      />
+
       <Container
         maxWidth="lg"
         sx={{
@@ -86,8 +336,8 @@ const BusinessTechUpdate: React.FC = () => {
                 text="tecnología inteligente"
                 manualMode={false}
                 blurAmount={3}
-                borderColor={theme.palette.secondary.light}
-                glowColor="rgba(255, 255, 255, 0.6)"
+                borderColor="red"
+                glowColor="rgba(255, 0, 0, 0.6)"
                 animationDuration={0.4}
                 pauseBetweenAnimations={1.5}
               />
@@ -174,3 +424,4 @@ const BusinessTechUpdate: React.FC = () => {
 };
 
 export default BusinessTechUpdate;
+
