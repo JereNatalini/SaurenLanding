@@ -42,7 +42,7 @@ const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
   width = "100%",
   maxHeight = "100%",
   itemMinHeight = 100,
-  negativeMargin,
+  negativeMargin = "0px",
 }) => {
   const duplicatedItems = [...items, ...items];
   const wrapperRef = useRef<HTMLDivElement>(null);
