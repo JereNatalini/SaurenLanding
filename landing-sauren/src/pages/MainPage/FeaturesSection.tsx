@@ -16,7 +16,7 @@ const ProjectsSection: React.FC = () => {
       sx={{
         py: { xs: 8, md: 12 },
         px: { xs: 2, md: 4 },
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: "transparent",
       }}
     >
       {/* Título */}

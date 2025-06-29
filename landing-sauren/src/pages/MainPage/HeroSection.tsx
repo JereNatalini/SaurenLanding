@@ -17,32 +17,10 @@ const FullScreenHero = () => {
         alignItems: "center",
         position: "relative",
         overflow: "hidden",
-        background: theme.palette.background.default,
+        background: "transparent",
         py: 0,
       }}
     >
-      {/* Partículas animadas */}
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: 1,
-        }}
-      >
-        <Particles
-          particleColors={[theme.palette.primary.main]}
-          particleCount={175}
-          particleSpread={15}
-          speed={0.15}
-          particleBaseSize={130}
-          alphaParticles={true}
-          disableRotation={false}
-        />
-      </Box>
-
       <Container
         maxWidth="xl"
         sx={{
@@ -60,7 +38,7 @@ const FullScreenHero = () => {
           sx={{
             maxWidth: { xs: "100%", md: "50%" },
             textAlign: { xs: "center", md: "left" },
-            pr: { md: 6 },
+            pl: { md: 20 }, // Añadir padding-left para alinear con ClientsSection
             mt: { xs: 6, md: 0 },
           }}
         >
@@ -216,24 +194,6 @@ const FullScreenHero = () => {
           />
         </Box>
       </Container>
-
-      {/* Elemento decorativo abstracto */}
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: "-20%",
-          right: "-10%",
-          width: "60%",
-          height: "80%",
-          background: `linear-gradient(45deg, 
-            ${theme.palette.primary.main}10 0%, 
-            ${theme.palette.secondary.main}10 100%)`,
-          borderRadius: "50%",
-          filter: "blur(60px)",
-          zIndex: 0,
-          opacity: 0.6,
-        }}
-      />
     </Box>
   );
 };

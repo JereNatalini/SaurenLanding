@@ -3,6 +3,7 @@ import { Box, Typography, Container, Button, useTheme } from "@mui/material";
 import techImage from "../../assets/images/womenCoffee.jpg";
 import { Link as ScrollLink } from "react-scroll";
 import TrueFocusWrapper from "../../components/TrueFocusWrapper";
+import Particles from "../../Backgrounds/Particles/Particles";
 
 const BusinessTechUpdate: React.FC = () => {
   const theme = useTheme();
@@ -14,56 +15,43 @@ const BusinessTechUpdate: React.FC = () => {
         overflow: "hidden",
         py: { xs: 8, md: 12 },
         px: { xs: 2, sm: 4 },
-        background: `
-          linear-gradient(145deg, 
-            ${theme.palette.primary.dark} 0%, 
-            ${theme.palette.secondary.main} 100%
-          )
-        `,
-        color: theme.palette.common.white,
+        background: "transparent", // Fondo transparente
+        color: theme.palette.text.primary, // Color de texto por defecto
       }}
     >
-      {/* Elementos decorativos */}
+      {/* Partículas animadas */}
       <Box
         sx={{
           position: "absolute",
-          top: -100,
-          right: -100,
-          width: 400,
-          height: 400,
-          borderRadius: "50%",
-          background: `radial-gradient(
-            circle, 
-            rgba(255,255,255,0.15) 0%, 
-            transparent 70%
-          )`,
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+          maxWidth: "800px", // Limitar el ancho para centrar en el texto
+          maxHeight: "400px", // Limitar la altura para centrar en el texto
         }}
-      />
-
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: -150,
-          left: -150,
-          width: 500,
-          height: 500,
-          borderRadius: "50%",
-          background: `radial-gradient(
-            circle, 
-            rgba(255,255,255,0.1) 0%, 
-            transparent 70%
-          )`,
-        }}
-      />
-
+      >
+        <Particles
+          particleColors={[theme.palette.primary.main]}
+          particleCount={100}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          alphaParticles={true}
+          disableRotation={false}
+        />
+      </Box>
       <Container
         maxWidth="lg"
         sx={{
           position: "relative",
           zIndex: 1,
           display: "flex",
-          flexDirection: { xs: "column", lg: "row" },
-          alignItems: "center",
+          flexDirection: "column", // Siempre columna para centrar
+          alignItems: "center", // Centrar horizontalmente
+          textAlign: "center", // Centrar texto
           gap: { xs: 4, lg: 8 },
         }}
       >
@@ -73,16 +61,16 @@ const BusinessTechUpdate: React.FC = () => {
             flex: 1,
             display: "flex",
             flexDirection: "column",
-            alignItems: { xs: "center", lg: "flex-start" },
-            textAlign: { xs: "center", lg: "left" },
+            alignItems: "center", // Centrar horizontalmente
+            textAlign: "center", // Centrar texto
           }}
         >
           <Typography
             variant="h2"
             sx={{
               mb: 3,
-              textShadow: "0 2px 10px rgba(0,0,0,0.2)",
-              color: theme.palette.common.white,
+              textShadow: "none", // Eliminar sombra de texto
+              color: theme.palette.text.primary, // Color de texto por defecto
             }}
           >
             Transforma tu negocio con{" "}
@@ -113,15 +101,17 @@ const BusinessTechUpdate: React.FC = () => {
               mb: 4,
               maxWidth: "600px",
               opacity: 0.9,
-              textShadow: "0 2px 10px rgba(0,0,0,0.2)",
-              color: theme.palette.common.white,
+              textShadow: "none", // Eliminar sombra de texto
+              color: theme.palette.text.primary,
             }}
           >
-            En un mundo que cambia rápidamente,{" "}
-            <strong>mantenerse actualizado</strong> es clave para el éxito.
-            Nuestras soluciones están diseñadas para{" "}
-            <strong>simplificar la tecnología</strong> y ayudarte a tomar
-            decisiones informadas sin complicaciones.
+            <Box component="span" sx={{ display: { xs: "none", md: "inline" } }}>
+              En un mundo que cambia rápidamente,{" "}
+              <strong>mantenerse actualizado</strong> es clave para el éxito.
+              Nuestras soluciones están diseñadas para{" "}
+              <strong>simplificar la tecnología</strong> y ayudarte a tomar
+              decisiones informadas sin complicaciones.
+            </Box>
           </Typography>
 
           <Box
@@ -140,7 +130,7 @@ const BusinessTechUpdate: React.FC = () => {
                 py: 1.5,
                 fontWeight: 700,
                 borderRadius: "50px",
-                boxShadow: `0 4px 20px ${theme.palette.common.white}`,
+                boxShadow: `0 4px 20px rgba(0,0,0,0.1)`, // Sombra más suave
                 "&:hover": {
                   transform: "translateY(-2px)",
                   boxShadow: `0 6px 24px ${theme.palette.primary.main}`,
@@ -159,7 +149,7 @@ const BusinessTechUpdate: React.FC = () => {
               duration={500}
               offset={-70}
               variant="outlined"
-              color="inherit"
+              color="primary" // Usar color primario para el borde
               size="large"
               sx={{
                 px: 4,
@@ -168,7 +158,7 @@ const BusinessTechUpdate: React.FC = () => {
                 borderRadius: "50px",
                 borderWidth: "2px",
                 "&:hover": {
-                  backgroundColor: "rgba(255,255,255,0.1)",
+                  backgroundColor: "rgba(0,0,0,0.05)", // Fondo más suave al pasar el ratón
                   borderWidth: "2px",
                 },
                 transition: "all 0.3s ease",
@@ -177,125 +167,6 @@ const BusinessTechUpdate: React.FC = () => {
               Ver casos de éxito
             </Button>
           </Box>
-        </Box>
-
-        {/* Contenedor de imagen */}
-        <Box
-          sx={{
-            flex: 1,
-            position: "relative",
-            maxWidth: "600px",
-            width: "100%",
-            perspective: "1000px",
-            display: { xs: "none", md: "block" },
-          }}
-        >
-          <Box
-            sx={{
-              position: "relative",
-              borderRadius: "20px",
-              overflow: "hidden",
-              boxShadow: `
-                0 30px 60px -10px rgba(0,0,0,0.3),
-                0 18px 36px -18px rgba(0,0,0,0.33)
-              `,
-              transformStyle: "preserve-3d",
-              transition: "transform 0.5s ease, box-shadow 0.5s ease",
-              "&:hover": {
-                transform: "translateY(-10px) rotateX(5deg)",
-                boxShadow: `
-                  0 40px 80px -15px rgba(0,0,0,0.4),
-                  0 25px 50px -25px rgba(0,0,0,0.4)
-                `,
-                "&:after": {
-                  opacity: 1,
-                },
-                "& img": {
-                  transform: "scale(1.05)",
-                },
-              },
-              "&:after": {
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: `linear-gradient(
-                  135deg,
-                  rgba(255,255,255,0.1) 0%,
-                  transparent 100%
-                )`,
-                opacity: 0,
-                transition: "opacity 0.5s ease",
-              },
-            }}
-          >
-            <Box
-              component="img"
-              src={techImage}
-              alt="Tecnología para negocios"
-              sx={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-                transition: "transform 0.5s ease",
-              }}
-            />
-
-            <Box
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                padding: 3,
-                background: `linear-gradient(
-                  to top,
-                  rgba(0,0,0,0.8) 0%,
-                  transparent 100%
-                )`,
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  color: theme.palette.common.white,
-                  fontWeight: 600,
-                }}
-              >
-                Soluciones que impulsan tu negocio
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{
-                  color: "rgba(255,255,255,0.8)",
-                }}
-              >
-                Tecnología adaptada a tus necesidades reales
-              </Typography>
-            </Box>
-          </Box>
-
-          {/* Elemento decorativo */}
-          <Box
-            sx={{
-              position: "absolute",
-              top: -20,
-              right: -20,
-              width: 80,
-              height: 80,
-              borderRadius: "50%",
-              background: `linear-gradient(
-                45deg,
-                ${theme.palette.secondary.light},
-                ${theme.palette.primary.light}
-              )`,
-              filter: "blur(15px)",
-              opacity: 0.7,
-              zIndex: -1,
-            }}
-          />
         </Box>
       </Container>
     </Box>

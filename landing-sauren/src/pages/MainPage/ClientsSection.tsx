@@ -72,7 +72,7 @@ const ClientsSection: React.FC = () => {
           sx={{
             pt: 0,
             pb: 0,
-            backgroundColor: theme.palette.background.default,
+            backgroundColor: "transparent",
             position: "relative",
             width: "100%",
             overflow: "hidden",
@@ -148,7 +148,7 @@ const ClientsSection: React.FC = () => {
           sx={{
             pt: 0, // No top padding to connect with the previous section
             pb: 12,
-            backgroundColor: theme.palette.background.default,
+            backgroundColor: "transparent",
             position: "relative",
             width: "100%",
             overflowX: "hidden",
