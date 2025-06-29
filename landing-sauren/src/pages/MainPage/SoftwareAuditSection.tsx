@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Box, Typography, Container, Button } from "@mui/material";
-import theme from "../../theme";
+import { Box, Typography, Container, Button, useTheme } from "@mui/material";
 
 const dynamicTexts = [
   "un E-Commerce",
@@ -16,6 +15,7 @@ const dynamicTexts = [
 ];
 
 const SoftwareAuditSection: React.FC = () => {
+  const theme = useTheme();
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -74,7 +74,7 @@ const SoftwareAuditSection: React.FC = () => {
   return (
     <Container
       sx={{
-        py: { xs: 6, md: 10, lg: 12 },
+        py: { xs: 8, md: 12 },
         textAlign: "center",
         display: "flex",
         flexDirection: "column",
@@ -130,7 +130,6 @@ const SoftwareAuditSection: React.FC = () => {
           fontWeight: "bold",
           maxWidth: "700px",
           mb: 4,
-          fontSize: { xs: "1.3rem", md: "1.7rem" }
         }}
       >
         ¡Solicita tu{" "}

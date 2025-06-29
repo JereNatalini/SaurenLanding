@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, useTheme, Grid } from "@mui/material";
-import InfiniteScroll from "../../Components/InfiniteScroll/InfiniteScroll";
+import InfiniteScroll from "../../components/InfiniteScroll/InfiniteScroll";
 // Importación de logos
 import LogoMomentos from "../../assets/logos/LogoMomentos.webp";
 import LogoWepoint from "../../assets/logos/LogoWepoint.webp";
@@ -67,8 +67,7 @@ const ClientsSection: React.FC = () => {
   return (
     <Box
       sx={{
-        pt: { xs: 0, md: 0 },
-        pb: { xs: 8, md: 20 },
+        py: { xs: 8, md: 12 },
         backgroundColor: theme.palette.background.default,
         position: "relative",
         width: "100%",
@@ -84,9 +83,6 @@ const ClientsSection: React.FC = () => {
               sx={{
                 mb: 4,
                 color: theme.palette.text.primary,
-                fontFamily: "StretchPro, Arial, sans-serif",
-                fontSize: { xs: "2.5rem", md: "3.5rem" },
-                lineHeight: 1.2,
               }}
             >
               EMPRESAS QUE{" "}
@@ -101,7 +97,6 @@ const ClientsSection: React.FC = () => {
               sx={{
                 mb: 3,
                 color: theme.palette.text.primary,
-                fontSize: "1.1rem",
               }}
             >
               Estas empresas líderes en sus sectores han elegido nuestros
@@ -111,7 +106,6 @@ const ClientsSection: React.FC = () => {
               variant="body1"
               sx={{
                 color: theme.palette.text.primary,
-                fontSize: "1.1rem",
               }}
             >
               Desde startups innovadoras hasta corporaciones establecidas, cada

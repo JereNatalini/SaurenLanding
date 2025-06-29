@@ -2,8 +2,8 @@ import React from "react";
 import { Box, Typography, Container, Button, useTheme } from "@mui/material";
 import techImage from "../../assets/images/womenCoffee.jpg";
 import { Link as ScrollLink } from "react-scroll";
-import TrueFocusInline from "../../components/TrueFocusInline";
 import TrueFocusWrapper from "../../components/TrueFocusWrapper";
+
 const BusinessTechUpdate: React.FC = () => {
   const theme = useTheme();
 
@@ -80,10 +80,7 @@ const BusinessTechUpdate: React.FC = () => {
           <Typography
             variant="h2"
             sx={{
-              fontWeight: 800,
-              fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
               mb: 3,
-              lineHeight: 1.2,
               textShadow: "0 2px 10px rgba(0,0,0,0.2)",
               color: theme.palette.common.white,
             }}
@@ -113,8 +110,6 @@ const BusinessTechUpdate: React.FC = () => {
             variant="h5"
             component="p"
             sx={{
-              fontWeight: 400,
-              fontSize: { xs: "1rem", sm: "1.25rem" },
               mb: 4,
               maxWidth: "600px",
               opacity: 0.9,

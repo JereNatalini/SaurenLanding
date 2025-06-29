@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, Button, Chip } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardMedia, Button, Chip, useTheme } from '@mui/material';
 import { Storage, ShoppingCart } from '@mui/icons-material';
-import theme from '../../theme';
 import { useNavigate } from 'react-router-dom';
 
 import momentosps from '../../assets/images/momentosPresta.png';
@@ -9,25 +8,23 @@ import wepointLogin from '../../assets/images/WepointLogin.png';
 
 const ProjectsSection: React.FC = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const goToWepoint = () => navigate('/wepoint');
   return (
     <Box
       sx={{
-        py: 10,
+        py: { xs: 8, md: 12 },
         px: { xs: 2, md: 4 },
-        backgroundColor: '#ffffff', // Fondo blanco para un look limpio
+        backgroundColor: theme.palette.background.default,
       }}
     >
       {/* Título */}
       <Typography
-        variant="h3"
+        variant="h2"
         sx={{
-          fontWeight: 'bold',
           textAlign: 'center',
           mb: 2,
-          color: theme.palette.text.primary,
-          fontSize: { xs: '2rem', md: '3rem' }, // Título más grande y llamativo
         }}
       >
         <span style={{ color: theme.palette.primary.main }}>CASOS DE EXITO</span>
@@ -40,7 +37,6 @@ const ProjectsSection: React.FC = () => {
           color: theme.palette.text.primary,
           maxWidth: '800px',
           mx: 'auto',
-          fontSize: { xs: '1rem', md: '1.25rem' }, // Texto más grande y legible
         }}
       >
         Descubre cómo hemos transformado ideas en soluciones digitales innovadoras.

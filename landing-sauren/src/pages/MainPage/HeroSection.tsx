@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Box, Button, Container, useTheme } from "@mui/material";
+import { Box, Button, Container, useTheme, Typography } from "@mui/material";
 import { ArrowRightAlt } from "@mui/icons-material";
 import MagnetLines from "../../Animations/MagnetLines/MagnetLines";
 import Particles from "../../Backgrounds/Particles/Particles";
@@ -74,14 +74,11 @@ const FullScreenHero = () => {
               position: "relative",
             }}
           >
-            <Box
+            <Typography
+              variant="h1"
+              component="div"
               sx={{
                 mb: 4,
-                fontSize: { xs: "2.5rem", md: "3.5rem", lg: "4rem" },
-                lineHeight: 1.2,
-                fontWeight: 900,
-                fontFamily: "NexaHeavy, Arial, sans-serif",
-                color: theme.palette.text.primary,
                 minHeight: "6rem",
               }}
             >
@@ -94,6 +91,7 @@ const FullScreenHero = () => {
                   position: "relative",
                   verticalAlign: "top",
                   textAlign: "left",
+                  color: theme.palette.primary.main,
                 }}
               >
                 <RotatingText
@@ -120,21 +118,19 @@ const FullScreenHero = () => {
                   }}
                 />
               </Box>
-            </Box>
+            </Typography>
 
-            <Box
+            <Typography
+              variant="h5"
+              component="p"
               sx={{
                 mb: 6,
-                fontSize: { xs: "1.2rem", md: "1.5rem" },
-                lineHeight: 1.6,
-                fontWeight: 400,
-                fontFamily: "NexaExtraLight, Arial, sans-serif",
                 color: theme.palette.text.primary,
               }}
             >
               Descubre cómo nuestras soluciones pueden llevar tu empresa al
               siguiente nivel
-            </Box>
+            </Typography>
 
             {/* Botones */}
             <Box
