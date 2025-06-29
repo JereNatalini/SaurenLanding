@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, Button, Chip, useTheme } from '@mui/material';
-import { Storage, ShoppingCart } from '@mui/icons-material';
+import { Box, Typography, Button, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import momentosps from '../../assets/images/momentosPresta.png';
