@@ -13,6 +13,8 @@ import { Link as ScrollLink } from "react-scroll";
 import MobileMenu from "../components/MobileMenu";
 import logo from "../assets/images/logo.png";
 
+import DarkModeSwitch from "../components/DarkModeSwitch";
+
 const Navbar: React.FC = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -123,6 +125,7 @@ const Navbar: React.FC = () => {
                 Contact
               </Button>
             </ScrollLink>
+            <DarkModeSwitch />
           </Box>
 
           {/* Mobile Menu Button */}

@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import { AppThemeProvider } from './components/AppThemeProvider';
 import './assets/fonts/fonts.css'; // Importa las fuentes
-import theme from './theme';
 import { HashRouter as Router } from 'react-router-dom'; // Cambia BrowserRouter por HashRouter
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <AppThemeProvider>
       <Router>
         <App />
       </Router>
-    </ThemeProvider>
+    </AppThemeProvider>
   </React.StrictMode>
 );
