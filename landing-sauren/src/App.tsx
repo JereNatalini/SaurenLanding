@@ -11,7 +11,7 @@ import FeaturesWP from './pages/Projects/WePoint/FeaturesWP';
 import BackgroundWP from './pages/Projects/WePoint/BackgroundWP';
 import RoadmapWP from './pages/Projects/WePoint/RoadmapWP';
 
-import HeroSectionMomentos from './pages/Projects/Momentos/HeroSectionMomentos';
+import MomentosPage from './pages/Projects/Momentos/MomentosPage';
 import './App.css';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
@@ -22,7 +22,6 @@ import BusinessTechUpdate from './pages/MainPage/BusinessTechUpdate';
 import ClientsSection from './pages/MainPage/ClientsSection';
 
 import ContactPage from './pages/ContactPage/ContactPage';
-import FeaturesSectionMomentos from './pages/Projects/Momentos/FeaturesSectionMomentos';
 function App() {
   React.useEffect(() => {
     AOS.init({
@@ -82,10 +81,7 @@ function App() {
           path="/momentosInolvidables"
           element={
             <MainLayout>
-              <HeroSectionMomentos/>
-              <div>
-                <FeaturesSectionMomentos/>
-              </div>
+              <MomentosPage />
             </MainLayout> 
           }
         />

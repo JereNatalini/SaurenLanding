@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography, Container, Grid } from '@mui/material';
 import theme from '../../../theme';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
@@ -8,7 +8,7 @@ import momentosLogo from '../../../assets/logos/LogoMomentos.png';
 import tiendaImg from '../../../assets/images/tienda1.png';
 import tiendaImg2 from '../../../assets/images/tienda2.png';
 
-const HeroSection: React.FC = () => {
+const HeroSectionMomentos: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 600, once: true });
   }, []);
@@ -17,131 +17,99 @@ const HeroSection: React.FC = () => {
     <Box sx={{ 
       width: '100%', 
       py: { xs: 6, md: 12 },
-      overflowX: 'hidden'
+      overflow: 'hidden',
+      background: 'linear-gradient(180deg, #f4f4f4 0%, #ffffff 100%)'
     }}>
-      <Container
-        maxWidth="lg"
-        sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          position: 'relative',
-        }}
-      >
-        {/* Imagen izquierda */}
-        <Box
-          component="img"
-          src={tiendaImg}
-          alt="Imagen Juguetería Izquierda"
-          sx={{
-            width: { xs: 180, md: 280 },
-            height: 'auto',
-            position: 'relative',
-            transform: { md: 'translateX(-25%) rotate(-10deg)' },
-            transition: 'transform 0.4s ease, box-shadow 0.4s ease',
-            boxShadow: '12px 12px 25px rgba(0,0,0,0.15)',
-            borderRadius: '10px',
-            zIndex: 1,
-            '&:hover': {
-              transform: { md: 'translateX(-15%) rotate(-5deg)' },
-              boxShadow: '15px 15px 35px rgba(0,0,0,0.2)',
-            },
-            [theme.breakpoints.down('md')]: {
-              order: 1,
-              transform: 'rotate(0)',
-              width: 200,
-              mb: 4
-            }
-          }}
-        />
-
-        {/* Contenido central */}
-        <Box sx={{ 
-          textAlign: 'center',
-          zIndex: 3,
-          px: { xs: 0, md: 4 },
-          [theme.breakpoints.down('md')]: {
-            order: 2,
-            mb: 4
-          }
-        }} data-aos="fade-up">
-          <Box
-            component="img"
-            src={momentosLogo}
-            alt="Logo Momentos Inolvidables"
-            sx={{ 
-              width: { xs: 140, md: 250 }, 
-              mb: 3, 
-              mx: 'auto',
-              filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))'
-            }}
-          />
-
-          <Typography
-            variant="h3"
-            component="h1"
-            sx={{ 
-              fontWeight: 700, 
-              mb: 2,
-              fontSize: { xs: '1.8rem', md: '2.5rem' }
-            }}
-          >
-            <ScrollFloat
-              animationDuration={0.8}
-              ease="power2.out"
-              scrollStart="top 95%"
-              scrollEnd="center 60%"
-              stagger={0.02}
+      <Container maxWidth="lg">
+        <Grid container alignItems="center" justifyContent="center" spacing={{ xs: 4, md: 2 }}>
+          <Grid item xs={12} md={5} sx={{ textAlign: 'center', order: { xs: 2, md: 1 } }} data-aos="fade-right">
+            <Box
+              component="img"
+              src={momentosLogo}
+              alt="Logo Momentos Inolvidables"
+              sx={{ 
+                width: { xs: 150, md: 220 }, 
+                mb: 3, 
+                filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.1))'
+              }}
+            />
+            <Typography
+              variant="h2"
+              component="h1"
+              sx={{ 
+                fontWeight: 700, 
+                mb: 2,
+                fontSize: { xs: '2.2rem', sm: '2.8rem', md: '3.2rem' },
+                lineHeight: 1.2
+              }}
             >
-              Vive <Box component="span" sx={{ color: theme.palette.primary.main }}>Momentos</Box> inolvidables
-            </ScrollFloat>
-          </Typography>
+              <ScrollFloat
+                animationDuration={0.8}
+                ease="power2.out"
+                scrollStart="top 95%"
+                scrollEnd="center 60%"
+                stagger={0.02}
+              >
+                Vive <Box component="span" sx={{ color: theme.palette.primary.main }}>Momentos</Box> Inolvidables
+              </ScrollFloat>
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{ 
+                color: theme.palette.text.secondary, 
+                mb: 4, 
+                maxWidth: 480, 
+                mx: 'auto', 
+                lineHeight: 1.6,
+                fontSize: { xs: '1rem', md: '1.15rem' },
+                fontWeight: 400
+              }}
+            >
+              Desarrollamos una solución de ecommerce completa en PrestaShop, integrando módulos a medida para una gestión eficiente de catálogos B2B y B2C.
+            </Typography>
+          </Grid>
 
-          <Typography
-            variant="body1"
-            sx={{ 
-              color: theme.palette.text.secondary, 
-              mb: 4, 
-              maxWidth: 360, 
-              mx: 'auto', 
-              lineHeight: 1.6,
-              fontSize: { xs: '1rem', md: '1.1rem' },
-              fontWeight: 500
-            }}
-          >
-            Ecommerce en PrestaShop para negocio B2B y B2C
-          </Typography>
-        </Box>
-
-        {/* Imagen derecha */}
-        <Box
-          component="img"
-          src={tiendaImg2}
-          alt="Imagen Juguetería Derecha"
-          sx={{
-            width: { xs: 180, md: 280 },
-            height: 'auto',
-            position: 'relative',
-            transform: { md: 'translateX(25%) rotate(10deg)' },
-            transition: 'transform 0.4s ease, box-shadow 0.4s ease',
-            boxShadow: '12px 12px 25px rgba(0,0,0,0.15)',
-            borderRadius: '10px',
-            zIndex: 1,
-            '&:hover': {
-              transform: { md: 'translateX(15%) rotate(5deg)' },
-              boxShadow: '15px 15px 35px rgba(0,0,0,0.2)',
-            },
-            [theme.breakpoints.down('md')]: {
-              order: 3,
-              transform: 'rotate(0)',
-              width: 200
-            }
-          }}
-        />
+          <Grid item xs={12} md={7} sx={{ order: { xs: 1, md: 2 } }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: { xs: 2, md: 4 } }}>
+              <Box
+                component="img"
+                src={tiendaImg}
+                alt="Juguetería Momentos 1"
+                data-aos="fade-left"
+                sx={{
+                  width: { xs: '45%', sm: 220, md: 280 },
+                  borderRadius: '12px',
+                  boxShadow: '10px 10px 30px rgba(0,0,0,0.1)',
+                  transform: 'rotate(-5deg)',
+                  transition: 'transform 0.3s ease-in-out',
+                  '&:hover': {
+                    transform: 'rotate(-2deg) scale(1.05)'
+                  }
+                }}
+              />
+              <Box
+                component="img"
+                src={tiendaImg2}
+                alt="Juguetería Momentos 2"
+                data-aos="fade-left"
+                data-aos-delay="200"
+                sx={{
+                  width: { xs: '45%', sm: 220, md: 280 },
+                  borderRadius: '12px',
+                  boxShadow: '10px 10px 30px rgba(0,0,0,0.1)',
+                  transform: 'rotate(5deg)',
+                  transition: 'transform 0.3s ease-in-out',
+                  '&:hover': {
+                    transform: 'rotate(2deg) scale(1.05)'
+                  }
+                }}
+              />
+            </Box>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );
 };
 
-export default HeroSection;
+export default HeroSectionMomentos;

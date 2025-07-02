@@ -6,6 +6,8 @@ import CardSwap, { Card } from '../../../components/CardSwap/CardSwap';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SchoolIcon from '@mui/icons-material/School';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
+import SecurityIcon from '@mui/icons-material/Security'; // New icon
+import SupportAgentIcon from '@mui/icons-material/SupportAgent'; // New icon
 import theme from '../../../theme';
 
 const FeaturesSectionMomentos: React.FC = () => {
@@ -18,8 +20,8 @@ const FeaturesSectionMomentos: React.FC = () => {
   const features = [
     {
       icon: <ShoppingCartIcon sx={{ fontSize: 48, color: '#FFB000' }} aria-hidden />,
-      title: 'E-commerce',
-      description: 'Implementación completa de PrestaShop con diseño responsive, optimizado para conversiones tanto en B2B como en B2C.',
+      title: 'E-commerce B2B/B2C',
+      description: 'Implementación completa de PrestaShop con diseño responsive, optimizado para conversiones tanto en B2B como en B2C, con gestión de catálogos y precios diferenciados.',
       details: [
         'Diseño responsive y adaptable',
         'Optimización para conversiones',
@@ -29,8 +31,8 @@ const FeaturesSectionMomentos: React.FC = () => {
     },
     {
       icon: <SchoolIcon sx={{ fontSize: 48, color: '#0061A3' }} aria-hidden />,
-      title: 'Capacitación',
-      description: 'Programas de formación personalizados para tu equipo, con soporte continuo en el uso de PrestaShop.',
+      title: 'Capacitación Personalizada',
+      description: 'Programas de formación personalizados para tu equipo, con soporte continuo en el uso de PrestaShop y las herramientas integradas.',
       details: [
         'Sesiones teórico-prácticas',
         'Material didáctico personalizado',
@@ -40,13 +42,35 @@ const FeaturesSectionMomentos: React.FC = () => {
     },
     {
       icon: <SyncAltIcon sx={{ fontSize: 48, color: '#E2351C' }} aria-hidden />,
-      title: 'Integración Dux',
-      description: 'Solución de sincronización avanzada con Dux para conectar tu tienda con Wepoint y sistemas internos.',
+      title: 'Integración Dux y Wepoint',
+      description: 'Solución de sincronización avanzada con Dux para conectar tu tienda con Wepoint y sistemas internos, automatizando procesos y centralizando la información.',
       details: [
         'Sincronización en tiempo real',
         'Gestión de inventario centralizada',
         'Automatización de pedidos',
         'Reportes integrados'
+      ]
+    },
+    {
+      icon: <SecurityIcon sx={{ fontSize: 48, color: '#4CAF50' }} aria-hidden />,
+      title: 'Seguridad y Rendimiento',
+      description: 'Garantizamos la seguridad de tu plataforma y optimizamos su rendimiento para una experiencia de compra rápida y confiable.',
+      details: [
+        'Certificados SSL',
+        'Protección contra ataques',
+        'Optimización de carga',
+        'Copias de seguridad automáticas'
+      ]
+    },
+    {
+      icon: <SupportAgentIcon sx={{ fontSize: 48, color: '#9C27B0' }} aria-hidden />,
+      title: 'Soporte Continuo',
+      description: 'Ofrecemos soporte técnico y consultoría para asegurar el funcionamiento óptimo de tu e-commerce y resolver cualquier incidencia.',
+      details: [
+        'Asistencia técnica 24/7',
+        'Actualizaciones de software',
+        'Consultoría estratégica',
+        'Mantenimiento preventivo'
       ]
     }
   ];
@@ -75,7 +99,7 @@ const FeaturesSectionMomentos: React.FC = () => {
           justifyContent: 'space-between',
           gap: 4,
           position: 'relative',
-          minHeight: 600
+          minHeight: { xs: 'auto', md: 600 } // Adjust minHeight for mobile
         }}>
           {/* Contenido a la izquierda - Rediseñado */}
           <Box
@@ -85,7 +109,8 @@ const FeaturesSectionMomentos: React.FC = () => {
               zIndex: 3,
               display: 'flex',
               flexDirection: 'column',
-              gap: 4
+              gap: 4,
+              mb: { xs: 4, md: 0 } // Add margin bottom for mobile
             }}
             data-aos="fade-right"
           >
@@ -117,7 +142,8 @@ const FeaturesSectionMomentos: React.FC = () => {
                 fontWeight: 800,
                 mb: 2,
                 color: '#333',
-                position: 'relative'
+                position: 'relative',
+                fontSize: { xs: '1.8rem', sm: '2rem', md: '2.2rem' } // Responsive font size
               }}>
                 Tu E-commerce de Alto Rendimiento
               </Typography>
@@ -125,7 +151,7 @@ const FeaturesSectionMomentos: React.FC = () => {
               <Typography variant="body1" sx={{
                 color: theme.palette.text.secondary,
                 mb: 3,
-                fontSize: '1.1rem',
+                fontSize: { xs: '1rem', md: '1.1rem' }, // Responsive font size
                 lineHeight: 1.6,
                 position: 'relative'
               }}>
@@ -190,7 +216,7 @@ const FeaturesSectionMomentos: React.FC = () => {
                 }}>
                   <Box sx={{ color: 'white', fontSize: '24px' }}>✓</Box>
                 </Box>
-                <Typography variant="h5" sx={{ fontWeight: 700 }}>
+                <Typography variant="h5" sx={{ fontWeight: 700, fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
                   ¿Por qué PrestaShop?
                 </Typography>
               </Box>
@@ -198,13 +224,14 @@ const FeaturesSectionMomentos: React.FC = () => {
               <Typography variant="body1" sx={{
                 color: theme.palette.text.secondary,
                 mb: 2,
-                pl: 6
+                pl: { xs: 0, sm: 6 }, // Adjust padding for mobile
+                fontSize: { xs: '0.95rem', md: '1rem' }
               }}>
                 La plataforma ideal para negocios que buscan escalabilidad y control total sobre su e-commerce.
               </Typography>
 
               <Box component="ul" sx={{
-                pl: 6,
+                pl: { xs: 2, sm: 6 }, // Adjust padding for mobile
                 mt: 2,
                 '& li': {
                   display: 'flex',
@@ -233,18 +260,19 @@ const FeaturesSectionMomentos: React.FC = () => {
 
           {/* CardSwap a la derecha - Posicionado absolutamente */}
           <Box sx={{
-            position: 'absolute',
-            top: '60%', // Cambiado de 50% a 60% para bajar más
-            right: 0,
-            transform: 'translate(35%, -50%)', // Aumentado de 25% a 35% para más a la derecha
-            width: '55%',
-            maxWidth: 600,
+            position: { xs: 'relative', md: 'absolute' }, // Relative for mobile, absolute for desktop
+            top: { xs: 0, md: '60%' }, // Adjust top for mobile
+            right: { xs: 0, md: 0 },
+            transform: { xs: 'none', md: 'translate(35%, -50%)' }, // No transform for mobile
+            width: { xs: '100%', md: '55%' },
+            maxWidth: { xs: '100%', md: 600 },
             zIndex: 1,
-            height: 500
+            height: { xs: 500, md: 500 }, // Keep height for desktop, adjust for mobile if needed
+            mt: { xs: 4, md: 0 } // Add margin top for mobile
           }}>
             <CardSwap
-              cardDistance={isMobile ? 30 : 60}
-              verticalDistance={isMobile ? 40 : 70}
+              cardDistance={isMobile ? 20 : 60} // Smaller distance for mobile
+              verticalDistance={isMobile ? 30 : 70} // Smaller distance for mobile
               delay={4500}
               pauseOnHover={true}
               width="100%"
@@ -258,7 +286,8 @@ const FeaturesSectionMomentos: React.FC = () => {
                       <Typography variant="h5" sx={{
                         fontWeight: 700,
                         ml: 2,
-                        color: 'text.primary'
+                        color: 'text.primary',
+                        fontSize: { xs: '1.3rem', md: '1.5rem' } // Responsive font size
                       }}>
                         {feat.title}
                       </Typography>
@@ -267,7 +296,7 @@ const FeaturesSectionMomentos: React.FC = () => {
                     <Typography variant="body1" sx={{
                       color: 'text.secondary',
                       mb: 3,
-                      fontSize: '1.1rem',
+                      fontSize: { xs: '0.95rem', md: '1.1rem' }, // Responsive font size
                       lineHeight: 1.6
                     }}>
                       {feat.description}
@@ -295,7 +324,7 @@ const FeaturesSectionMomentos: React.FC = () => {
                     }}>
                       {feat.details.map((detail, i) => (
                         <li key={i}>
-                          <Typography variant="body1" sx={{ color: 'text.primary', fontWeight: 500 }}>
+                          <Typography variant="body1" sx={{ color: 'text.primary', fontWeight: 500, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                             {detail}
                           </Typography>
                         </li>
