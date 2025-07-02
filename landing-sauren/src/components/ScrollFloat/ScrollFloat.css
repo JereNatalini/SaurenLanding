@@ -1,0 +1,32 @@
+/* ScrollFloat.css */
+.scroll-float {
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.scroll-float-content {
+  display: inline-block;
+  font-size: clamp(1.5rem, 5vw, 4rem);
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.1;
+  will-change: transform, opacity;
+}
+
+.char {
+  display: inline-block;
+  white-space: pre-wrap;
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-float-content,
+  .char {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

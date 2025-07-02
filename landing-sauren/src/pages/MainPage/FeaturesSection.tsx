@@ -184,8 +184,8 @@ const ProjectsSection: React.FC = () => {
               Tienda web para Momentos Inolvidables, con integración hacia Wepoint.
             </Typography>
             <Button
-              variant="contained"
-              href="/wepoint"
+              variant="outlined"
+              href="/momentosInolvidables"
               sx={{
                 px: 4,
                 py: 1.5,
