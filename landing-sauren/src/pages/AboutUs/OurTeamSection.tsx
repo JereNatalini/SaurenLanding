@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography, Card, CardContent, Avatar } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent, Avatar, useTheme } from '@mui/material';
 
 const teamMembers = [
   {
@@ -20,6 +20,7 @@ const teamMembers = [
 ];
 
 const OurTeamSection: React.FC = () => {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -50,7 +51,7 @@ const OurTeamSection: React.FC = () => {
             fontWeight: 700,
             mb: 4,
             fontSize: { xs: '2rem', md: '3rem' },
-            color: '#231F20',
+            color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#231F20',
           }}
         >
           Nuestro <span style={{ color: '#ED1C24' }}>Equipo</span>
@@ -72,6 +73,7 @@ const OurTeamSection: React.FC = () => {
                 borderRadius: '12px',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
                 transition: 'transform 0.3s, box-shadow 0.3s',
+                backgroundColor: theme.palette.background.paper,
                 '&:hover': {
                   transform: 'translateY(-5px)',
                   boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
@@ -95,7 +97,7 @@ const OurTeamSection: React.FC = () => {
                 >
                   {member.name}
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#231F20' }}>
+                <Typography variant="body2" sx={{ color: theme.palette.text.primary }}>
                   {member.role}
                 </Typography>
               </CardContent>

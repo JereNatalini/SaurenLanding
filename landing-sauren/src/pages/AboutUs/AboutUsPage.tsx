@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 
 // Importa tus secciones
 import AboutHeroSection from './AboutHeroSection';
@@ -10,6 +10,8 @@ import OurTeamSection from './OurTeamSection';
 import logoBackground from '../../assets/images/backgroundAboutUs.png';
 
 const AboutUsPage: React.FC = () => {
+    const theme = useTheme();
+
     return (
         <Box
             component="main"
@@ -22,7 +24,7 @@ const AboutUsPage: React.FC = () => {
                 backgroundSize: { xs: '80%', md: '60%' },
                 // Ajusta la posición para desktop
                 backgroundPosition: '-50% -10%',
-                bgcolor: '#ffffff',
+                bgcolor: theme.palette.background.default,
             }}
         >
             <AboutHeroSection />

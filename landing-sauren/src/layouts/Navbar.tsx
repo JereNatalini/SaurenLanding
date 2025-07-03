@@ -11,7 +11,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import MobileMenu from "../components/MobileMenu";
-import logo from "../assets/images/logo.png";
+import logoLight from "../assets/images/logo.png";
+import logoDark from "../assets/images/logoBlanco.webp";
 
 import DarkModeSwitch from "../components/DarkModeSwitch";
 
@@ -51,7 +52,7 @@ const Navbar: React.FC = () => {
             <Link to="/" style={{ textDecoration: "none" }}>
               <Box
                 component="img"
-                src={logo}
+                src={theme.palette.mode === 'dark' ? logoDark : logoLight}
                 alt="Sauren Logo"
                 sx={{
                   height: { xs: "40px", md: "50px" },

@@ -63,7 +63,7 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({ children }) 
         button: {
           fontFamily: 'NexaHeavy, Arial, sans-serif',
           fontWeight: 600,
-          textTransform: 'uppercase',
+          textTransform: 'uppercase' as const,
           fontSize: '1.1rem',
         },
       },
@@ -82,7 +82,7 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({ children }) 
             root: {
               borderRadius: '8px',
               fontWeight: 700,
-              textTransform: 'uppercase',
+              textTransform: 'uppercase' as const,
             },
           },
         },
