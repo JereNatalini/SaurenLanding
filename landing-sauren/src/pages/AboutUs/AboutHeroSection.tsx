@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Container, Typography, Button } from '@mui/material';
+import { Box, Container, Typography, Button, useTheme } from '@mui/material';
 
 const AboutHeroSection: React.FC = () => {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -28,16 +29,16 @@ const AboutHeroSection: React.FC = () => {
         }}
       >
         <Typography
-          variant="h2"
-          sx={{
-            fontWeight: 700,
-            mb: 2,
-            fontSize: { xs: '2.5rem', md: '4rem' },
-            color: '#231F20',
-          }}
-        >
-          Sobre <span style={{ color: '#ED1C24' }}>Nosotros</span>
-        </Typography>
+            variant="h2"
+            sx={{
+              fontWeight: 700,
+              mb: 2,
+              fontSize: { xs: '2.5rem', md: '4rem' },
+              color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#231F20',
+            }}
+          >
+            Sobre <span style={{ color: '#ED1C24' }}>Nosotros</span>
+          </Typography>
 
         <Typography
           variant="body1"

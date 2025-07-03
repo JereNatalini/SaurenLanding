@@ -105,11 +105,11 @@ const ProjectsSection: React.FC = () => {
             >
               wepoint.ar
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+            <Typography variant="body1" color="text.pallete.text.primary" sx={{ mb: 3 }}>
               Aplicación de gestión de stock con visualización de existencias en tiempo real.
             </Typography>
             <Button
-              variant="contained"
+              variant="outlined"
               onClick={goToWepoint}
               sx={{
                 px: 4,
@@ -181,7 +181,7 @@ const ProjectsSection: React.FC = () => {
             >
               momentosinolvidables.com.ar
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+            <Typography variant="body1" color="text.pallete.text.primary" sx={{ mb: 3 }}>
               Tienda web para Momentos Inolvidables, con integración hacia Wepoint.
             </Typography>
             <Button
