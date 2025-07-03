@@ -5,17 +5,17 @@ import TrueFocusWrapper from "../../components/TrueFocusWrapper";
 import Particles from "../../Backgrounds/Particles/Particles";
 
 // Importar los iconos
-import barCodeScanner from "../../assets/BusinessTechUpdate/barCodeScanner.png";
-import glasess from "../../assets/BusinessTechUpdate/glasess.png";
-import ia from "../../assets/BusinessTechUpdate/ia.png";
-import iphone11 from "../../assets/BusinessTechUpdate/iphone11.png";
-import qrCode from "../../assets/BusinessTechUpdate/qrCode.png";
-import terminal from "../../assets/BusinessTechUpdate/terminal.png";
-import botDog from "../../assets/BusinessTechUpdate/botDog.png";
-import camera from "../../assets/BusinessTechUpdate/camera.png";
-import drone from "../../assets/BusinessTechUpdate/drone.png";
-import ibmPc from "../../assets/BusinessTechUpdate/ibmPc.png";
-import screen from "../../assets/BusinessTechUpdate/screen.png";
+import barCodeScanner from "../../assets/BusinessTechUpdate/barCodeScanner.webp";
+import glasess from "../../assets/BusinessTechUpdate/glasess.webp";
+import ia from "../../assets/BusinessTechUpdate/ia.webp";
+import iphone11 from "../../assets/BusinessTechUpdate/iphone11.webp";
+import qrCode from "../../assets/BusinessTechUpdate/qrCode.webp";
+import terminal from "../../assets/BusinessTechUpdate/terminal.webp";
+import botDog from "../../assets/BusinessTechUpdate/botDog.webp";
+import camera from "../../assets/BusinessTechUpdate/camera.webp";
+import drone from "../../assets/BusinessTechUpdate/drone.webp";
+import ibmPc from "../../assets/BusinessTechUpdate/ibmPc.webp";
+import screen from "../../assets/BusinessTechUpdate/screen.webp";
 
 const BusinessTechUpdate: React.FC = () => {
   const theme = useTheme();
@@ -322,7 +322,7 @@ const BusinessTechUpdate: React.FC = () => {
               color: theme.palette.text.primary, // Color de texto por defecto
             }}
           >
-            Transforma tu negocio con{" "}
+            Sabemos que necesitas{" "}
             <Box
               component="span"
               sx={{

@@ -10,7 +10,11 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import MobileMenu from "../components/MobileMenu";
-import logo from "../assets/images/logo.png";
+import logoLight from "../assets/images/logo.png";
+import logoDark from "../assets/images/logoBlanco.webp";
+import { ScrollLink } from "react-scroll";
+
+import DarkModeSwitch from "../components/DarkModeSwitch";
 
 const Navbar: React.FC = () => {
   const theme = useTheme();
@@ -48,7 +52,7 @@ const Navbar: React.FC = () => {
             <Link to="/" style={{ textDecoration: "none" }}>
               <Box
                 component="img"
-                src={logo}
+                src={theme.palette.mode === 'dark' ? logoDark : logoLight}
                 alt="Sauren Logo"
                 sx={{
                   height: { xs: "40px", md: "50px" },
@@ -104,24 +108,25 @@ const Navbar: React.FC = () => {
               About Us
             </Button>
 
-            <Button
-              component={Link}
-              to="/contact"
-              sx={{
-                color: theme.palette.text.primary,
-                fontWeight: 600,
-                fontSize: "1rem",
-                textTransform: "none",
-                px: 2,
-                py: 1,
-                "&:hover": {
-                  backgroundColor: theme.palette.primary.light,
-                  color: theme.palette.primary.contrastText,
-                },
-              }}
-            >
-              Contact
-            </Button>
+            <ScrollLink to="contact" smooth={true} duration={500} offset={-70}>
+              <Button
+                sx={{
+                  color: theme.palette.text.primary,
+                  fontWeight: 600,
+                  fontSize: "1rem",
+                  textTransform: "none",
+                  px: 2,
+                  py: 1,
+                  "&:hover": {
+                    backgroundColor: theme.palette.primary.light,
+                    color: theme.palette.primary.contrastText,
+                  },
+                }}
+              >
+                Contact
+              </Button>
+            </ScrollLink>
+            <DarkModeSwitch />
           </Box>
 
           {/* Mobile Menu Button */}

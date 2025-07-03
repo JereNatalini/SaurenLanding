@@ -10,8 +10,9 @@ import {
   Typography,
   Divider,
   IconButton,
-  useTheme,
+  useTheme as useMuiTheme,
 } from "@mui/material";
+import { useTheme as useAppTheme } from "./AppThemeProvider";
 import {
   Close,
   Home,
@@ -20,6 +21,8 @@ import {
   Facebook,
   Twitter,
   Instagram,
+  Brightness4,
+  Brightness7,
 } from "@mui/icons-material";
 import logo from "../assets/images/icono.png";
 import { Link } from "react-router-dom";
@@ -30,7 +33,8 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ open, toggleDrawer }) => {
-  const theme = useTheme();
+  const { mode, toggleTheme } = useAppTheme();
+  const theme = useMuiTheme();
 
   const menuItems = [
     { 
@@ -159,6 +163,42 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ open, toggleDrawer }) => {
               </ListItemButton>
             </ListItem>
           ))}
+          <ListItem disablePadding sx={{ mb: 1.5 }}>
+            <ListItemButton
+              onClick={toggleTheme}
+              sx={{
+                borderRadius: "12px",
+                px: 3,
+                py: 1.5,
+                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                "&:hover": {
+                  backgroundColor: theme.palette.primary.main,
+                  transform: "translateX(8px)",
+                  boxShadow: `0 4px 12px ${theme.palette.primary.main}40`,
+                  "& .MuiListItemIcon-root": { color: "white" },
+                  "& .MuiTypography-root": { color: "white" },
+                },
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: "40px",
+                  color: theme.palette.primary.main,
+                }}
+              >
+                {mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+              </ListItemIcon>
+              <ListItemText
+                primary="Dark Mode"
+                primaryTypographyProps={{
+                  variant: "h5",
+                  fontFamily: theme.typography.h3.fontFamily,
+                  fontWeight: 600,
+                  letterSpacing: "0.5px",
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
         </List>
 
         {/* Divider */}

@@ -1,14 +1,15 @@
 import React from 'react';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Typography, useTheme } from '@mui/material';
 
 const OurMissionSection: React.FC = () => {
+  const theme = useTheme();
   return (
     <Box
       sx={{
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: 'rgba(237,28,36,0.05)', // Fondo con tinte rojo muy sutil
+        backgroundColor: 'transparent',
         position: 'relative',
         opacity: 0,
         animation: 'slideIn 1s forwards',
@@ -33,7 +34,7 @@ const OurMissionSection: React.FC = () => {
             fontWeight: 700,
             mb: 3,
             fontSize: { xs: '2rem', md: '3rem' },
-            color: '#231F20',
+            color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#231F20',
           }}
         >
           Nuestra <span style={{ color: '#ED1C24' }}>Misión</span>
