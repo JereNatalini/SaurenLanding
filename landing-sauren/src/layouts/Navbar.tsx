@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import MobileMenu from "../components/MobileMenu";
 import logoLight from "../assets/images/logo.png";
 import logoDark from "../assets/images/logoBlanco.webp";
-import { ScrollLink } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 
 import DarkModeSwitch from "../components/DarkModeSwitch";
 

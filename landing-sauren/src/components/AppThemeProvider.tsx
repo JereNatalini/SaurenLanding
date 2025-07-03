@@ -24,7 +24,7 @@ interface AppThemeProviderProps {
 }
 
 export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({ children }) => {
-  const [mode, setMode] = useState<'light' | 'dark'>('light');
+  const [mode, setMode] = useState<'light' | 'dark'>('dark');
 
   const theme = useMemo(() => {
     const baseTheme = {
