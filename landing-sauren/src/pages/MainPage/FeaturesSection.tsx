@@ -10,6 +10,7 @@ const ProjectsSection: React.FC = () => {
   const theme = useTheme();
 
   const goToWepoint = () => navigate('/wepoint');
+  const goToMomentos = () => navigate('/momentosInolvidables');
   return (
     <Box
       sx={{
@@ -185,7 +186,7 @@ const ProjectsSection: React.FC = () => {
             </Typography>
             <Button
               variant="outlined"
-              href="/momentosInolvidables"
+              onClick={goToMomentos}
               sx={{
                 px: 4,
                 py: 1.5,
