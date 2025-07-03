@@ -23,7 +23,6 @@ import {
 } from "@mui/icons-material";
 import logo from "../assets/images/icono.png";
 import { Link } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
 
 interface MobileMenuProps {
   open: boolean;
