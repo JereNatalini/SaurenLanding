@@ -49,6 +49,7 @@ const ContactPage: React.FC = () => {
             Completa el formulario o contáctanos por otros medios. 
             Estamos listos para impulsar tu proyecto.
           </Typography>
+          
         </Box>
 
         {/* CONTENT */}

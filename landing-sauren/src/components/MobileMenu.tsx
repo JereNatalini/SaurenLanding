@@ -48,17 +48,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ open, toggleDrawer }) => {
       component: Link,
       onClick: toggleDrawer
     },
-    { 
+    {
       text: "Contact", 
       icon: <Phone />, 
-      link: "contact", 
-      component: ScrollLink,
-      scrollProps: {
-        smooth: true,
-        duration: 500,
-        offset: -70,
-        onClick: toggleDrawer
-      }
+      link: "/contact", 
+      component: Link,
+      onClick: toggleDrawer
     },
   ];
 
@@ -127,84 +122,42 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ open, toggleDrawer }) => {
         <List sx={{ flexGrow: 1 }}>
           {menuItems.map((item) => (
             <ListItem key={item.text} disablePadding sx={{ mb: 1.5 }}>
-              {item.component === Link ? (
-                <ListItemButton
-                  onClick={item.onClick}
-                  to={item.link}
-                  component={item.component}
+              <ListItemButton
+                onClick={item.onClick}
+                to={item.link}
+                component={item.component}
+                sx={{
+                  borderRadius: "12px",
+                  px: 3,
+                  py: 1.5,
+                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                  "&:hover": {
+                    backgroundColor: theme.palette.primary.main,
+                    transform: "translateX(8px)",
+                    boxShadow: `0 4px 12px ${theme.palette.primary.main}40`,
+                    "& .MuiListItemIcon-root": { color: "white" },
+                    "& .MuiTypography-root": { color: "white" },
+                  },
+                }}
+              >
+                <ListItemIcon
                   sx={{
-                    borderRadius: "12px",
-                    px: 3,
-                    py: 1.5,
-                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                    "&:hover": {
-                      backgroundColor: theme.palette.primary.main,
-                      transform: "translateX(8px)",
-                      boxShadow: `0 4px 12px ${theme.palette.primary.main}40`,
-                      "& .MuiListItemIcon-root": { color: "white" },
-                      "& .MuiTypography-root": { color: "white" },
-                    },
+                    minWidth: "40px",
+                    color: theme.palette.primary.main,
                   }}
                 >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: "40px",
-                      color: theme.palette.primary.main,
-                    }}
-                  >
-                    {item.icon}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.text}
-                    primaryTypographyProps={{
-                      variant: "h5",
-                      fontFamily: theme.typography.h3.fontFamily,
-                      fontWeight: 600,
-                      letterSpacing: "0.5px",
-                    }}
-                  />
-                </ListItemButton>
-              ) : (
-                <ScrollLink
-                  to={item.link}
-                  {...item.scrollProps}
-                  style={{ width: '100%' }}
-                >
-                  <ListItemButton
-                    sx={{
-                      borderRadius: "12px",
-                      px: 3,
-                      py: 1.5,
-                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                      "&:hover": {
-                        backgroundColor: theme.palette.primary.main,
-                        transform: "translateX(8px)",
-                        boxShadow: `0 4px 12px ${theme.palette.primary.main}40`,
-                        "& .MuiListItemIcon-root": { color: "white" },
-                        "& .MuiTypography-root": { color: "white" },
-                      },
-                    }}
-                  >
-                    <ListItemIcon
-                      sx={{
-                        minWidth: "40px",
-                        color: theme.palette.primary.main,
-                      }}
-                    >
-                      {item.icon}
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={item.text}
-                      primaryTypographyProps={{
-                        variant: "h5",
-                        fontFamily: theme.typography.h3.fontFamily,
-                        fontWeight: 600,
-                        letterSpacing: "0.5px",
-                      }}
-                    />
-                  </ListItemButton>
-                </ScrollLink>
-              )}
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.text}
+                  primaryTypographyProps={{
+                    variant: "h5",
+                    fontFamily: theme.typography.h3.fontFamily,
+                    fontWeight: 600,
+                    letterSpacing: "0.5px",
+                  }}
+                />
+              </ListItemButton>
             </ListItem>
           ))}
         </List>

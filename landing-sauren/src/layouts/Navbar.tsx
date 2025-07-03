@@ -105,24 +105,24 @@ const Navbar: React.FC = () => {
               About Us
             </Button>
 
-            <ScrollLink to="contact" smooth={true} duration={500} offset={-70}>
-              <Button
-                sx={{
-                  color: theme.palette.text.primary,
-                  fontWeight: 600,
-                  fontSize: "1rem",
-                  textTransform: "none",
-                  px: 2,
-                  py: 1,
-                  "&:hover": {
-                    backgroundColor: theme.palette.primary.light,
-                    color: theme.palette.primary.contrastText,
-                  },
-                }}
-              >
-                Contact
-              </Button>
-            </ScrollLink>
+            <Button
+              component={Link}
+              to="/contact"
+              sx={{
+                color: theme.palette.text.primary,
+                fontWeight: 600,
+                fontSize: "1rem",
+                textTransform: "none",
+                px: 2,
+                py: 1,
+                "&:hover": {
+                  backgroundColor: theme.palette.primary.light,
+                  color: theme.palette.primary.contrastText,
+                },
+              }}
+            >
+              Contact
+            </Button>
           </Box>
 
           {/* Mobile Menu Button */}

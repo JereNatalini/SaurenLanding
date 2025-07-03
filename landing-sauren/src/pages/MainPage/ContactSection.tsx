@@ -1,8 +1,15 @@
-import { Box, Typography, Container, useTheme } from "@mui/material";
+import { Box, Typography, Container, useTheme, Button } from "@mui/material";
 import Formulario from "../../components/Formulario";
+import { useNavigate } from 'react-router-dom';
 
 const ContactSection = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
+
+  const goToContactPage = () => {
+    navigate('/contact');
+  };
+
   return (
     <Box
       sx={{
@@ -57,9 +64,28 @@ const ContactSection = () => {
               <Typography variant="h2" gutterBottom sx={{ color: theme.palette.common.white, mb: 2 }}>
                 ¿Hablamos hoy mismo?
               </Typography>
-              <Typography variant="body1" sx={{ color: theme.palette.grey[400] }}>
+              <Typography variant="body1" sx={{ color: theme.palette.grey[400], mb: 3 }}>
                 Agenda una llamada rápida con nuestro equipo de especialistas
               </Typography>
+              <Button
+                variant="contained"
+                onClick={goToContactPage}
+                sx={{
+                  px: 4,
+                  py: 1.5,
+                  borderRadius: '50px',
+                  fontWeight: 'bold',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+                  backgroundColor: theme.palette.primary.main,
+                  color: theme.palette.common.white,
+                  '&:hover': {
+                    backgroundColor: theme.palette.primary.dark,
+                    boxShadow: '0 6px 20px rgba(0,0,0,0.2)',
+                  },
+                }}
+              >
+                Contáctanos
+              </Button>
             </Box>
           </Box>
 
