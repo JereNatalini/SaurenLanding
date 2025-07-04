@@ -37,7 +37,11 @@ const HeroSectionMomentos: React.FC = () => {
               sx={{ 
                 width: { xs: 150, md: 220 }, 
                 mb: 3, 
-                filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.1))'
+                filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.1))',
+                transition: 'transform 0.3s ease-in-out',
+                '&:hover': {
+                  transform: 'scale(1.05)'
+                }
               }}
             />
             <Typography

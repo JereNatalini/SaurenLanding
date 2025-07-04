@@ -28,25 +28,26 @@ const CallToActionSectionMomentos: React.FC = () => {
           En Sauren, creamos soluciones de e-commerce a medida que impulsan tu crecimiento. Contáctanos hoy mismo para una consulta gratuita.
         </Typography>
         <Button 
-          variant="contained" 
-          size="large" 
-          sx={{
-            bgcolor: 'white',
-            color: theme.palette.primary.main,
-            fontWeight: 'bold',
-            py: 1.5,
-            px: 4,
-            borderRadius: '30px',
-            '&:hover': {
-              bgcolor: '#f0f0f0',
-              transform: 'scale(1.05)',
-              transition: 'transform 0.3s ease-in-out'
-            }
-          }}
-          data-aos="zoom-in" data-aos-delay="300"
-        >
-          Contáctanos
-        </Button>
+            variant="contained" 
+            size="large" 
+            sx={{
+              bgcolor: 'white',
+              color: theme.palette.primary.main,
+              fontWeight: 'bold',
+              py: 1.5,
+              px: 4,
+              borderRadius: '30px',
+              transition: 'all 0.3s ease-in-out',
+              '&:hover': {
+                bgcolor: '#f0f0f0',
+                transform: 'scale(1.05)',
+                boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
+              }
+            }}
+            data-aos="zoom-in" data-aos-delay="300"
+          >
+            Contáctanos
+          </Button>
       </Container>
     </Box>
   );

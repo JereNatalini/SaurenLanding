@@ -65,10 +65,10 @@ const AboutProjectSectionMomentos: React.FC = () => {
                   <Typography variant="h6" fontWeight="bold" gutterBottom>Desafíos</Typography>
                   <Box>
                     {challenges.map((challenge, index) => (
-                      <Box key={index} sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                        <CheckCircleOutlineIcon color="primary" sx={{ mr: 1 }} />
-                        <Typography variant="body2">{challenge}</Typography>
-                      </Box>
+                      <Box data-aos="fade-up" data-aos-delay={index * 100} key={index} sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                    <CheckCircleOutlineIcon color="primary" sx={{ mr: 1 }} />
+                    <Typography variant="body2">{challenge}</Typography>
+                  </Box>
                     ))}
                   </Box>
                 </Paper>
@@ -78,10 +78,10 @@ const AboutProjectSectionMomentos: React.FC = () => {
                   <Typography variant="h6" fontWeight="bold" gutterBottom>Soluciones</Typography>
                   <Box>
                     {solutions.map((solution, index) => (
-                      <Box key={index} sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                        <CheckCircleOutlineIcon color="secondary" sx={{ mr: 1 }} />
-                        <Typography variant="body2">{solution}</Typography>
-                      </Box>
+                      <Box data-aos="fade-up" data-aos-delay={index * 100} key={index} sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                    <CheckCircleOutlineIcon color="secondary" sx={{ mr: 1 }} />
+                    <Typography variant="body2">{solution}</Typography>
+                  </Box>
                     ))}
                   </Box>
                 </Paper>
