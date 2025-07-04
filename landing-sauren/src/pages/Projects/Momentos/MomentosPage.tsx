@@ -8,7 +8,7 @@ import { Box } from '@mui/material';
 
 const MomentosPage: React.FC = () => {
   return (
-    <Box sx={{ bgcolor: 'background.default' }}>
+    <Box sx={{ bgcolor: 'transparent' }}>
       <HeroSectionMomentos />
       <AboutProjectSectionMomentos />
       <FeaturesSectionMomentos />

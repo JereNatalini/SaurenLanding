@@ -78,7 +78,7 @@ const FeaturesSectionMomentos: React.FC = () => {
   return (
     <Box component="section" sx={{
       py: { xs: 6, md: 10 },
-      backgroundColor: '#f8f9fa',
+      backgroundColor: 'transparent',
       position: 'relative',
       overflow: 'hidden',
       '&:before': {
@@ -95,11 +95,11 @@ const FeaturesSectionMomentos: React.FC = () => {
         <Box sx={{
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
-          alignItems: 'flex-start',
+          alignItems: 'center', // Center items for a better mobile view
           justifyContent: 'space-between',
-          gap: 4,
+          gap: { xs: 6, md: 4 }, // Increase gap for mobile
           position: 'relative',
-          minHeight: { xs: 'auto', md: 600 } // Adjust minHeight for mobile
+          minHeight: { md: 600 }
         }}>
           {/* Contenido a la izquierda - Rediseñado */}
           <Box
@@ -116,7 +116,7 @@ const FeaturesSectionMomentos: React.FC = () => {
           >
             {/* Panel superior con título y descripción */}
             <Box sx={{
-              p: 4,
+              p: { xs: 3, md: 4 },
               bgcolor: 'white',
               borderRadius: '12px',
               boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
@@ -190,7 +190,7 @@ const FeaturesSectionMomentos: React.FC = () => {
 
             {/* Panel de características de PrestaShop */}
             <Box sx={{
-              p: 3,
+              p: { xs: 3, md: 3 },
               bgcolor: 'white',
               borderRadius: '12px',
               boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
@@ -260,15 +260,15 @@ const FeaturesSectionMomentos: React.FC = () => {
 
           {/* CardSwap a la derecha - Posicionado absolutamente */}
           <Box sx={{
-            position: { xs: 'relative', md: 'absolute' }, // Relative for mobile, absolute for desktop
-            top: { xs: 0, md: '60%' }, // Adjust top for mobile
-            right: { xs: 0, md: 0 },
-            transform: { xs: 'none', md: 'translate(35%, -50%)' }, // No transform for mobile
             width: { xs: '100%', md: '55%' },
             maxWidth: { xs: '100%', md: 600 },
             zIndex: 1,
-            height: { xs: 500, md: 500 }, // Keep height for desktop, adjust for mobile if needed
-            mt: { xs: 4, md: 0 } // Add margin top for mobile
+            mt: { xs: 4, md: 0 },
+            position: { md: 'absolute' },
+            top: { md: '50%' },
+            right: { md: 0 },
+            transform: { md: 'translate(35%, -50%)' },
+            height: { xs: 450, sm: 500, md: 500 },
           }}>
             <CardSwap
               cardDistance={isMobile ? 20 : 60} // Smaller distance for mobile
@@ -276,11 +276,18 @@ const FeaturesSectionMomentos: React.FC = () => {
               delay={4500}
               pauseOnHover={true}
               width="100%"
-              height={500}
+              height="100%"
             >
               {features.map((feat, idx) => (
                 <Card key={idx} customClass="swap-card">
-                  <Box>
+                  <Box sx={{ 
+                    p: { xs: 3, md: 4 },
+                    bgcolor: 'background.paper', // Use theme background color
+                    color: 'text.primary', // Use theme text color
+                    height: '100%',
+                    borderRadius: '12px',
+                    boxShadow: '0 8px 30px rgba(0,0,0,0.12)'
+                  }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                       {feat.icon}
                       <Typography variant="h5" sx={{

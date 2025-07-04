@@ -11,7 +11,7 @@ const AboutProjectSectionMomentos: React.FC = () => {
   }, []);
 
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: '#ffffff' }}>
+    <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: 'transparent' }}>
       <Container maxWidth="lg">
         <Grid container spacing={6} alignItems="center">
           <Grid item xs={12} md={6} data-aos="fade-right" data-aos-once="true">
