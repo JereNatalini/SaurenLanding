@@ -24,7 +24,7 @@ const HeroSectionMomentos: React.FC = () => {
       py: { xs: 6, md: 12 },
       pt: { xs: 10, md: 12 }, // Add more padding top on mobile
       overflow: 'hidden',
-      background: 'transparent'
+      backgroundColor: 'transparent'
     }}>
       <Container maxWidth="lg">
         <Box sx={{
