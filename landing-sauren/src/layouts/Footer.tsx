@@ -4,14 +4,9 @@ import {
   Typography,
   Link,
   Container,
-  IconButton,
   useTheme,
 } from "@mui/material";
 import {
-  Facebook,
-  Twitter,
-  LinkedIn,
-  Email,
   Place,
   Phone,
 } from "@mui/icons-material";
@@ -131,48 +126,7 @@ const Footer: React.FC = () => {
             </Link>
           </Box>
 
-          {/* Social Media Icons */}
-          <Box sx={{ display: "flex", gap: 2 }}>
-            <IconButton
-              href="https://facebook.com"
-              target="_blank"
-              sx={{
-                color: theme.palette.text.primary,
-                "&:hover": { color: theme.palette.primary.main },
-              }}
-            >
-              <Facebook fontSize="large" />
-            </IconButton>
-            <IconButton
-              href="https://twitter.com"
-              target="_blank"
-              sx={{
-                color: theme.palette.text.primary,
-                "&:hover": { color: theme.palette.primary.main },
-              }}
-            >
-              <Twitter fontSize="large" />
-            </IconButton>
-            <IconButton
-              href="https://linkedin.com"
-              target="_blank"
-              sx={{
-                color: theme.palette.text.primary,
-                "&:hover": { color: theme.palette.primary.main },
-              }}
-            >
-              <LinkedIn fontSize="large" />
-            </IconButton>
-            <IconButton
-              href="mailto:ventas@sauren.com"
-              sx={{
-                color: theme.palette.text.primary,
-                "&:hover": { color: theme.palette.primary.main },
-              }}
-            >
-              <Email fontSize="large" />
-            </IconButton>
-          </Box>
+          
 
           {/* Contact Info */}
           <Box

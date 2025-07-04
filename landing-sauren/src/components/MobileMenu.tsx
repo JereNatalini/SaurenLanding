@@ -18,9 +18,6 @@ import {
   Home,
   Phone,
   Info,
-  Facebook,
-  Twitter,
-  Instagram,
   Brightness4,
   Brightness7,
 } from "@mui/icons-material";
@@ -211,58 +208,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ open, toggleDrawer }) => {
           }}
         />
 
-        {/* Redes sociales */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 2,
-            mb: 4,
-          }}
-        >
-          <IconButton
-            sx={{
-              backgroundColor: theme.palette.primary.main,
-              color: "white",
-              "&:hover": {
-                backgroundColor: theme.palette.primary.dark,
-                transform: "translateY(-2px)",
-              },
-              transition: "all 0.2s ease",
-              boxShadow: `0 4px 12px ${theme.palette.primary.main}40`,
-            }}
-          >
-            <Facebook fontSize="large" />
-          </IconButton>
-          <IconButton
-            sx={{
-              backgroundColor: theme.palette.secondary.main,
-              color: "white",
-              "&:hover": {
-                backgroundColor: theme.palette.secondary.dark,
-                transform: "translateY(-2px)",
-              },
-              transition: "all 0.2s ease",
-              boxShadow: `0 4px 12px ${theme.palette.secondary.main}40`,
-            }}
-          >
-            <Twitter fontSize="large" />
-          </IconButton>
-          <IconButton
-            sx={{
-              backgroundColor: "#E1306C",
-              color: "white",
-              "&:hover": {
-                backgroundColor: "#C41E5A",
-                transform: "translateY(-2px)",
-              },
-              transition: "all 0.2s ease",
-              boxShadow: "0 4px 12px #E1306C40",
-            }}
-          >
-            <Instagram fontSize="large" />
-          </IconButton>
-        </Box>
+        
 
         {/* Footer */}
         <Box
