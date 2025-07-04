@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Box, Typography, Container, Grid } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import ScrollFloat from '../../../components/ScrollFloat/ScrollFloat';
@@ -27,9 +27,22 @@ const HeroSectionMomentos: React.FC = () => {
       background: 'transparent'
     }}>
       <Container maxWidth="lg">
-        <Grid container alignItems="center" justifyContent="center" spacing={{ xs: 4, md: 2 }}>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: { xs: 4, md: 2 },
+        }}>
           {/* Mobile and Desktop: Logo and Title */}
-          <Grid item xs={12} md={5} sx={{ textAlign: 'center', order: { xs: 1, md: 1 } }} data-aos="fade-right">
+          <Box sx={{ 
+            textAlign: 'center', 
+            order: { xs: 1, md: 1 }, 
+            width: { xs: '100%', md: '41.666%' }, // Equivalent to md={5} (5/12 * 100%)
+            flexShrink: 0, // Prevent shrinking
+            flexGrow: 0, // Prevent growing
+            p: { xs: 2, md: 1 }, // Add some padding to simulate spacing
+          }} data-aos="fade-right">
             <Box
               component="img"
               src={logoSrc} // Use the dynamic logo source
@@ -78,15 +91,23 @@ const HeroSectionMomentos: React.FC = () => {
             >
               Desarrollamos una solución de ecommerce completa en PrestaShop, integrando módulos a medida para una gestión eficiente de catálogos B2B y B2C.
             </Typography>
-          </Grid>
+          </Box>
 
           {/* Desktop: Two images side-by-side */}
-          <Grid item md={7} sx={{ order: { md: 2 }, display: { xs: 'none', md: 'block' } }}>
+          <Box sx={{ 
+            order: { md: 2 }, 
+            display: { xs: 'none', md: 'block' }, 
+            width: { xs: '100%', md: '58.333%' }, // Equivalent to md={7} (7/12 * 100%)
+            flexShrink: 0, // Prevent shrinking
+            flexGrow: 0, // Prevent growing
+            p: { xs: 2, md: 1 }, // Add some padding to simulate spacing
+          }}>
             <Box sx={{ 
               display: 'flex', 
               justifyContent: 'center', 
               alignItems: 'center', 
-              gap: { md: 4 } 
+              gap: { md: 4 },
+              perspective: '1000px', // Add perspective for 3D transform
             }}>
               <Box
                 component="img"
@@ -94,13 +115,13 @@ const HeroSectionMomentos: React.FC = () => {
                 alt="Juguetería Momentos 1"
                 data-aos="fade-left"
                 sx={{
-                  width: { md: 280 },
+                  width: { md: 300 }, // Slightly increased size
                   borderRadius: '12px',
                   boxShadow: '0 15px 30px rgba(0,0,0,0.3)',
-                  transform: 'rotateY(10deg)',
-                  transition: 'transform 0.3s ease-in-out',
+                  transform: 'rotateY(10deg) scale(0.98)', // Slight inward rotation and scale
+                  transition: 'transform 0.4s ease-in-out', // Increased transition duration
                   '&:hover': {
-                    transform: 'rotateY(0deg) scale(1.05)'
+                    transform: 'rotateY(0deg) scale(1.05)', // Straighten and slightly enlarge on hover
                   }
                 }}
               />
@@ -111,21 +132,28 @@ const HeroSectionMomentos: React.FC = () => {
                 data-aos="fade-left"
                 data-aos-delay="200"
                 sx={{
-                  width: { md: 280 },
+                  width: { md: 300 }, // Slightly increased size
                   borderRadius: '12px',
                   boxShadow: '0 15px 30px rgba(0,0,0,0.3)',
-                  transform: 'rotateY(-10deg)',
-                  transition: 'transform 0.3s ease-in-out',
+                  transform: 'rotateY(-10deg) scale(0.98)', // Slight inward rotation and scale
+                  transition: 'transform 0.4s ease-in-out', // Increased transition duration
                   '&:hover': {
-                    transform: 'rotateY(0deg) scale(1.05)'
+                    transform: 'rotateY(0deg) scale(1.05)', // Straighten and slightly enlarge on hover
                   }
                 }}
               />
             </Box>
-          </Grid>
+          </Box>
 
           {/* Mobile: One image, then the other */}
-          <Grid item xs={12} sx={{ order: { xs: 2, md: 3 }, display: { md: 'none' } }}>
+          <Box sx={{ 
+            order: { xs: 2, md: 3 }, 
+            display: { md: 'none' },
+            width: '100%',
+            flexShrink: 0, // Prevent shrinking
+            flexGrow: 0, // Prevent growing
+            p: { xs: 2, md: 1 }, // Add some padding to simulate spacing
+          }}>
             <Box sx={{ 
               display: 'flex', 
               flexDirection: 'column', 
@@ -155,8 +183,8 @@ const HeroSectionMomentos: React.FC = () => {
                 }}
               />
             </Box>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

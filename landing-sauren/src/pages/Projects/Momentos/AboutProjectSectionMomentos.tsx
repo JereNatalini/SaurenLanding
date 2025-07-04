@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Container, Typography, Box, Grid, Paper, Chip } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import projectImage from '../../../assets/images/momentosps.png';
+import projectImage from '../../../assets/images/ecommerce_dashboard.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
