@@ -1,5 +1,6 @@
-import React from "react";
-import { Box, Typography, useTheme, Grid } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Typography, useTheme, Grid, IconButton } from "@mui/material";
+import { KeyboardArrowUp, KeyboardArrowDown } from "@mui/icons-material";
 import InfiniteScroll from "../../components/InfiniteScroll/InfiniteScroll";
 // Importación de logos
 import LogoMomentos from "../../assets/logos/LogoMomentos.webp";
@@ -20,6 +21,11 @@ const clientLogos = [
 
 const ClientsSection: React.FC = () => {
   const theme = useTheme();
+  const [isTextVisible, setIsTextVisible] = useState(true);
+
+  const toggleTextVisibility = () => {
+    setIsTextVisible(!isTextVisible);
+  };
 
   const logoItems = clientLogos.map((logo, index) => ({
     content: (
@@ -104,7 +110,9 @@ const ClientsSection: React.FC = () => {
           </Box>
           <Box
             sx={{
-              position: "relative",
+              position: "absolute",
+              top: 0,
+              left: 0,
               zIndex: 1,
               height: "100%",
               width: "100%",
@@ -113,6 +121,9 @@ const ClientsSection: React.FC = () => {
               justifyContent: "center",
               backgroundColor: "rgba(0, 0, 0, 0.5)",
               backdropFilter: "blur(2px)",
+              transform: isTextVisible ? "translateY(0)" : "translateY(-100%)",
+              transition: "transform 0.5s ease-in-out",
+              visibility: isTextVisible ? 'visible' : 'hidden',
             }}
           >
             <Box
@@ -138,6 +149,27 @@ const ClientsSection: React.FC = () => {
                 Desde startups innovadoras hasta corporaciones establecidas, cada cliente representa una historia de éxito compartido.
               </Typography>
             </Box>
+          </Box>
+          <Box
+            sx={{
+              position: "absolute",
+              bottom: 20,
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 2,
+            }}
+          >
+            <IconButton
+              onClick={toggleTextVisibility}
+              sx={{
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 0.4)",
+                },
+              }}
+            >
+              {isTextVisible ? <KeyboardArrowUp sx={{ color: 'white' }} /> : <KeyboardArrowDown sx={{ color: 'white' }} />}
+            </IconButton>
           </Box>
         </Box>
       </Box>
