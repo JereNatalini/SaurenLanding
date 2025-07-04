@@ -224,7 +224,7 @@ const FeaturesSectionMomentos: React.FC = () => {
               </Box>
 
               <Typography variant="body1" sx={{
-                color: theme.palette.text.secondary,
+                color: mode === 'dark' ? theme.palette.text.secondary : theme.palette.text.primary,
                 mb: 2,
                 pl: { xs: 0, sm: 6 }, // Adjust padding for mobile
                 fontSize: { xs: '0.95rem', md: '1rem' }
