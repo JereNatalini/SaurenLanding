@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Box, Typography, Container, useMediaQuery } from '@mui/material';
+import { Box, Typography, Container, useMediaQuery, Chip } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CardSwap, { Card } from '../../../components/CardSwap/CardSwap';
@@ -9,8 +9,10 @@ import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import SecurityIcon from '@mui/icons-material/Security'; // New icon
 import SupportAgentIcon from '@mui/icons-material/SupportAgent'; // New icon
 import theme from '../../../theme';
+import { useTheme } from '../../../components/AppThemeProvider';
 
 const FeaturesSectionMomentos: React.FC = () => {
+  const { mode } = useTheme();
   useEffect(() => {
     AOS.init({ duration: 600, once: true });
   }, []);
@@ -78,7 +80,7 @@ const FeaturesSectionMomentos: React.FC = () => {
   return (
     <Box component="section" sx={{
       py: { xs: 6, md: 10 },
-      backgroundColor: '#f8f9fa',
+      backgroundColor: 'transparent',
       position: 'relative',
       overflow: 'hidden',
       '&:before': {
@@ -93,14 +95,14 @@ const FeaturesSectionMomentos: React.FC = () => {
     }}>
       <Container maxWidth="lg" sx={{ position: 'relative' }}>
         <Box sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
-          gap: 4,
-          position: 'relative',
-          minHeight: { xs: 'auto', md: 600 } // Adjust minHeight for mobile
-        }}>
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: 'center', // Center items for a better mobile view
+            justifyContent: 'space-between',
+            gap: { xs: 6, md: 4 }, // Increase gap for mobile
+            position: 'relative',
+            minHeight: { md: 700 } // Increased minHeight for better spacing
+          }}>
           {/* Contenido a la izquierda - Rediseñado */}
           <Box
             sx={{
@@ -116,13 +118,13 @@ const FeaturesSectionMomentos: React.FC = () => {
           >
             {/* Panel superior con título y descripción */}
             <Box sx={{
-              p: 4,
-              bgcolor: 'white',
+              p: { xs: 3, md: 4 },
+              bgcolor: theme.palette.background.paper,
               borderRadius: '12px',
-              boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
+              boxShadow: mode === 'dark' ? '0 8px 25px rgba(0,0,0,0.2)' : '0 8px 25px rgba(0,0,0,0.08)',
               textAlign: 'left',
               borderLeft: '4px solid #FFB000',
-              background: 'linear-gradient(to bottom right, #ffffff, #f9f9f9)',
+              background: mode === 'dark' ? theme.palette.background.paper : `linear-gradient(to bottom right, ${theme.palette.background.paper}, ${theme.palette.background.default})`,
               position: 'relative',
               overflow: 'hidden',
               '&:before': {
@@ -141,7 +143,7 @@ const FeaturesSectionMomentos: React.FC = () => {
               <Typography variant="h4" sx={{
                 fontWeight: 800,
                 mb: 2,
-                color: '#333',
+                color: theme.palette.text.primary,
                 position: 'relative',
                 fontSize: { xs: '1.8rem', sm: '2rem', md: '2.2rem' } // Responsive font size
               }}>
@@ -166,19 +168,19 @@ const FeaturesSectionMomentos: React.FC = () => {
               }}>
                 {['Responsive', 'Optimizada', 'Escalable', 'Segura'].map((item, i) => (
                   <Box key={i} sx={{
-                    bgcolor: '#f0f7ff',
+                    bgcolor: theme.palette.action.hover,
                     px: 2,
                     py: 1,
                     borderRadius: '20px',
                     fontWeight: 600,
-                    color: '#0061A3',
+                    color: theme.palette.primary.main,
                     display: 'flex',
                     alignItems: 'center'
                   }}>
                     <Box sx={{
                       width: '8px',
                       height: '8px',
-                      bgcolor: '#0061A3',
+                      bgcolor: theme.palette.primary.main,
                       borderRadius: '50%',
                       mr: 1
                     }} />
@@ -190,10 +192,10 @@ const FeaturesSectionMomentos: React.FC = () => {
 
             {/* Panel de características de PrestaShop */}
             <Box sx={{
-              p: 3,
-              bgcolor: 'white',
+              p: { xs: 3, md: 3 },
+              bgcolor: theme.palette.background.paper,
               borderRadius: '12px',
-              boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
+              boxShadow: mode === 'dark' ? '0 8px 25px rgba(0,0,0,0.2)' : '0 8px 25px rgba(0,0,0,0.08)',
               textAlign: 'left',
               borderTop: '4px solid #E2351C',
               position: 'relative',
@@ -207,22 +209,22 @@ const FeaturesSectionMomentos: React.FC = () => {
                 <Box sx={{
                   width: '40px',
                   height: '40px',
-                  bgcolor: '#0061A3',
+                  bgcolor: theme.palette.primary.main,
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   mr: 2
                 }}>
-                  <Box sx={{ color: 'white', fontSize: '24px' }}>✓</Box>
+                  <Box sx={{ color: theme.palette.common.white, fontSize: '24px' }}>✓</Box>
                 </Box>
-                <Typography variant="h5" sx={{ fontWeight: 700, fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
+                <Typography variant="h5" sx={{ fontWeight: 700, fontSize: { xs: '1.2rem', md: '1.5rem' }, color: theme.palette.text.primary }}>
                   ¿Por qué PrestaShop?
                 </Typography>
               </Box>
 
               <Typography variant="body1" sx={{
-                color: theme.palette.text.secondary,
+                color: mode === 'dark' ? theme.palette.text.secondary : theme.palette.text.primary,
                 mb: 2,
                 pl: { xs: 0, sm: 6 }, // Adjust padding for mobile
                 fontSize: { xs: '0.95rem', md: '1rem' }
@@ -230,45 +232,60 @@ const FeaturesSectionMomentos: React.FC = () => {
                 La plataforma ideal para negocios que buscan escalabilidad y control total sobre su e-commerce.
               </Typography>
 
-              <Box component="ul" sx={{
-                pl: { xs: 2, sm: 6 }, // Adjust padding for mobile
+              <Box sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 1,
                 mt: 2,
-                '& li': {
-                  display: 'flex',
-                  alignItems: 'center',
-                  mb: 1.5,
-                  position: 'relative',
-                  '&:before': {
-                    content: '""',
-                    display: 'inline-block',
-                    width: '12px',
-                    height: '12px',
-                    bgcolor: '#FFB000',
-                    borderRadius: '50%',
-                    mr: 1.5,
-                    flexShrink: 0
-                  }
-                }
+                pl: { xs: 0, sm: 6 }, // Adjust padding for mobile
               }}>
-                <li>Altamente personalizable</li>
-                <li>Gran ecosistema de módulos</li>
-                <li>Optimizado para SEO</li>
-                <li>Comunidad activa de desarrollo</li>
+                <Chip
+                  label="Altamente personalizable"
+                  sx={{
+                    bgcolor: theme.palette.warning.main,
+                    color: theme.palette.getContrastText(theme.palette.warning.main),
+                    fontWeight: 600,
+                  }}
+                />
+                <Chip
+                  label="Gran ecosistema de módulos"
+                  sx={{
+                    bgcolor: theme.palette.warning.main,
+                    color: theme.palette.getContrastText(theme.palette.warning.main),
+                    fontWeight: 600,
+                  }}
+                />
+                <Chip
+                  label="Optimizado para SEO"
+                  sx={{
+                    bgcolor: theme.palette.warning.main,
+                    color: theme.palette.getContrastText(theme.palette.warning.main),
+                    fontWeight: 600,
+                  }}
+                />
+                <Chip
+                  label="Comunidad activa de desarrollo"
+                  sx={{
+                    bgcolor: theme.palette.warning.main,
+                    color: theme.palette.getContrastText(theme.palette.warning.main),
+                    fontWeight: 600,
+                  }}
+                />
               </Box>
             </Box>
           </Box>
 
           {/* CardSwap a la derecha - Posicionado absolutamente */}
           <Box sx={{
-            position: { xs: 'relative', md: 'absolute' }, // Relative for mobile, absolute for desktop
-            top: { xs: 0, md: '60%' }, // Adjust top for mobile
-            right: { xs: 0, md: 0 },
-            transform: { xs: 'none', md: 'translate(35%, -50%)' }, // No transform for mobile
-            width: { xs: '100%', md: '55%' },
+            width: { xs: '100%', md: '80%' },
             maxWidth: { xs: '100%', md: 600 },
             zIndex: 1,
-            height: { xs: 500, md: 500 }, // Keep height for desktop, adjust for mobile if needed
-            mt: { xs: 4, md: 0 } // Add margin top for mobile
+            mt: { xs: 4, md: 0 },
+            position: { md: 'absolute' },
+            top: { md: '50%' },
+            right: { md: 0 },
+            transform: { md: 'translate(40%, -40%)' },
+            height: { xs: 450, sm: 500, md: 500 },
           }}>
             <CardSwap
               cardDistance={isMobile ? 20 : 60} // Smaller distance for mobile
@@ -276,17 +293,24 @@ const FeaturesSectionMomentos: React.FC = () => {
               delay={4500}
               pauseOnHover={true}
               width="100%"
-              height={500}
+              height="100%"
             >
               {features.map((feat, idx) => (
                 <Card key={idx} customClass="swap-card">
-                  <Box>
+                  <Box sx={{ 
+                    p: { xs: 3, md: 4 },
+                    bgcolor: theme.palette.background.paper, // Use theme background color for consistency
+                    color: theme.palette.text.primary,
+                    height: '100%',
+                    borderRadius: '12px',
+                    boxShadow: mode === 'dark' ? '0 4px 15px rgba(0,0,0,0.2)' : '0 8px 30px rgba(0,0,0,0.12)', // Adjusted shadow for dark mode
+                  }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                       {feat.icon}
                       <Typography variant="h5" sx={{
                         fontWeight: 700,
                         ml: 2,
-                        color: 'text.primary',
+                        color: theme.palette.text.primary,
                         fontSize: { xs: '1.3rem', md: '1.5rem' } // Responsive font size
                       }}>
                         {feat.title}
@@ -294,7 +318,7 @@ const FeaturesSectionMomentos: React.FC = () => {
                     </Box>
 
                     <Typography variant="body1" sx={{
-                      color: 'text.secondary',
+                      color: theme.palette.text.secondary,
                       mb: 3,
                       fontSize: { xs: '0.95rem', md: '1.1rem' }, // Responsive font size
                       lineHeight: 1.6
@@ -314,7 +338,7 @@ const FeaturesSectionMomentos: React.FC = () => {
                           display: 'inline-block',
                           width: '8px',
                           height: '8px',
-                          bgcolor: '#E2351C',
+                          bgcolor: theme.palette.error.main,
                           borderRadius: '50%',
                           mt: '0.7rem',
                           mr: 2,
@@ -324,7 +348,7 @@ const FeaturesSectionMomentos: React.FC = () => {
                     }}>
                       {feat.details.map((detail, i) => (
                         <li key={i}>
-                          <Typography variant="body1" sx={{ color: 'text.primary', fontWeight: 500, fontSize: { xs: '0.9rem', md: '1rem' } }}>
+                          <Typography variant="body1" sx={{ color: theme.palette.text.primary, fontWeight: 500, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                             {detail}
                           </Typography>
                         </li>

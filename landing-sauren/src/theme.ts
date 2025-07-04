@@ -3,14 +3,15 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#ED1C24',
+      main: '#004d7a', // Un azul corporativo, profesional y sereno
     },
     secondary: {
-      main: '#2E3192',
+      main: '#00a896', // Un verde azulado, para la innovación y la frescura
     },
     background: {
-      default: '#ffffff',
-      paper: '#f5f5f5',
+      default: '#ffffff', // Fondo claro y limpio
+      paper: '#f5f5f5', // Un gris muy claro para las "hojas" o tarjetas
+      transparent: 'transparent',
     },
     text: {
       primary: '#231F20',
