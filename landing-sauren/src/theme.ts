@@ -11,7 +11,7 @@ const theme = createTheme({
     background: {
       default: '#ffffff', // Fondo claro y limpio
       paper: '#f5f5f5', // Un gris muy claro para las "hojas" o tarjetas
-      transparent: 'transparent',
+      
     },
     text: {
       primary: '#231F20',
