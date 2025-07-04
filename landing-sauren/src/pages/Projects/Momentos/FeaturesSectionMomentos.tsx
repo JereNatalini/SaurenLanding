@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Box, Typography, Container, useMediaQuery } from '@mui/material';
+import { Box, Typography, Container, useMediaQuery, Chip } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CardSwap, { Card } from '../../../components/CardSwap/CardSwap';
@@ -95,14 +95,14 @@ const FeaturesSectionMomentos: React.FC = () => {
     }}>
       <Container maxWidth="lg" sx={{ position: 'relative' }}>
         <Box sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          alignItems: 'center', // Center items for a better mobile view
-          justifyContent: 'space-between',
-          gap: { xs: 6, md: 4 }, // Increase gap for mobile
-          position: 'relative',
-          minHeight: { md: 600 }
-        }}>
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: 'center', // Center items for a better mobile view
+            justifyContent: 'space-between',
+            gap: { xs: 6, md: 4 }, // Increase gap for mobile
+            position: 'relative',
+            minHeight: { md: 700 } // Increased minHeight for better spacing
+          }}>
           {/* Contenido a la izquierda - Rediseñado */}
           <Box
             sx={{
@@ -232,44 +232,59 @@ const FeaturesSectionMomentos: React.FC = () => {
                 La plataforma ideal para negocios que buscan escalabilidad y control total sobre su e-commerce.
               </Typography>
 
-              <Box component="ul" sx={{
-                pl: { xs: 2, sm: 6 }, // Adjust padding for mobile
+              <Box sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 1,
                 mt: 2,
-                '& li': {
-                  display: 'flex',
-                  alignItems: 'center',
-                  mb: 1.5,
-                  position: 'relative',
-                  '&:before': {
-                    content: '""',
-                    display: 'inline-block',
-                    width: '12px',
-                    height: '12px',
-                    bgcolor: theme.palette.warning.main,
-                    borderRadius: '50%',
-                    mr: 1.5,
-                    flexShrink: 0
-                  }
-                }
+                pl: { xs: 0, sm: 6 }, // Adjust padding for mobile
               }}>
-                <li>Altamente personalizable</li>
-                <li>Gran ecosistema de módulos</li>
-                <li>Optimizado para SEO</li>
-                <li>Comunidad activa de desarrollo</li>
+                <Chip
+                  label="Altamente personalizable"
+                  sx={{
+                    bgcolor: theme.palette.warning.main,
+                    color: theme.palette.getContrastText(theme.palette.warning.main),
+                    fontWeight: 600,
+                  }}
+                />
+                <Chip
+                  label="Gran ecosistema de módulos"
+                  sx={{
+                    bgcolor: theme.palette.warning.main,
+                    color: theme.palette.getContrastText(theme.palette.warning.main),
+                    fontWeight: 600,
+                  }}
+                />
+                <Chip
+                  label="Optimizado para SEO"
+                  sx={{
+                    bgcolor: theme.palette.warning.main,
+                    color: theme.palette.getContrastText(theme.palette.warning.main),
+                    fontWeight: 600,
+                  }}
+                />
+                <Chip
+                  label="Comunidad activa de desarrollo"
+                  sx={{
+                    bgcolor: theme.palette.warning.main,
+                    color: theme.palette.getContrastText(theme.palette.warning.main),
+                    fontWeight: 600,
+                  }}
+                />
               </Box>
             </Box>
           </Box>
 
           {/* CardSwap a la derecha - Posicionado absolutamente */}
           <Box sx={{
-            width: { xs: '100%', md: '55%' },
+            width: { xs: '100%', md: '80%' },
             maxWidth: { xs: '100%', md: 600 },
             zIndex: 1,
             mt: { xs: 4, md: 0 },
             position: { md: 'absolute' },
             top: { md: '50%' },
             right: { md: 0 },
-            transform: { md: 'translate(35%, -50%)' },
+            transform: { md: 'translate(40%, -40%)' },
             height: { xs: 450, sm: 500, md: 500 },
           }}>
             <CardSwap
