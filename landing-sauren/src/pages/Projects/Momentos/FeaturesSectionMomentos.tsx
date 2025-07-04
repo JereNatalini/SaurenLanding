@@ -9,8 +9,10 @@ import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import SecurityIcon from '@mui/icons-material/Security'; // New icon
 import SupportAgentIcon from '@mui/icons-material/SupportAgent'; // New icon
 import theme from '../../../theme';
+import { useTheme } from '../../../components/AppThemeProvider';
 
 const FeaturesSectionMomentos: React.FC = () => {
+  const { mode } = useTheme();
   useEffect(() => {
     AOS.init({ duration: 600, once: true });
   }, []);
@@ -282,11 +284,11 @@ const FeaturesSectionMomentos: React.FC = () => {
                 <Card key={idx} customClass="swap-card">
                   <Box sx={{ 
                     p: { xs: 3, md: 4 },
-                    bgcolor: 'background.paper', // Use theme background color
-                    color: 'text.primary', // Use theme text color
+                    bgcolor: mode === 'dark' ? '#1E1E1E' : 'background.paper', // Darker background in dark mode
+                    color: 'text.primary',
                     height: '100%',
                     borderRadius: '12px',
-                    boxShadow: '0 8px 30px rgba(0,0,0,0.12)'
+                    boxShadow: mode === 'dark' ? '0 8px 30px rgba(0,0,0,0.3)' : '0 8px 30px rgba(0,0,0,0.12)', // Adjusted shadow for dark mode
                   }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                       {feat.icon}

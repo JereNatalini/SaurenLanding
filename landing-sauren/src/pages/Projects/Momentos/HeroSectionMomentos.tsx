@@ -92,11 +92,11 @@ const HeroSectionMomentos: React.FC = () => {
                 sx={{
                   width: { md: 280 },
                   borderRadius: '12px',
-                  boxShadow: '10px 10px 30px rgba(0,0,0,0.1)',
-                  transform: 'rotate(-5deg)',
+                  boxShadow: '0 15px 30px rgba(0,0,0,0.3)',
+                  transform: 'rotateY(10deg)',
                   transition: 'transform 0.3s ease-in-out',
                   '&:hover': {
-                    transform: 'rotate(-2deg) scale(1.05)'
+                    transform: 'rotateY(0deg) scale(1.05)'
                   }
                 }}
               />
@@ -109,11 +109,11 @@ const HeroSectionMomentos: React.FC = () => {
                 sx={{
                   width: { md: 280 },
                   borderRadius: '12px',
-                  boxShadow: '10px 10px 30px rgba(0,0,0,0.1)',
-                  transform: 'rotate(5deg)',
+                  boxShadow: '0 15px 30px rgba(0,0,0,0.3)',
+                  transform: 'rotateY(-10deg)',
                   transition: 'transform 0.3s ease-in-out',
                   '&:hover': {
-                    transform: 'rotate(2deg) scale(1.05)'
+                    transform: 'rotateY(0deg) scale(1.05)'
                   }
                 }}
               />
