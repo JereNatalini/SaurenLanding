@@ -202,10 +202,10 @@ const Formulario: React.FC = () => {
           mt: 2,
           py: 1.5,
           fontSize: '1rem',
-          background: `linear-gradient(135deg, ${theme.palette.secondary.light} 0%, ${theme.palette.primary.light} 100%)`,
+          background: theme.palette.primary.main,
           '&:hover': {
-            background: `linear-gradient(135deg, ${theme.palette.secondary.light} 100%, ${theme.palette.primary.light} 0%)`,
-            boxShadow: '0 4px 15px rgba(0, 229, 255, 0.3)'
+            background: theme.palette.primary.dark,
+            boxShadow: '0 4px 15px rgba(237, 28, 36, 0.3)'
           },
           transition: 'all 0.3s ease',
           borderRadius: 1,

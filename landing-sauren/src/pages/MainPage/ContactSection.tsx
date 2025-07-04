@@ -45,22 +45,13 @@ const ContactSection = () => {
               </Typography>
 
               <Box component="ul" sx={{ pl: 0, listStyleType: "none" }}>
-                <Typography component="li" variant="body1" mb={3} sx={{ color: theme.palette.grey[400] }}>
-                  <strong>1.</strong> Compártenos tus requerimientos - evaluamos tu proyecto en 48h
-                </Typography>
-                <Typography component="li" variant="body1" mb={3} sx={{ color: theme.palette.grey[400] }}>
-                  <strong>2.</strong> Recibe una propuesta a medida con solución y presupuesto
-                </Typography>
-                <Typography component="li" variant="body1" mb={3} sx={{ color: theme.palette.grey[400] }}>
-                  <strong>3.</strong> Firma digital y comenzamos a trabajar inmediatamente
-                </Typography>
-                <Typography component="li" variant="body1" mb={5} sx={{ color: theme.palette.grey[400] }}>
-                  <strong>4.</strong> Implementación rápida con soporte continuo
-                </Typography>
+                <Typography variant="body1" mb={3} sx={{ color: theme.palette.grey[400] }}>
+                Simplificamos el proceso: comparte tus necesidades, recibe una propuesta a medida, firma digitalmente y comenzamos a trabajar de inmediato con soporte continuo.
+              </Typography>
               </Box>
             </Box>
 
-            <Box>
+            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
               <Typography variant="h2" gutterBottom sx={{ color: theme.palette.common.white, mb: 2 }}>
                 ¿Hablamos hoy mismo?
               </Typography>
