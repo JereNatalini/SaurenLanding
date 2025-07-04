@@ -119,12 +119,12 @@ const FeaturesSectionMomentos: React.FC = () => {
             {/* Panel superior con título y descripción */}
             <Box sx={{
               p: { xs: 3, md: 4 },
-              bgcolor: 'white',
+              bgcolor: theme.palette.background.paper,
               borderRadius: '12px',
-              boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
+              boxShadow: mode === 'dark' ? '0 8px 25px rgba(0,0,0,0.2)' : '0 8px 25px rgba(0,0,0,0.08)',
               textAlign: 'left',
               borderLeft: '4px solid #FFB000',
-              background: 'linear-gradient(to bottom right, #ffffff, #f9f9f9)',
+              background: mode === 'dark' ? theme.palette.background.paper : `linear-gradient(to bottom right, ${theme.palette.background.paper}, ${theme.palette.background.default})`,
               position: 'relative',
               overflow: 'hidden',
               '&:before': {
@@ -143,7 +143,7 @@ const FeaturesSectionMomentos: React.FC = () => {
               <Typography variant="h4" sx={{
                 fontWeight: 800,
                 mb: 2,
-                color: '#333',
+                color: theme.palette.text.primary,
                 position: 'relative',
                 fontSize: { xs: '1.8rem', sm: '2rem', md: '2.2rem' } // Responsive font size
               }}>
@@ -168,19 +168,19 @@ const FeaturesSectionMomentos: React.FC = () => {
               }}>
                 {['Responsive', 'Optimizada', 'Escalable', 'Segura'].map((item, i) => (
                   <Box key={i} sx={{
-                    bgcolor: '#f0f7ff',
+                    bgcolor: theme.palette.action.hover,
                     px: 2,
                     py: 1,
                     borderRadius: '20px',
                     fontWeight: 600,
-                    color: '#0061A3',
+                    color: theme.palette.primary.main,
                     display: 'flex',
                     alignItems: 'center'
                   }}>
                     <Box sx={{
                       width: '8px',
                       height: '8px',
-                      bgcolor: '#0061A3',
+                      bgcolor: theme.palette.primary.main,
                       borderRadius: '50%',
                       mr: 1
                     }} />
@@ -193,9 +193,9 @@ const FeaturesSectionMomentos: React.FC = () => {
             {/* Panel de características de PrestaShop */}
             <Box sx={{
               p: { xs: 3, md: 3 },
-              bgcolor: 'white',
+              bgcolor: theme.palette.background.paper,
               borderRadius: '12px',
-              boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
+              boxShadow: mode === 'dark' ? '0 8px 25px rgba(0,0,0,0.2)' : '0 8px 25px rgba(0,0,0,0.08)',
               textAlign: 'left',
               borderTop: '4px solid #E2351C',
               position: 'relative',
@@ -209,16 +209,16 @@ const FeaturesSectionMomentos: React.FC = () => {
                 <Box sx={{
                   width: '40px',
                   height: '40px',
-                  bgcolor: '#0061A3',
+                  bgcolor: theme.palette.primary.main,
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   mr: 2
                 }}>
-                  <Box sx={{ color: 'white', fontSize: '24px' }}>✓</Box>
+                  <Box sx={{ color: theme.palette.common.white, fontSize: '24px' }}>✓</Box>
                 </Box>
-                <Typography variant="h5" sx={{ fontWeight: 700, fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
+                <Typography variant="h5" sx={{ fontWeight: 700, fontSize: { xs: '1.2rem', md: '1.5rem' }, color: theme.palette.text.primary }}>
                   ¿Por qué PrestaShop?
                 </Typography>
               </Box>
@@ -245,7 +245,7 @@ const FeaturesSectionMomentos: React.FC = () => {
                     display: 'inline-block',
                     width: '12px',
                     height: '12px',
-                    bgcolor: '#FFB000',
+                    bgcolor: theme.palette.warning.main,
                     borderRadius: '50%',
                     mr: 1.5,
                     flexShrink: 0
@@ -284,18 +284,18 @@ const FeaturesSectionMomentos: React.FC = () => {
                 <Card key={idx} customClass="swap-card">
                   <Box sx={{ 
                     p: { xs: 3, md: 4 },
-                    bgcolor: mode === 'dark' ? '#1E1E1E' : 'background.paper', // Darker background in dark mode
-                    color: 'text.primary',
+                    bgcolor: theme.palette.background.paper, // Use theme background color for consistency
+                    color: theme.palette.text.primary,
                     height: '100%',
                     borderRadius: '12px',
-                    boxShadow: mode === 'dark' ? '0 8px 30px rgba(0,0,0,0.3)' : '0 8px 30px rgba(0,0,0,0.12)', // Adjusted shadow for dark mode
+                    boxShadow: mode === 'dark' ? '0 4px 15px rgba(0,0,0,0.2)' : '0 8px 30px rgba(0,0,0,0.12)', // Adjusted shadow for dark mode
                   }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                       {feat.icon}
                       <Typography variant="h5" sx={{
                         fontWeight: 700,
                         ml: 2,
-                        color: 'text.primary',
+                        color: theme.palette.text.primary,
                         fontSize: { xs: '1.3rem', md: '1.5rem' } // Responsive font size
                       }}>
                         {feat.title}
@@ -303,7 +303,7 @@ const FeaturesSectionMomentos: React.FC = () => {
                     </Box>
 
                     <Typography variant="body1" sx={{
-                      color: 'text.secondary',
+                      color: theme.palette.text.secondary,
                       mb: 3,
                       fontSize: { xs: '0.95rem', md: '1.1rem' }, // Responsive font size
                       lineHeight: 1.6
@@ -323,7 +323,7 @@ const FeaturesSectionMomentos: React.FC = () => {
                           display: 'inline-block',
                           width: '8px',
                           height: '8px',
-                          bgcolor: '#E2351C',
+                          bgcolor: theme.palette.error.main,
                           borderRadius: '50%',
                           mt: '0.7rem',
                           mr: 2,
@@ -333,7 +333,7 @@ const FeaturesSectionMomentos: React.FC = () => {
                     }}>
                       {feat.details.map((detail, i) => (
                         <li key={i}>
-                          <Typography variant="body1" sx={{ color: 'text.primary', fontWeight: 500, fontSize: { xs: '0.9rem', md: '1rem' } }}>
+                          <Typography variant="body1" sx={{ color: theme.palette.text.primary, fontWeight: 500, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                             {detail}
                           </Typography>
                         </li>

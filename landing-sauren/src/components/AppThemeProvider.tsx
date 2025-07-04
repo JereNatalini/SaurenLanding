@@ -125,7 +125,7 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({ children }) 
               },
               text: {
                 primary: '#E0E0E0',
-                secondary: '#BB86FC',
+                secondary: '#B0B0B0', // Adjusted for better contrast in dark mode
               },
             }),
       },

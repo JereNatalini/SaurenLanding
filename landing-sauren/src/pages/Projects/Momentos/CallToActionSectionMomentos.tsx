@@ -12,7 +12,6 @@ const CallToActionSectionMomentos: React.FC = () => {
   return (
     <Box sx={{
       py: { xs: 8, md: 12 },
-      backgroundColor: 'transparent',
       color: 'white',
       textAlign: 'center',
       borderRadius: '16px',
