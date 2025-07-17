@@ -1,8 +1,9 @@
 // src/layouts/MainLayout.tsx
-import React from 'react';
-import { Box, useTheme } from '@mui/material';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import React from "react";
+import { Box, useTheme } from "@mui/material";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import ContactSection from "../pages/MainPage/ContactSection";
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const theme = useTheme();
@@ -22,7 +23,6 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           background: theme.palette.background.default, // Fondo por defecto del tema
         }}
       >
-
         {/* Elemento de difuminación superior global */}
         <Box
           sx={{
@@ -60,9 +60,19 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </Box>
 
       {/* Contenido principal de la página */}
-      <Box component="main" sx={{ position: 'relative', minHeight: '100vh', background: "transparent" }}>
+      <Box
+        component="main"
+        sx={{
+          position: "relative",
+          minHeight: "100vh",
+          background: "transparent",
+        }}
+      >
         <Navbar />
         {children}
+        <div id="contact" data-aos="slide-up">
+          <ContactSection />
+        </div>
         <Footer />
       </Box>
     </>

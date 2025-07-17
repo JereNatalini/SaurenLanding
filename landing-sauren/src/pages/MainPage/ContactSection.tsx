@@ -1,14 +1,8 @@
 import { Box, Typography, Container, useTheme, Button } from "@mui/material";
 import Formulario from "../../components/Formulario";
-import { useNavigate } from 'react-router-dom';
 
 const ContactSection = () => {
   const theme = useTheme();
-  const navigate = useNavigate();
-
-  const goToContactPage = () => {
-    navigate('/contact');
-  };
 
   return (
     <Box
@@ -60,7 +54,7 @@ const ContactSection = () => {
               </Typography>
               <Button
                 variant="contained"
-                onClick={goToContactPage}
+                href="https://wa.me/5493517336655?text=¡Hola!%20Me%20interesa%20una%20auditoría%20de%20software%20gratuita."
                 sx={{
                   px: 4,
                   py: 1.5,
@@ -75,7 +69,7 @@ const ContactSection = () => {
                   },
                 }}
               >
-                Contáctanos
+                Contáctanos por Wsp
               </Button>
             </Box>
           </Box>

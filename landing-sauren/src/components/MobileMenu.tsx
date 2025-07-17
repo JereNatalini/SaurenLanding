@@ -17,11 +17,10 @@ import {
   Home,
   Phone,
   Info,
-  Brightness4,
-  Brightness7,
 } from "@mui/icons-material";
 import logo from "../assets/images/icono.png";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { scroller } from "react-scroll";
 
 interface MobileMenuProps {
   open: boolean;
@@ -30,28 +29,35 @@ interface MobileMenuProps {
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ open, toggleDrawer }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
+
+  const scrollToContact = () => {
+    toggleDrawer();
+    navigate('/');
+    setTimeout(() => {
+      scroller.scrollTo("contact", {
+        duration: 500,
+        smooth: true,
+        offset: -70,
+      });
+    }, 100);
+  };
 
   const menuItems = [
     { 
       text: "Home", 
       icon: <Home />, 
-      link: "/", 
-      component: Link,
-      onClick: toggleDrawer
+      onClick: () => { toggleDrawer(); navigate('/'); }
     },
     {
       text: "About",
       icon: <Info />,
-      link: "/about-us",
-      component: Link,
-      onClick: toggleDrawer
+      onClick: () => { toggleDrawer(); navigate('/about-us'); }
     },
     {
       text: "Contact", 
       icon: <Phone />, 
-      link: "/contact", 
-      component: Link,
-      onClick: toggleDrawer
+      onClick: scrollToContact
     },
   ];
 
@@ -122,8 +128,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ open, toggleDrawer }) => {
             <ListItem key={item.text} disablePadding sx={{ mb: 1.5 }}>
               <ListItemButton
                 onClick={item.onClick}
-                to={item.link}
-                component={item.component}
                 sx={{
                   borderRadius: "12px",
                   px: 3,

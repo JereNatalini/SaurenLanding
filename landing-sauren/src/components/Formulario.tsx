@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, TextField, Alert } from "@mui/material";
-import theme from "../theme";
+import { Box, Button, TextField, Alert, useTheme } from "@mui/material";
 
 const Formulario: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +10,8 @@ const Formulario: React.FC = () => {
     mensaje: "",
   });
   const [status, setStatus] = useState<"success" | "error" | null>(null);
+
+  const theme = useTheme();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
