@@ -49,9 +49,6 @@ function App() {
               <div id="services" data-aos="fade-up">
                 <SoftwareAuditSection />
               </div>
-              <div id="contact" data-aos="slide-up">
-                <ContactSection />
-              </div>
             </MainLayout>
           }
         />
