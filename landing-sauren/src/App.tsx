@@ -82,9 +82,6 @@ function App() {
         <Route path="/about-us"
           element={<MainLayout>
             <AboutUsPage></AboutUsPage>
-            <div id="contact" data-aos="slide-up">
-              <ContactSection />
-            </div>
           </MainLayout>}
         />
         <Route
