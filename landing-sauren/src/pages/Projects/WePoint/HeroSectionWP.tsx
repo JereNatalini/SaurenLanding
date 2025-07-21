@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Typography, Container } from '@mui/material';
-import theme from '../../../theme';
+import { Box, Typography, Container, useTheme } from '@mui/material';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import wepoint from '../../../assets/images/wepoint.png';
 const HeroSectionWP: React.FC = () => {
+    const theme = useTheme();
     AOS.init({
           duration: 1600, // Duración de las animaciones
           once: true, // Animar solo una vez
@@ -66,7 +66,7 @@ const HeroSectionWP: React.FC = () => {
                         sx={{
                             fontWeight: 'bold',
                             mb: 2,
-                            color: theme.palette.text.primary,
+                            color: 'text.primary',
                         }}
                     >
                         PROYECTO <span style={{ color: theme.palette.primary.main }}>WEPOOINT</span>
@@ -75,7 +75,7 @@ const HeroSectionWP: React.FC = () => {
                         variant="body1"
                         sx={{
                             mb: 4,
-                            color: theme.palette.text.primary,
+                            color: 'text.primary',
                             fontWeight: 'bold',
                             maxWidth: '500px',
                         }}

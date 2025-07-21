@@ -4,7 +4,6 @@ import ScrollToTopAndRender from './components/ScrollToTopAndRender'; // Ajusta 
 import MainLayout from './layouts/MainLayout';
 import HeroSection from './pages/MainPage/HeroSection';
 import FeaturesSection from './pages/MainPage/FeaturesSection';
-import ContactSection from './pages/MainPage/ContactSection';
 
 import HeroSectionWP from './pages/Projects/WePoint/HeroSectionWP';
 import FeaturesWP from './pages/Projects/WePoint/FeaturesWP';

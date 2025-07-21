@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import whbackground from '../../../assets/images/whbackground.jpg';
 
 const BackgroundWP: React.FC = () => {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -11,6 +12,7 @@ const BackgroundWP: React.FC = () => {
         px: 4,
         overflow: 'hidden',
         textAlign: 'center',
+        backgroundColor: theme.palette.background.default,
       }}
     >
       {/* Fondo con imagen */}
@@ -35,7 +37,7 @@ const BackgroundWP: React.FC = () => {
           variant="h3"
           component="h2"
           gutterBottom
-          sx={{ color: '#333333', fontWeight: 'bold', mb: 4 }}
+          sx={{ color: 'text.primary', fontWeight: 'bold', mb: 4 }}
         >
           ¿Qué es Wepoint?
         </Typography>
