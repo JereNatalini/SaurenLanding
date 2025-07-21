@@ -120,7 +120,7 @@ const RoadmapWP: React.FC = () => {
               sx={{
                 width: { xs: "100%", md: "400px" },
                 p: 3,
-                background: "#f9f9f9", // Fondo claro para buen contraste
+                background: theme.palette.background.paper, // Fondo claro para buen contraste
                 backdropFilter: "blur(10px)",
                 borderRadius: "15px",
                 border: `1px solid ${primaryColor}`,
@@ -169,7 +169,7 @@ const RoadmapWP: React.FC = () => {
               <Typography
                 variant="subtitle2"
                 sx={{
-                  color: "#555", // Texto más oscuro para contraste
+                  color: "text.secondary", // Texto más oscuro para contraste
                   mb: 2,
                   fontWeight: "500",
                 }}
@@ -179,7 +179,7 @@ const RoadmapWP: React.FC = () => {
               <Typography
                 variant="body2"
                 sx={{
-                  color: "#333", // Más contraste para el cuerpo del texto
+                  color: "text.primary", // Más contraste para el cuerpo del texto
                   lineHeight: "1.6",
                 }}
               >

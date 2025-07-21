@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Typography, Card, CardContent } from '@mui/material';
-import theme from '../../../theme';
+import { Box, Typography, Card, CardContent, useTheme } from '@mui/material';
 
 const features = [
   {
@@ -26,6 +25,7 @@ const features = [
 ];
 
 const FeaturesWP: React.FC = () => {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -48,10 +48,10 @@ const FeaturesWP: React.FC = () => {
     >
       {/* Contenido de la sección */}
       <Box position="relative" zIndex={2}>
-        <Typography variant="h4" component="h2" align="center" gutterBottom sx={{ color: '#333333' }}>
+        <Typography variant="h4" component="h2" align="center" gutterBottom sx={{ color: 'text.primary' }}>
           Características del Proyecto
         </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" paragraph sx={{ color: '#666666' }}>
+        <Typography variant="subtitle1" align="center" color="textSecondary" paragraph sx={{ color: 'text.secondary' }}>
           Descubre todo lo que hemos implementado para mejorar tu experiencia.
         </Typography>
         <Box
@@ -77,7 +77,7 @@ const FeaturesWP: React.FC = () => {
                 alignItems: 'center',
                 textAlign: 'center',
                 p: 2,
-                backgroundColor: '#ffffff',
+                backgroundColor: theme.palette.background.paper,
                 borderRadius: 2,
                 boxShadow: 3,
                 transition: 'transform 0.3s ease-in-out',
@@ -90,7 +90,7 @@ const FeaturesWP: React.FC = () => {
                 <Typography variant="h3" sx={{ mb: 2 }}>
                   {feature.icon}
                 </Typography>
-                <Typography variant="h6" component="h3" gutterBottom sx={{ color: '#333333' }}>
+                <Typography variant="h6" component="h3" gutterBottom sx={{ color: 'text.primary' }}>
                   {feature.title}
                 </Typography>
                 <Typography variant="body1" color="textSecondary">
@@ -110,7 +110,7 @@ const FeaturesWP: React.FC = () => {
           left: 0,
           width: '100%',
           height: '100px',
-          backgroundColor: '#ffffff',
+          backgroundColor: theme.palette.background.paper,
           clipPath: 'polygon(0 0, 100% 50%, 100% 100%, 0 100%)',
           zIndex: 1,
         }}
