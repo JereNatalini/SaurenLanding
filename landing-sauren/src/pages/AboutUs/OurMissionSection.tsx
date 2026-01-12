@@ -6,11 +6,12 @@ const OurMissionSection: React.FC = () => {
   return (
     <Box
       sx={{
-        minHeight: '100vh',
+        minHeight: { xs: 'auto', md: '100vh' },
         display: 'flex',
         alignItems: 'center',
         backgroundColor: 'transparent',
         position: 'relative',
+        py: { xs: 6, md: 0 },
         opacity: 0,
         animation: 'slideIn 1s forwards',
         '@keyframes slideIn': {

@@ -6,10 +6,11 @@ const AboutHeroSection: React.FC = () => {
   return (
     <Box
       sx={{
-        minHeight: '100vh',
+        minHeight: { xs: '60vh', md: '100vh' },
         display: 'flex',
         alignItems: 'center',
         position: 'relative',
+        py: { xs: 6, md: 0 },
         // Animación de aparición suave
         opacity: 0,
         animation: 'fadeIn 1s forwards',
