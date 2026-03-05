@@ -1,24 +1,40 @@
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Box, Button, Container, useTheme, Typography } from "@mui/material";
 import { ArrowRightAlt } from "@mui/icons-material";
-import MagnetLines from "../../Animations/MagnetLines/MagnetLines";
+import { Link as ScrollLink } from "react-scroll";
+import { motion, AnimatePresence } from "framer-motion";
 import Particles from "../../Backgrounds/Particles/Particles";
 import RotatingText from "../../TextAnimations/RotatingText/RotatingText";
+
+const textsList = [
+  "Inteligencia Artificial",
+  "Software a Medida",
+  "Automatización",
+  "Innovación Constante",
+];
 
 const FullScreenHero = () => {
   const theme = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
+  const [mobileTextIndex, setMobileTextIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMobileTextIndex((prev) => (prev + 1) % textsList.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Box
       sx={{
-        minHeight: "100vh",
+        pt: { xs: '15vh', md: '20vh' },
+        pb: { xs: '10vh', md: '15vh' },
         display: "flex",
         alignItems: "center",
         position: "relative",
         overflow: "hidden",
         background: "transparent",
-        py: 0,
       }}
     >
       {/* Partículas animadas */}
@@ -34,7 +50,7 @@ const FullScreenHero = () => {
       >
         <Particles
           particleColors={[theme.palette.primary.main]}
-          particleCount={100}
+          particleCount={80}
           particleSpread={10}
           speed={0.1}
           particleBaseSize={100}
@@ -43,176 +59,176 @@ const FullScreenHero = () => {
         />
       </Box>
       <Container
-        maxWidth="xl"
+        maxWidth="lg"
         sx={{
           position: "relative",
           zIndex: 2,
-          py: { xs: 8, md: 10 },
           display: "flex",
-          flexDirection: { xs: "column-reverse", md: "row" },
-          alignItems: "center",
-          justifyContent: "space-between",
+          flexDirection: "column",
+          alignItems: { xs: "center" },
+          justifyContent: "center",
+          textAlign: { xs: "center" }
         }}
       >
         {/* Contenido de texto */}
         <Box
+          ref={containerRef}
           sx={{
-            maxWidth: { xs: "100%", md: "50%" },
-            textAlign: { xs: "center", md: "left" },
-            pl: { md: 20 }, // Añadir padding-left para alinear con ClientsSection
-            mt: { xs: 6, md: 0 },
-          }}
-        >
-          <Box
-            ref={containerRef}
-            sx={{
-              minHeight: "40vh",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              position: "relative",
-            }}
-          >
-            <Typography
-              variant="h1"
-              component="div"
-              sx={{
-                mb: 4,
-                minHeight: "6rem",
-              }}
-            >
-              Impulsa tu negocio con{" "}
-              <Box
-                component="span"
-                sx={{
-                  display: "inline-block",
-                  minWidth: "200px",
-                  position: "relative",
-                  verticalAlign: "top",
-                  textAlign: "left",
-                  color: theme.palette.primary.main,
-                }}
-              >
-                <RotatingText
-                  texts={[
-                    "tecnología",
-                    "innovación",
-                    "inteligencia",
-                    "eficiencia",
-                  ]}
-                  mainClassName="text-rotate-main"
-                  staggerFrom="center"
-                  animate={{ y: 0, opacity: 1 }}
-                  staggerDuration={0.02}
-                  splitLevelClassName="text-rotate-split"
-                  transition={{
-                    type: "spring",
-                    damping: 30,
-                    stiffness: 400,
-                    mass: 0.5,
-                  }}
-                  rotationInterval={2500}
-                  style={{
-                    color: theme.palette.primary.main,
-                  }}
-                />
-              </Box>
-            </Typography>
-
-            <Typography
-              variant="h5"
-              component="p"
-              sx={{
-                mb: 6,
-                color: theme.palette.text.primary,
-              }}
-            >
-              Descubre cómo nuestras soluciones pueden llevar tu empresa al
-              siguiente nivel
-            </Typography>
-
-            {/* Botones */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", sm: "row" },
-                gap: 3,
-                mb: 6,
-                justifyContent: { xs: "center", md: "flex-start" },
-              }}
-            >
-              <Button
-                variant="contained"
-                size="large"
-                endIcon={<ArrowRightAlt sx={{ fontSize: "1.5rem" }} />}
-                href="https://wa.me/5493517336655?text=¡Hola!%20Me%20interesa%20una%20auditoría%20de%20software%20gratuita."
-                sx={{
-                  px: 5,
-                  py: 1.5,
-                  borderRadius: "50px",
-                  boxShadow: `0 4px 20px ${theme.palette.primary.main}40`,
-                  transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
-                  "&:hover": {
-                    transform: "translateY(-2px)",
-                    boxShadow: `0 6px 24px ${theme.palette.primary.main}60`,
-                  },
-                }}
-              >
-                Comenzar ahora
-              </Button>
-            </Box>
-          </Box>
-        </Box>
-
-        {/* Componente MagnetLines para todas las pantallas */}
-        <Box
-          sx={{
+            minHeight: "40vh",
             display: "flex",
-            alignItems: "center",
+            flexDirection: "column",
             justifyContent: "center",
             position: "relative",
-            width: { xs: "100%", md: "40%" },
-            height: { xs: "40vh", md: "60vh" },
-            mb: { xs: 1, md: 0 },
           }}
         >
+          <Typography
+            variant="h1"
+            component="div"
+            sx={{
+              mb: { xs: 4, md: 6 },
+              minHeight: { xs: "5rem", md: "8rem" },
+              fontWeight: 800,
+              fontSize: { xs: "3rem", sm: "4rem", md: "5.5rem" },
+              lineHeight: 1.1,
+            }}
+          >
+            Impulsa tu negocio con{" "}
+            <br />
+            <Box
+              component="div"
+              sx={{
+                display: { xs: "none", md: "flex" },
+                justifyContent: "center",
+                width: "100%",
+                mt: { xs: 1, md: 0 },
+                color: theme.palette.primary.main,
+              }}
+            >
+              <RotatingText
+                texts={textsList}
+                mainClassName="text-rotate-main"
+                staggerFrom="center"
+                animate={{ y: 0, opacity: 1 }}
+                staggerDuration={0.02}
+                splitLevelClassName="text-rotate-split"
+                transition={{
+                  type: "spring",
+                  damping: 30,
+                  stiffness: 400,
+                  mass: 0.5,
+                }}
+                rotationInterval={3000}
+                style={{
+                  color: theme.palette.primary.main,
+                  justifyContent: "center",
+                  textAlign: "center"
+                }}
+              />
+            </Box>
+
+            {/* Mobile Animation */}
+            <Box
+              component="div"
+              sx={{
+                display: { xs: "flex", md: "none" },
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+                mt: 1,
+                minHeight: "80px", // Fixed height to prevent layout shifts
+                color: theme.palette.primary.main,
+                position: "relative",
+              }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={mobileTextIndex}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4 }}
+                  style={{
+                    position: "absolute",
+                    textAlign: "center",
+                    width: "100%",
+                  }}
+                >
+                  {textsList[mobileTextIndex]}
+                </motion.div>
+              </AnimatePresence>
+            </Box>
+          </Typography>
+
+          <Typography
+            variant="h5"
+            component="p"
+            sx={{
+              mb: { xs: 6, md: 10 },
+              color: theme.palette.text.primary,
+              maxWidth: "900px",
+              mx: "auto",
+              opacity: 0.9,
+              fontSize: { xs: "1.2rem", md: "1.5rem" },
+              lineHeight: 1.6,
+            }}
+          >
+            Transformamos empresas combinando desarrollo tecnológico de primer nivel, IA aplicada y consultoría estratégica para llevar tu eficiencia al siguiente nivel.
+          </Typography>
+
+          {/* Botones */}
           <Box
             sx={{
-              position: "relative",
-              zIndex: 2,
-              width: "100%",
-              height: "100%",
               display: "flex",
-              alignItems: "center",
+              flexDirection: { xs: "column", sm: "row" },
+              gap: 3,
+              mb: 6,
               justifyContent: "center",
             }}
           >
-            <MagnetLines
-              rows={9}
-              columns={9}
-              containerSize="60vmin"
-              lineColor={theme.palette.primary.main}
-              lineWidth="0.8vmin"
-              lineHeight="5vmin"
-              baseAngle={0}
-              style={{ margin: 0 }}
-            />
+            <Button
+              variant="contained"
+              size="large"
+              endIcon={<ArrowRightAlt sx={{ fontSize: "1.5rem" }} />}
+              href="https://wa.me/5493517336655?text=¡Hola!%20Me%20interesa%20una%20auditoría%20de%20software%20gratuita."
+              sx={{
+                px: 5,
+                py: 1.5,
+                borderRadius: "50px",
+                boxShadow: `0 4px 20px ${theme.palette.primary.main}40`,
+                transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                "&:hover": {
+                  transform: "translateY(-2px)",
+                  boxShadow: `0 6px 24px ${theme.palette.primary.main}60`,
+                },
+              }}
+            >
+              Potenciar mi negocio
+            </Button>
+            
+            <Button
+              component={ScrollLink}
+              to="services"
+              smooth={true}
+              duration={500}
+              offset={-70}
+              variant="outlined"
+              size="large"
+              color="primary"
+              sx={{
+                px: 5,
+                py: 1.5,
+                borderRadius: "50px",
+                borderWidth: "2px",
+                "&:hover": {
+                  borderWidth: "2px",
+                  backgroundColor: "rgba(0,0,0,0.05)",
+                  cursor: "pointer",
+                },
+              }}
+            >
+              Nuestros servicios
+            </Button>
           </Box>
-
-          {/* Efecto de profundidad */}
-          <Box
-            sx={{
-              position: "absolute",
-              width: "80%",
-              height: "80%",
-              background: `radial-gradient(circle at center, 
-                ${theme.palette.primary.main}15 0%, 
-                transparent 70%)`,
-              borderRadius: "50%",
-              filter: "blur(40px)",
-              zIndex: 1,
-            }}
-          />
         </Box>
       </Container>
     </Box>
